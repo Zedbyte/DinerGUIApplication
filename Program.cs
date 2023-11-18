@@ -11,8 +11,11 @@ namespace DinerGUIApplication
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            splashScreen appStart = new splashScreen();
-            appStart.Show();
+            /*splashScreen appStart = new splashScreen();
+            appStart.Show();*/
+
+            mainForm mf = new mainForm();
+            mf.Show();
 
             Application.Run();
         }
