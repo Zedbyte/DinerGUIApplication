@@ -14,7 +14,15 @@ namespace DinerGUIApplication
     {
         public orderedMeal()
         {
+
+        }
+
+        public orderedMeal(string mealName, double total, int quantity)
+        {
             InitializeComponent();
+            this.orderedMealName.Text = mealName;
+            this.orderedMealTotal.Text = total.ToString();
+            this.orderedMealQuantity.Text = quantity.ToString();
         }
     }
 }

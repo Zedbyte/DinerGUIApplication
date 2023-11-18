@@ -6,6 +6,7 @@ namespace DinerGUIApplication
     {
 
         List<itemMeal> meals = new List<itemMeal>();
+        List<orderedMeal> orderedMeal = new List<orderedMeal>();
         List<string> imageFilePaths = new List<string>
         {
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro1.jpg",
@@ -16,6 +17,7 @@ namespace DinerGUIApplication
         string orderName;
         double orderPrice;
         int orderQuantity;
+        double total;
 
 
         public mainForm()
@@ -114,7 +116,7 @@ namespace DinerGUIApplication
 
         private void setMealTotal(double price, int quantity)
         {
-            double total = price * quantity;
+            total = price * quantity;
             lblTotal.Text = total.ToString();
         }
 
@@ -123,21 +125,37 @@ namespace DinerGUIApplication
             orderName = null;
             orderPrice = 0;
             orderQuantity = 0;
+            total = 0;
 
             mealPictureDetail.Image = null;
-            lblMealName.Text = null;
-            lblMealPrice.Text = null;
+            lblMealName.Text = "No order yet.";
+            lblMealPrice.Text = "-";
+            lblQuantity.Text = "-";
+            lblTotal.Text = "-";
 
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearDetails();
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             if (orderName != null && orderPrice > 0 && orderQuantity > 0)
             {
-                MessageBox.Show(orderPrice + orderName + orderQuantity);
+                orderedMeal.Add(new orderedMeal(orderName, total, orderQuantity));
+
+                orderedMealsRecordTablePanel.Controls.Add(orderedMeal[orderedMeal.Count - 1]);
+
+            }
+            else
+            {
+                MessageBox.Show("Order Invalid. Please try again.");
             }
 
         }
+
     }
 }

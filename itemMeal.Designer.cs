@@ -68,12 +68,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 107, 117);
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(mealPrice);
             Controls.Add(mealName);
             Controls.Add(mealPicturebox);
             ForeColor = SystemColors.ControlLightLight;
             Name = "itemMeal";
-            Size = new Size(148, 141);
+            Size = new Size(146, 139);
             MouseEnter += itemMeal_MouseEnter;
             MouseLeave += itemMeal_MouseLeave;
             ((System.ComponentModel.ISupportInitialize)mealPicturebox).EndInit();

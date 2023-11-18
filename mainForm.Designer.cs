@@ -30,20 +30,23 @@
         {
             parentPanel = new Panel();
             orderParentPanel = new Panel();
+            panel1 = new Panel();
+            orderedMealsRecordTablePanel = new TableLayoutPanel();
             orderPanelTitle = new Panel();
             receiptParentPanel = new Panel();
+            richTextBox1 = new RichTextBox();
             receiptPanelTitle = new Panel();
             foodParentPanel = new Panel();
             foodFlowLayoutPanel = new FlowLayoutPanel();
             label1 = new Label();
             foodDetailPanel = new Panel();
+            btnClear = new Button();
             lblTotal = new Label();
             lblQuantity = new Label();
             addButton = new FontAwesome.Sharp.IconButton();
             lblMealPrice = new Label();
             lblMealName = new Label();
             mealPictureDetail = new PictureBox();
-            richTextBox1 = new RichTextBox();
             label2 = new Label();
             parentPanel.SuspendLayout();
             orderParentPanel.SuspendLayout();
@@ -66,12 +69,37 @@
             // 
             // orderParentPanel
             // 
-            orderParentPanel.BackColor = Color.FromArgb(255, 255, 192);
+            orderParentPanel.BackColor = Color.White;
+            orderParentPanel.Controls.Add(panel1);
+            orderParentPanel.Controls.Add(orderedMealsRecordTablePanel);
             orderParentPanel.Controls.Add(orderPanelTitle);
             orderParentPanel.Location = new Point(541, 14);
             orderParentPanel.Name = "orderParentPanel";
             orderParentPanel.Size = new Size(332, 566);
             orderParentPanel.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Black;
+            panel1.Location = new Point(3, 379);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(330, 10);
+            panel1.TabIndex = 2;
+            // 
+            // orderedMealsRecordTablePanel
+            // 
+            orderedMealsRecordTablePanel.AutoScroll = true;
+            orderedMealsRecordTablePanel.ColumnCount = 1;
+            orderedMealsRecordTablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            orderedMealsRecordTablePanel.Location = new Point(15, 79);
+            orderedMealsRecordTablePanel.Name = "orderedMealsRecordTablePanel";
+            orderedMealsRecordTablePanel.RowCount = 4;
+            orderedMealsRecordTablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            orderedMealsRecordTablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            orderedMealsRecordTablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            orderedMealsRecordTablePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            orderedMealsRecordTablePanel.Size = new Size(302, 279);
+            orderedMealsRecordTablePanel.TabIndex = 1;
             // 
             // orderPanelTitle
             // 
@@ -83,13 +111,22 @@
             // 
             // receiptParentPanel
             // 
-            receiptParentPanel.BackColor = Color.FromArgb(255, 255, 192);
+            receiptParentPanel.BackColor = Color.FromArgb(165, 122, 90);
             receiptParentPanel.Controls.Add(richTextBox1);
             receiptParentPanel.Controls.Add(receiptPanelTitle);
             receiptParentPanel.Location = new Point(878, 14);
             receiptParentPanel.Name = "receiptParentPanel";
             receiptParentPanel.Size = new Size(332, 566);
             receiptParentPanel.TabIndex = 1;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.BorderStyle = BorderStyle.None;
+            richTextBox1.Location = new Point(14, 71);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(305, 480);
+            richTextBox1.TabIndex = 2;
+            richTextBox1.Text = "";
             // 
             // receiptPanelTitle
             // 
@@ -101,7 +138,7 @@
             // 
             // foodParentPanel
             // 
-            foodParentPanel.BackColor = Color.FromArgb(255, 255, 192);
+            foodParentPanel.BackColor = Color.FromArgb(165, 122, 90);
             foodParentPanel.Controls.Add(foodFlowLayoutPanel);
             foodParentPanel.Controls.Add(label1);
             foodParentPanel.Controls.Add(foodDetailPanel);
@@ -113,7 +150,7 @@
             // foodFlowLayoutPanel
             // 
             foodFlowLayoutPanel.AutoScroll = true;
-            foodFlowLayoutPanel.BackColor = Color.FromArgb(255, 255, 128);
+            foodFlowLayoutPanel.BackColor = Color.FromArgb(255, 255, 192);
             foodFlowLayoutPanel.Location = new Point(13, 237);
             foodFlowLayoutPanel.Name = "foodFlowLayoutPanel";
             foodFlowLayoutPanel.Padding = new Padding(10, 10, 0, 0);
@@ -137,6 +174,7 @@
             // foodDetailPanel
             // 
             foodDetailPanel.BackColor = Color.FromArgb(253, 151, 103);
+            foodDetailPanel.Controls.Add(btnClear);
             foodDetailPanel.Controls.Add(lblTotal);
             foodDetailPanel.Controls.Add(lblQuantity);
             foodDetailPanel.Controls.Add(addButton);
@@ -148,6 +186,19 @@
             foodDetailPanel.Name = "foodDetailPanel";
             foodDetailPanel.Size = new Size(494, 161);
             foodDetailPanel.TabIndex = 1;
+            // 
+            // btnClear
+            // 
+            btnClear.BackColor = Color.Maroon;
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.ForeColor = SystemColors.ControlLightLight;
+            btnClear.Location = new Point(408, 7);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(70, 28);
+            btnClear.TabIndex = 9;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // lblTotal
             // 
@@ -173,14 +224,15 @@
             addButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             addButton.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             addButton.IconColor = Color.Black;
-            addButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            addButton.IconSize = 30;
+            addButton.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            addButton.IconSize = 25;
             addButton.ImageAlign = ContentAlignment.MiddleRight;
-            addButton.Location = new Point(370, 109);
+            addButton.Location = new Point(381, 109);
             addButton.Name = "addButton";
-            addButton.Size = new Size(108, 32);
+            addButton.Size = new Size(97, 32);
             addButton.TabIndex = 3;
             addButton.Text = "Add";
+            addButton.TextAlign = ContentAlignment.TopCenter;
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += addButton_Click;
             // 
@@ -211,15 +263,6 @@
             mealPictureDetail.SizeMode = PictureBoxSizeMode.StretchImage;
             mealPictureDetail.TabIndex = 0;
             mealPictureDetail.TabStop = false;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.BorderStyle = BorderStyle.None;
-            richTextBox1.Location = new Point(14, 71);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(305, 480);
-            richTextBox1.TabIndex = 2;
-            richTextBox1.Text = "";
             // 
             // label2
             // 
@@ -275,5 +318,8 @@
         private PictureBox mealPictureDetail;
         private RichTextBox richTextBox1;
         private Label label2;
+        private Button btnClear;
+        private TableLayoutPanel orderedMealsRecordTablePanel;
+        private Panel panel1;
     }
 }

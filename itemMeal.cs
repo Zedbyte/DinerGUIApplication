@@ -48,7 +48,8 @@ namespace DinerGUIApplication
             return Convert.ToDouble(mealPrice.Text.Replace("P", ""));
         }
 
-        public Image getImage() { 
+        public Image getImage()
+        {
             return mealPicturebox.Image;
         }
 
