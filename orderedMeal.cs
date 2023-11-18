@@ -24,5 +24,10 @@ namespace DinerGUIApplication
             this.orderedMealTotal.Text = total.ToString();
             this.orderedMealQuantity.Text = quantity.ToString();
         }
+
+        private void btnRemoveOrder_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

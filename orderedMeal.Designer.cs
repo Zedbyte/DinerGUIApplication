@@ -31,7 +31,7 @@
             orderedMealQuantity = new Label();
             orderedMealName = new Label();
             orderedMealTotal = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            btnRemoveOrder = new FontAwesome.Sharp.IconButton();
             SuspendLayout();
             // 
             // orderedMealQuantity
@@ -62,20 +62,21 @@
             orderedMealTotal.TabIndex = 2;
             orderedMealTotal.Text = "0";
             // 
-            // iconButton1
+            // btnRemoveOrder
             // 
-            iconButton1.BackColor = Color.Maroon;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 25;
-            iconButton1.Location = new Point(238, 24);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(48, 16);
-            iconButton1.TabIndex = 3;
-            iconButton1.UseVisualStyleBackColor = false;
+            btnRemoveOrder.BackColor = Color.Maroon;
+            btnRemoveOrder.FlatStyle = FlatStyle.Flat;
+            btnRemoveOrder.ForeColor = SystemColors.ControlLightLight;
+            btnRemoveOrder.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            btnRemoveOrder.IconColor = Color.White;
+            btnRemoveOrder.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRemoveOrder.IconSize = 25;
+            btnRemoveOrder.Location = new Point(222, 25);
+            btnRemoveOrder.Name = "btnRemoveOrder";
+            btnRemoveOrder.Size = new Size(48, 16);
+            btnRemoveOrder.TabIndex = 3;
+            btnRemoveOrder.UseVisualStyleBackColor = false;
+            btnRemoveOrder.Click += btnRemoveOrder_Click;
             // 
             // orderedMeal
             // 
@@ -83,12 +84,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 154, 41);
             BorderStyle = BorderStyle.FixedSingle;
-            Controls.Add(iconButton1);
+            Controls.Add(btnRemoveOrder);
             Controls.Add(orderedMealTotal);
             Controls.Add(orderedMealName);
             Controls.Add(orderedMealQuantity);
             Name = "orderedMeal";
-            Size = new Size(300, 65);
+            Size = new Size(276, 65);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -99,5 +100,6 @@
         private Label orderedMealName;
         private Label orderedMealTotal;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnRemoveOrder;
     }
 }
