@@ -32,6 +32,7 @@
             slideShowContainer = new PictureBox();
             startButton = new Button();
             timeInterval = new System.Windows.Forms.Timer(components);
+            timeLabel = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)slideShowContainer).BeginInit();
             SuspendLayout();
             // 
@@ -47,13 +48,16 @@
             // 
             // startButton
             // 
-            startButton.BackColor = Color.FromArgb(128, 255, 128);
+            startButton.BackColor = Color.FromArgb(0, 107, 117);
             startButton.FlatStyle = FlatStyle.Flat;
-            startButton.Location = new Point(-2, 557);
+            startButton.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            startButton.ForeColor = SystemColors.ControlLightLight;
+            startButton.Location = new Point(-2, 558);
             startButton.Name = "startButton";
-            startButton.Size = new Size(1163, 96);
+            startButton.Size = new Size(1163, 95);
             startButton.TabIndex = 1;
             startButton.Text = "Click here to start!";
+            startButton.UseCompatibleTextRendering = true;
             startButton.UseVisualStyleBackColor = false;
             startButton.Click += startButton_Click;
             // 
@@ -61,6 +65,12 @@
             // 
             timeInterval.Enabled = true;
             timeInterval.Tick += timeIntervalTick;
+            // 
+            // timeLabel
+            // 
+            timeLabel.Enabled = true;
+            timeLabel.Interval = 800;
+            timeLabel.Tick += timeLabel_Tick;
             // 
             // startScreen
             // 
@@ -83,5 +93,6 @@
         private PictureBox slideShowContainer;
         private Button startButton;
         private System.Windows.Forms.Timer timeInterval;
+        private System.Windows.Forms.Timer timeLabel;
     }
 }
