@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DinerGUIApplication
 {
-    public partial class quantitySelector : UserControl
+    public partial class orderedMeal : UserControl
     {
-        public quantitySelector()
+        public orderedMeal()
         {
             InitializeComponent();
         }

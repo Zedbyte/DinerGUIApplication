@@ -37,10 +37,14 @@
             foodFlowLayoutPanel = new FlowLayoutPanel();
             label1 = new Label();
             foodDetailPanel = new Panel();
+            lblTotal = new Label();
+            lblQuantity = new Label();
+            addButton = new FontAwesome.Sharp.IconButton();
             lblMealPrice = new Label();
             lblMealName = new Label();
             mealPictureDetail = new PictureBox();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            richTextBox1 = new RichTextBox();
+            label2 = new Label();
             parentPanel.SuspendLayout();
             orderParentPanel.SuspendLayout();
             receiptParentPanel.SuspendLayout();
@@ -80,6 +84,7 @@
             // receiptParentPanel
             // 
             receiptParentPanel.BackColor = Color.FromArgb(255, 255, 192);
+            receiptParentPanel.Controls.Add(richTextBox1);
             receiptParentPanel.Controls.Add(receiptPanelTitle);
             receiptParentPanel.Location = new Point(878, 14);
             receiptParentPanel.Name = "receiptParentPanel";
@@ -132,7 +137,9 @@
             // foodDetailPanel
             // 
             foodDetailPanel.BackColor = Color.FromArgb(253, 151, 103);
-            foodDetailPanel.Controls.Add(iconButton1);
+            foodDetailPanel.Controls.Add(lblTotal);
+            foodDetailPanel.Controls.Add(lblQuantity);
+            foodDetailPanel.Controls.Add(addButton);
             foodDetailPanel.Controls.Add(lblMealPrice);
             foodDetailPanel.Controls.Add(lblMealName);
             foodDetailPanel.Controls.Add(mealPictureDetail);
@@ -142,10 +149,45 @@
             foodDetailPanel.Size = new Size(494, 161);
             foodDetailPanel.TabIndex = 1;
             // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.ForeColor = Color.Lime;
+            lblTotal.Location = new Point(175, 116);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(45, 21);
+            lblTotal.TabIndex = 8;
+            lblTotal.Text = "Total:";
+            // 
+            // lblQuantity
+            // 
+            lblQuantity.AutoSize = true;
+            lblQuantity.Location = new Point(175, 83);
+            lblQuantity.Name = "lblQuantity";
+            lblQuantity.Size = new Size(70, 21);
+            lblQuantity.TabIndex = 4;
+            lblQuantity.Text = "Quantity";
+            // 
+            // addButton
+            // 
+            addButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            addButton.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            addButton.IconColor = Color.Black;
+            addButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            addButton.IconSize = 30;
+            addButton.ImageAlign = ContentAlignment.MiddleRight;
+            addButton.Location = new Point(370, 109);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(108, 32);
+            addButton.TabIndex = 3;
+            addButton.Text = "Add";
+            addButton.UseVisualStyleBackColor = true;
+            addButton.Click += addButton_Click;
+            // 
             // lblMealPrice
             // 
             lblMealPrice.AutoSize = true;
-            lblMealPrice.Location = new Point(211, 51);
+            lblMealPrice.Location = new Point(175, 46);
             lblMealPrice.Name = "lblMealPrice";
             lblMealPrice.Size = new Size(44, 21);
             lblMealPrice.TabIndex = 2;
@@ -154,7 +196,7 @@
             // lblMealName
             // 
             lblMealName.AutoSize = true;
-            lblMealName.Location = new Point(211, 14);
+            lblMealName.Location = new Point(175, 14);
             lblMealName.Name = "lblMealName";
             lblMealName.Size = new Size(52, 21);
             lblMealName.TabIndex = 1;
@@ -166,23 +208,29 @@
             mealPictureDetail.Location = new Point(12, 14);
             mealPictureDetail.Name = "mealPictureDetail";
             mealPictureDetail.Size = new Size(135, 127);
+            mealPictureDetail.SizeMode = PictureBoxSizeMode.StretchImage;
             mealPictureDetail.TabIndex = 0;
             mealPictureDetail.TabStop = false;
             // 
-            // iconButton1
+            // richTextBox1
             // 
-            iconButton1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 30;
-            iconButton1.ImageAlign = ContentAlignment.MiddleRight;
-            iconButton1.Location = new Point(368, 109);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(111, 32);
-            iconButton1.TabIndex = 3;
-            iconButton1.Text = "Add";
-            iconButton1.UseVisualStyleBackColor = true;
+            richTextBox1.BorderStyle = BorderStyle.None;
+            richTextBox1.Location = new Point(14, 71);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(305, 480);
+            richTextBox1.TabIndex = 2;
+            richTextBox1.Text = "";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(12, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(233, 37);
+            label2.TabIndex = 1;
+            label2.Text = "Diner of the Valley";
             // 
             // mainForm
             // 
@@ -190,12 +238,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 107, 117);
             ClientSize = new Size(1289, 651);
+            Controls.Add(label2);
             Controls.Add(parentPanel);
             MaximizeBox = false;
             Name = "mainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Diner of the Valley";
-            Load += mainForm_Load;
             parentPanel.ResumeLayout(false);
             orderParentPanel.ResumeLayout(false);
             receiptParentPanel.ResumeLayout(false);
@@ -205,6 +253,7 @@
             foodDetailPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)mealPictureDetail).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -215,12 +264,16 @@
         private Panel receiptParentPanel;
         private Panel foodParentPanel;
         private Panel receiptPanelTitle;
-        private Panel foodDetailPanel;
         private Label label1;
         private FlowLayoutPanel foodFlowLayoutPanel;
-        private PictureBox mealPictureDetail;
+        private Panel foodDetailPanel;
+        private Label lblTotal;
+        private Label lblQuantity;
+        private FontAwesome.Sharp.IconButton addButton;
         private Label lblMealPrice;
         private Label lblMealName;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private PictureBox mealPictureDetail;
+        private RichTextBox richTextBox1;
+        private Label label2;
     }
 }

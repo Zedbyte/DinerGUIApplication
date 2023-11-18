@@ -13,12 +13,16 @@ namespace DinerGUIApplication
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro3.jpg"
         };
 
+        string orderName;
+        double orderPrice;
+        int orderQuantity;
+
 
         public mainForm()
         {
             InitializeComponent();
             InitializeMeals();
-
+            displayItemMeals();
             mealsListener();
         }
 
@@ -52,10 +56,10 @@ namespace DinerGUIApplication
         {
             for (int i = 0; i < meals.Count; i++)
             {
-                foreach (Control ctl in meals[i].Controls)
-                {
-                    ctl.Parent.Click += new System.EventHandler(this.mealsClicked);
-                }
+                /*   foreach (Control ctl in meals[i].Controls)
+                   {
+                       ctl.Parent.Click += new System.EventHandler(this.mealsClicked);
+                   }*/
                 meals[i].Click += new System.EventHandler(this.mealsClicked);
             }
 
@@ -64,23 +68,76 @@ namespace DinerGUIApplication
         public void mealsClicked(object sender, EventArgs e)
         {
             clearDetails();
-            itemMeal obj = (itemMeal)sender;
+            itemMeal meal = (itemMeal)sender;
 
-            lblMealName.Text = obj.getMealName();
-            lblMealPrice.Text = obj.getMealPrice().ToString();
-            mealPictureDetail.Image = obj.getImage();
+            setMealNameDetail(meal);
+            setMealPriceDetail(meal);
+            setMealPictureDetail(meal);
+
+            quantityForm qtySelector = new quantityForm();
+            qtySelector.ShowDialog();
+
+            setMealQuantityVariable(qtySelector);
+            setMealQuantityDetail(orderQuantity);
+
+            setMealTotal(meal.getMealPrice(), orderQuantity);
+
+
         }
 
-        private void mainForm_Load(object sender, EventArgs e)
+        private void setMealNameDetail(itemMeal meal)
         {
-            displayItemMeals();
+            lblMealName.Text = meal.getMealName();
+            orderName = meal.getMealName();
+        }
+
+        private void setMealPriceDetail(itemMeal meal)
+        {
+            lblMealPrice.Text = meal.getMealPrice().ToString();
+            orderPrice = meal.getMealPrice();
+        }
+
+        private void setMealPictureDetail(itemMeal meal)
+        {
+            mealPictureDetail.Image = meal.getImage();
+        }
+
+        private void setMealQuantityVariable(quantityForm qty)
+        {
+            orderQuantity = qty.Quantity;
+        }
+
+        private void setMealQuantityDetail(int orderQuantity)
+        {
+            lblQuantity.Text = orderQuantity.ToString();
+        }
+
+        private void setMealTotal(double price, int quantity)
+        {
+            double total = price * quantity;
+            lblTotal.Text = total.ToString();
         }
 
         public void clearDetails()
         {
+            orderName = null;
+            orderPrice = 0;
+            orderQuantity = 0;
+
             mealPictureDetail.Image = null;
             lblMealName.Text = null;
             lblMealPrice.Text = null;
+
+
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            if (orderName != null && orderPrice > 0 && orderQuantity > 0)
+            {
+                MessageBox.Show(orderPrice + orderName + orderQuantity);
+            }
+
         }
     }
 }
