@@ -70,6 +70,7 @@
             lblMealName = new Label();
             mealPictureDetail = new PictureBox();
             label2 = new Label();
+            printReceipt = new PrintDialog();
             parentPanel.SuspendLayout();
             orderParentPanel.SuspendLayout();
             panel4.SuspendLayout();
@@ -148,9 +149,9 @@
             // 
             panel4.BackColor = Color.FromArgb(253, 151, 103);
             panel4.Controls.Add(btnPlaceOrder);
-            panel4.Location = new Point(2, 500);
+            panel4.Location = new Point(1, 500);
             panel4.Name = "panel4";
-            panel4.Size = new Size(330, 66);
+            panel4.Size = new Size(331, 66);
             panel4.TabIndex = 6;
             // 
             // btnPlaceOrder
@@ -268,7 +269,7 @@
             // 
             // panel5
             // 
-            panel5.BackColor = Color.White;
+            panel5.BackColor = Color.DimGray;
             panel5.Controls.Add(menuStrip1);
             panel5.Location = new Point(14, 68);
             panel5.Name = "panel5";
@@ -297,6 +298,7 @@
             orderToolStripMenuItem.Name = "orderToolStripMenuItem";
             orderToolStripMenuItem.Size = new Size(165, 26);
             orderToolStripMenuItem.Text = "Print";
+            orderToolStripMenuItem.Click += orderToolStripMenuItem_Click;
             // 
             // placeOrderToolStripMenuItem
             // 
@@ -312,6 +314,7 @@
             // 
             // txtBxReceipt
             // 
+            txtBxReceipt.BackColor = Color.White;
             txtBxReceipt.BorderStyle = BorderStyle.None;
             txtBxReceipt.Location = new Point(14, 100);
             txtBxReceipt.Name = "txtBxReceipt";
@@ -398,7 +401,7 @@
             // LBLTTL
             // 
             LBLTTL.AutoSize = true;
-            LBLTTL.Location = new Point(168, 114);
+            LBLTTL.Location = new Point(159, 114);
             LBLTTL.Name = "LBLTTL";
             LBLTTL.Size = new Size(42, 21);
             LBLTTL.TabIndex = 13;
@@ -407,7 +410,7 @@
             // LBLQTY
             // 
             LBLQTY.AutoSize = true;
-            LBLQTY.Location = new Point(168, 81);
+            LBLQTY.Location = new Point(159, 81);
             LBLQTY.Name = "LBLQTY";
             LBLQTY.Size = new Size(70, 21);
             LBLQTY.TabIndex = 12;
@@ -416,7 +419,7 @@
             // LBLPRICE
             // 
             LBLPRICE.AutoSize = true;
-            LBLPRICE.Location = new Point(166, 47);
+            LBLPRICE.Location = new Point(159, 47);
             LBLPRICE.Name = "LBLPRICE";
             LBLPRICE.Size = new Size(44, 21);
             LBLPRICE.TabIndex = 11;
@@ -425,7 +428,7 @@
             // LBLNAME
             // 
             LBLNAME.AutoSize = true;
-            LBLNAME.Location = new Point(166, 15);
+            LBLNAME.Location = new Point(159, 15);
             LBLNAME.Name = "LBLNAME";
             LBLNAME.Size = new Size(52, 21);
             LBLNAME.TabIndex = 10;
@@ -447,17 +450,17 @@
             // lblTotal
             // 
             lblTotal.ForeColor = Color.Lime;
-            lblTotal.Location = new Point(293, 115);
+            lblTotal.Location = new Point(249, 115);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(49, 21);
+            lblTotal.Size = new Size(93, 21);
             lblTotal.TabIndex = 8;
             lblTotal.TextAlign = ContentAlignment.TopRight;
             // 
             // lblQuantity
             // 
-            lblQuantity.Location = new Point(293, 81);
+            lblQuantity.Location = new Point(249, 81);
             lblQuantity.Name = "lblQuantity";
-            lblQuantity.Size = new Size(53, 21);
+            lblQuantity.Size = new Size(97, 21);
             lblQuantity.TabIndex = 4;
             lblQuantity.TextAlign = ContentAlignment.TopRight;
             // 
@@ -480,17 +483,17 @@
             // 
             // lblMealPrice
             // 
-            lblMealPrice.Location = new Point(293, 47);
+            lblMealPrice.Location = new Point(249, 47);
             lblMealPrice.Name = "lblMealPrice";
-            lblMealPrice.Size = new Size(52, 21);
+            lblMealPrice.Size = new Size(96, 21);
             lblMealPrice.TabIndex = 2;
             lblMealPrice.TextAlign = ContentAlignment.TopRight;
             // 
             // lblMealName
             // 
-            lblMealName.Location = new Point(293, 15);
+            lblMealName.Location = new Point(249, 15);
             lblMealName.Name = "lblMealName";
-            lblMealName.Size = new Size(52, 21);
+            lblMealName.Size = new Size(96, 21);
             lblMealName.TabIndex = 1;
             lblMealName.TextAlign = ContentAlignment.TopRight;
             // 
@@ -514,6 +517,10 @@
             label2.Size = new Size(233, 37);
             label2.TabIndex = 1;
             label2.Text = "Diner of the Valley";
+            // 
+            // printReceipt
+            // 
+            printReceipt.UseEXDialog = true;
             // 
             // mainForm
             // 
@@ -595,5 +602,6 @@
         private Label LBLNAME;
         private Label label3;
         private Label label4;
+        private PrintDialog printReceipt;
     }
 }

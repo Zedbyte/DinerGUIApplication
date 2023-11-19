@@ -20,12 +20,17 @@ namespace DinerGUIApplication
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro3.jpg"
         };
 
+        int index;
         string orderName;
         double orderPrice;
         int orderQuantity;
         double total;
         double totalToPay;
         double discount;
+        string specialRequest;
+
+        int newQuantity;
+        double newTotal;
 
 
         public mainForm()
@@ -38,13 +43,16 @@ namespace DinerGUIApplication
             mealsListener();
         }
 
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+
         public void InitializeCustomFont_Receipt(RichTextBox txtBx)
         {
 
-            int fontLength = Properties.Resources.MerchantCopy_GOXq.Length;
+            int fontLength = Properties.Resources.fake_receipt.Length;
 
             // create a buffer to read in to
-            byte[] fontdata = Properties.Resources.MerchantCopy_GOXq;
+            byte[] fontdata = Properties.Resources.fake_receipt;
 
             // create an unsafe memory block for the font data
             System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
@@ -52,10 +60,13 @@ namespace DinerGUIApplication
             // copy the bytes to the unsafe memory block
             Marshal.Copy(fontdata, 0, data, fontLength);
 
+            uint cFonts = 0;
+            AddFontMemResourceEx(data, (uint)fontLength, IntPtr.Zero, ref cFonts);
+
             // pass the font to the font collection
             pfc.AddMemoryFont(data, fontLength);
 
-            txtBx.Font = new Font(pfc.Families[0], txtBx.Font.Size);
+            txtBx.Font = new Font(pfc.Families[0], (float)8f);
 
         }
 
@@ -106,6 +117,7 @@ namespace DinerGUIApplication
             setMealNameDetail(meal);
             setMealPriceDetail(meal);
             setMealPictureDetail(meal);
+            setMealIndex(meal);
 
             quantityForm qtySelector = new quantityForm();
             qtySelector.ShowDialog();
@@ -113,9 +125,21 @@ namespace DinerGUIApplication
             setMealQuantityVariable(qtySelector);
             setMealQuantityDetail(orderQuantity);
 
+            setSpecialRequestReceipt(qtySelector.SpecialRequest);
+
             setMealTotal(meal.getMealPrice(), orderQuantity);
 
 
+        }
+
+        private void setSpecialRequestReceipt(string specialReq)
+        {
+            this.specialRequest = specialReq;
+        }
+
+        private void setMealIndex(itemMeal meal)
+        {
+            index = meal.getIndex();
         }
 
         private void setMealNameDetail(itemMeal meal)
@@ -157,6 +181,7 @@ namespace DinerGUIApplication
             orderPrice = 0;
             orderQuantity = 0;
             total = 0;
+            index = 0;
 
             mealPictureDetail.Image = null;
 
@@ -186,32 +211,98 @@ namespace DinerGUIApplication
             if (orderName != null && orderPrice > 0 && orderQuantity > 0)
             {
 
-                orderedMeal.Add(new orderedMeal(orderName, total, orderQuantity, this));
-
-                orderedMealsRecordTablePanel.Controls.Add(orderedMeal[orderedMeal.Count - 1]);
-
                 totalToPay += total;
                 discount = 0;
 
+                if (doesOrderExistsAlready(index) && (getExistingMeal().getSpecialRequest() == specialRequest))
+                {
+                    //Remove the existing meal in the receipt
+                    removeFromReceipt(getExistingMeal(), specialRequest);
+
+                    //Get the quantity of the existing meal, remove the meal, add the new meal.
+                    updateExistingMeal(orderQuantity);
+
+                    //Add to receipt the new meal
+                    addToReceipt(orderName, newQuantity, newTotal, specialRequest);
+
+                }
+                else
+                {
+                    orderedMeal.Add(new orderedMeal(index, orderName, total, orderQuantity, orderPrice, specialRequest, this));
+
+
+                    addToReceipt(orderName, orderQuantity, total, specialRequest);
+                }
+                //Adds the newly added meal to the record
+                orderedMealsRecordTablePanel.Controls.Add(orderedMeal[orderedMeal.Count - 1]);
+
+
+
 
                 setOrderedMealTotals();
-                addToReceipt(orderName, orderQuantity, total);
+
                 clearDetails(true);
             }
             else
             {
                 MessageBox.Show("Order Invalid. Please try again.");
             }
+        }
+
+        private void updateExistingMeal(int quantity)
+        {
+            //Get the quantity of the existing meal in list
+            //Remove the meal
+            //Create a new meal with the added quantity
+            orderedMeal existingMeal = getExistingMeal();
+
+            int existingMealIndex = existingMeal.getMealIndex();
+            string existingMealName = existingMeal.getMealName();
+            int existingQuantity = existingMeal.getQuantity();
+            double existingMealTotal = existingMeal.getTotal();
+
+            newQuantity = existingQuantity + quantity;
+            newTotal = newQuantity * existingMeal.getMealPrice();
+
+            //remove existingorderedMeal in record panel
+            //update receipt
+            removeExistingMeal();
+
+            orderedMeal.Add(new orderedMeal(existingMealIndex, existingMealName, newTotal, newQuantity, existingMeal.getMealPrice(), specialRequest, this));
 
         }
 
-        public void removeOrder(orderedMeal Order)
+        private orderedMeal getExistingMeal()
+        {
+            return orderedMeal.Find(m => m.getMealIndex() == index);
+        }
+
+        private void removeExistingMeal()
+        {
+            orderedMealsRecordTablePanel.Controls.Remove(orderedMeal.Find(m => m.getMealIndex() == index));
+
+            orderedMeal.Remove(orderedMeal.Find(m => m.getMealIndex() == index));
+
+            orderedMealsRecordTablePanel.Refresh();
+        }
+
+        private bool doesOrderExistsAlready(int index)
+        {
+            foreach (orderedMeal meal in orderedMeal)
+            {
+                if (meal.getMealIndex() == index) return true;
+            }
+
+            return false;
+        }
+
+        public void removeOrder(orderedMeal Order, string specialRequest)
         {
             orderedMeal.Remove(Order);
             orderedMealsRecordTablePanel.Controls.Remove(Order);
             orderedMealsRecordTablePanel.Refresh();
 
-            removeFromReceipt(Order);
+            removeFromReceipt(Order, specialRequest);
             subtractTotalWhenOrderRemoved(Order.getTotal());
         }
 
@@ -239,33 +330,49 @@ namespace DinerGUIApplication
 
         public void InitializeReceipt()
         {
+            txtBxReceipt.Clear();
             DateTime currentDateTime = DateTime.Now;
+            string date = currentDateTime.ToString("dddd, dd MMMM yyyy hh:mm tt");
 
             StringBuilder heading = new StringBuilder();
-            heading.Append("\n\n                  Diner by the Valley     " +
-                "\n                                 DELHI INDIA AUF      " +
-                "\n                                     BSIT 2A" +
-                "\n                         " +     RandomNumberGenerator.GetInt32(100000) +
-                "\n                         " +    currentDateTime.ToString());
+            heading.Append("\n" +
+                "             Diner by the Valley" +
+                "\n           Angeles University Corp." +
+                "\n                  BSIT 2A" +
+                "\n     " + date +
+                "\n              Receipt No. " + RandomNumberGenerator.GetInt32(100000) +
+                "\n===========================================");
 
 
             txtBxReceipt.Text = heading.ToString();
         }
-        private void addToReceipt(String orderName, int quantity, double total)
+        private void addToReceipt(String orderName, int quantity, double total, string specialReq = "")
         {
             StringBuilder stb = new StringBuilder();
-            stb.Append("\n          " + orderName + "    " + quantity + "     " + total);
+            string formattedString = String.Format("\n{0,-20} {1,-10} {2,-10} {3,-20}", "     " + orderName, quantity, total + "\n", specialReq);
+            stb.Append(formattedString);
 
             txtBxReceipt.AppendText(stb.ToString());
         }
 
-        private void removeFromReceipt(orderedMeal order)
+        private void removeFromReceipt(orderedMeal order, string specialReq = "")
         {
             String prev = txtBxReceipt.Text;
-            String removedOrderReceipt = prev.Replace("\n          " + order.getMealName() + "    " + order.getQuantity() + "     " + order.getTotal(), "");
+
+            StringBuilder stb = new StringBuilder();
+            string formattedString = String.Format("\n{0,-20} {1,-10} {2,-10} {3,-20}", "     " + order.getMealName(), order.getQuantity(), order.getTotal() + "\n", specialReq);
+
+            String removedOrderReceipt = prev.Replace(formattedString, "");
 
             InitializeReceipt();
-            txtBxReceipt.Text += removedOrderReceipt;
+            txtBxReceipt.Text = removedOrderReceipt;
+        }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+
+            printDialog.ShowDialog();
         }
     }
 }

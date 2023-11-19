@@ -35,9 +35,7 @@
             lblQuantity = new Label();
             txtBxSpecialReq = new TextBox();
             quantityUpDown = new NumericUpDown();
-            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)quantityUpDown).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnClose
@@ -72,10 +70,10 @@
             // 
             // lblSpecialReq
             // 
-            lblSpecialReq.BackColor = Color.Gray;
-            lblSpecialReq.Font = new Font("Segoe UI", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            lblSpecialReq.ForeColor = SystemColors.ControlLightLight;
-            lblSpecialReq.Location = new Point(59, 154);
+            lblSpecialReq.BackColor = Color.Transparent;
+            lblSpecialReq.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            lblSpecialReq.ForeColor = Color.Black;
+            lblSpecialReq.Location = new Point(59, 152);
             lblSpecialReq.Margin = new Padding(3, 0, 0, 0);
             lblSpecialReq.Name = "lblSpecialReq";
             lblSpecialReq.Size = new Size(219, 25);
@@ -85,9 +83,9 @@
             // 
             // lblQuantity
             // 
-            lblQuantity.BackColor = Color.Gray;
-            lblQuantity.Font = new Font("Segoe UI", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            lblQuantity.ForeColor = SystemColors.ControlLightLight;
+            lblQuantity.BackColor = Color.Transparent;
+            lblQuantity.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            lblQuantity.ForeColor = Color.Black;
             lblQuantity.Location = new Point(59, 56);
             lblQuantity.Name = "lblQuantity";
             lblQuantity.Size = new Size(219, 25);
@@ -113,20 +111,13 @@
             quantityUpDown.Size = new Size(219, 35);
             quantityUpDown.TabIndex = 7;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(338, 405);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 13;
-            pictureBox1.TabStop = false;
-            // 
             // quantityForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(340, 404);
             Controls.Add(btnClose);
             Controls.Add(btnDone);
@@ -134,14 +125,12 @@
             Controls.Add(lblQuantity);
             Controls.Add(txtBxSpecialReq);
             Controls.Add(quantityUpDown);
-            Controls.Add(pictureBox1);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "quantityForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "quantityForm";
             ((System.ComponentModel.ISupportInitialize)quantityUpDown).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

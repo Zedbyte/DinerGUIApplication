@@ -73,6 +73,16 @@ namespace DinerGUIApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] fake_receipt {
+            get {
+                object obj = ResourceManager.GetObject("fake_receipt", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Film_Noir_Adventure {
             get {
                 object obj = ResourceManager.GetObject("Film_Noir_Adventure", resourceCulture);

@@ -32,6 +32,7 @@
             orderedMealName = new Label();
             orderedMealTotal = new Label();
             btnRemoveOrder = new FontAwesome.Sharp.IconButton();
+            lblSpecialReq = new Label();
             SuspendLayout();
             // 
             // orderedMealQuantity
@@ -78,18 +79,27 @@
             btnRemoveOrder.UseVisualStyleBackColor = false;
             btnRemoveOrder.Click += btnRemoveOrder_Click;
             // 
+            // lblSpecialReq
+            // 
+            lblSpecialReq.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSpecialReq.Location = new Point(185, 3);
+            lblSpecialReq.Name = "lblSpecialReq";
+            lblSpecialReq.Size = new Size(100, 19);
+            lblSpecialReq.TabIndex = 4;
+            // 
             // orderedMeal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 154, 41);
             BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(lblSpecialReq);
             Controls.Add(btnRemoveOrder);
             Controls.Add(orderedMealTotal);
             Controls.Add(orderedMealName);
             Controls.Add(orderedMealQuantity);
             Name = "orderedMeal";
-            Size = new Size(276, 65);
+            Size = new Size(288, 65);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -101,5 +111,6 @@
         private Label orderedMealTotal;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnRemoveOrder;
+        private Label lblSpecialReq;
     }
 }

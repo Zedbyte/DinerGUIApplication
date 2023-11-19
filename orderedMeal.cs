@@ -17,13 +17,16 @@ namespace DinerGUIApplication
         string mealName;
         int quantity;
         double total;
+        int index;
+        double price;
+        string specialRequest;
 
         public orderedMeal()
         {
 
         }
 
-        public orderedMeal(string mealName, double total, int quantity, mainForm Main)
+        public orderedMeal(int index, string mealName, double total, int quantity, double price, string specialReq, mainForm Main)
         {
             InitializeComponent();
             this.orderedMealName.Text = mealName;
@@ -34,6 +37,14 @@ namespace DinerGUIApplication
             this.quantity = quantity;
             this.total = total;
             this.Main = Main;
+            this.index = index;
+            this.price = price;
+            this.specialRequest = specialReq;
+
+            if (specialReq != null && specialReq.Length > 0)
+            {
+                lblSpecialReq.Text = "Special Request";
+            }
         }
 
         private void btnRemoveOrder_Click(object sender, EventArgs e)
@@ -43,7 +54,7 @@ namespace DinerGUIApplication
 
         private void callToRemove()
         {
-            Main.removeOrder(this);
+            Main.removeOrder(this, specialRequest);
         }
 
 
@@ -60,6 +71,21 @@ namespace DinerGUIApplication
         public int getQuantity()
         {
             return quantity;
+        }
+
+        public int getMealIndex()
+        {
+            return index;
+        }
+
+        public double getMealPrice()
+        {
+            return price;
+        }
+
+        public string getSpecialRequest()
+        {
+            return specialRequest;
         }
     }
 }
