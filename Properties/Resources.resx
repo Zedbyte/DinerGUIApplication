@@ -133,4 +133,10 @@
   <data name="Magic_Retro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Magic Retro.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DottyRegular_vZOy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DottyRegular-vZOy.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MerchantCopy_GOXq" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MerchantCopy-GOXq.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

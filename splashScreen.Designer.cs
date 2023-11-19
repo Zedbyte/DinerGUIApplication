@@ -62,7 +62,7 @@
             lblNum.AutoSize = true;
             lblNum.BackColor = SystemColors.ActiveCaptionText;
             lblNum.Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNum.ForeColor = SystemColors.ButtonFace;
+            lblNum.ForeColor = Color.Transparent;
             lblNum.Location = new Point(1131, 640);
             lblNum.Name = "lblNum";
             lblNum.Size = new Size(43, 20);
@@ -74,7 +74,7 @@
             lblLoading.AutoSize = true;
             lblLoading.BackColor = SystemColors.ActiveCaptionText;
             lblLoading.Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblLoading.ForeColor = SystemColors.ButtonFace;
+            lblLoading.ForeColor = Color.Transparent;
             lblLoading.Location = new Point(0, 640);
             lblLoading.Name = "lblLoading";
             lblLoading.Size = new Size(43, 20);

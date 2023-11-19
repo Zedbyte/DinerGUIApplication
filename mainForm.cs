@@ -1,9 +1,12 @@
 using System.Collections;
+using System.Drawing.Text;
+using System.Runtime.InteropServices;
 
 namespace DinerGUIApplication
 {
     public partial class mainForm : Form
     {
+        PrivateFontCollection pfc = new PrivateFontCollection();
 
         List<itemMeal> meals = new List<itemMeal>();
         List<orderedMeal> orderedMeal = new List<orderedMeal>();
@@ -18,26 +21,51 @@ namespace DinerGUIApplication
         double orderPrice;
         int orderQuantity;
         double total;
+        double totalToPay;
+        double discount;
 
 
         public mainForm()
         {
             InitializeComponent();
             InitializeMeals();
+            InitializeReceipt();
+            InitializeCustomFont_Receipt(txtBxReceipt);
             displayItemMeals();
             mealsListener();
+        }
+
+        public void InitializeCustomFont_Receipt(RichTextBox txtBx)
+        {
+
+            int fontLength = Properties.Resources.MerchantCopy_GOXq.Length;
+
+            // create a buffer to read in to
+            byte[] fontdata = Properties.Resources.MerchantCopy_GOXq;
+
+            // create an unsafe memory block for the font data
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            // pass the font to the font collection
+            pfc.AddMemoryFont(data, fontLength);
+
+            txtBx.Font = new Font(pfc.Families[0], txtBx.Font.Size);
+           
         }
 
 
         public void InitializeMeals()
         {
-            meals.Add(new itemMeal(1, Image.FromFile(imageFilePaths[0]), "A", "P100"));
+            meals.Add(new itemMeal(1, Image.FromFile(imageFilePaths[0]), "Miso Soup", "P100"));
             meals.Add(new itemMeal(2, Image.FromFile(imageFilePaths[1]), "Egg", "P200"));
             meals.Add(new itemMeal(3, Image.FromFile(imageFilePaths[2]), "Sandwich", "P300"));
-            meals.Add(new itemMeal(4, Image.FromFile(imageFilePaths[0]), "A", "P450"));
-            meals.Add(new itemMeal(5, Image.FromFile(imageFilePaths[1]), "A", "P50"));
-            meals.Add(new itemMeal(6, Image.FromFile(imageFilePaths[2]), "A", "P70"));
-            meals.Add(new itemMeal(6, Image.FromFile(imageFilePaths[0]), "A", "P70"));
+            meals.Add(new itemMeal(4, Image.FromFile(imageFilePaths[0]), "Fried Chicken", "P450"));
+            meals.Add(new itemMeal(5, Image.FromFile(imageFilePaths[1]), "Ham", "P50"));
+            meals.Add(new itemMeal(6, Image.FromFile(imageFilePaths[2]), "Pork Cutlet", "P70"));
+            meals.Add(new itemMeal(6, Image.FromFile(imageFilePaths[0]), "Salad", "P70"));
         }
 
         public void displayItemMeals()
@@ -69,7 +97,7 @@ namespace DinerGUIApplication
 
         public void mealsClicked(object sender, EventArgs e)
         {
-            clearDetails();
+            clearDetails(false);
             itemMeal meal = (itemMeal)sender;
 
             setMealNameDetail(meal);
@@ -95,7 +123,7 @@ namespace DinerGUIApplication
 
         private void setMealPriceDetail(itemMeal meal)
         {
-            lblMealPrice.Text = meal.getMealPrice().ToString();
+            lblMealPrice.Text = "\u20B1" + meal.getMealPrice().ToString();
             orderPrice = meal.getMealPrice();
         }
 
@@ -117,10 +145,10 @@ namespace DinerGUIApplication
         private void setMealTotal(double price, int quantity)
         {
             total = price * quantity;
-            lblTotal.Text = total.ToString();
+            lblTotal.Text = "\u20B1" + total.ToString();
         }
 
-        public void clearDetails()
+        public void clearDetails(bool addedSuccessfully)
         {
             orderName = null;
             orderPrice = 0;
@@ -128,7 +156,16 @@ namespace DinerGUIApplication
             total = 0;
 
             mealPictureDetail.Image = null;
-            lblMealName.Text = "No order yet.";
+
+            if (addedSuccessfully)
+            {
+                lblMealName.Text = "Order added!";
+            }
+            else
+            {
+                lblMealName.Text = "No order yet.";
+            }
+
             lblMealPrice.Text = "-";
             lblQuantity.Text = "-";
             lblTotal.Text = "-";
@@ -138,17 +175,24 @@ namespace DinerGUIApplication
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            clearDetails();
+            clearDetails(false);
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             if (orderName != null && orderPrice > 0 && orderQuantity > 0)
             {
-                orderedMeal.Add(new orderedMeal(orderName, total, orderQuantity));
+
+                orderedMeal.Add(new orderedMeal(orderName, total, orderQuantity, this));
 
                 orderedMealsRecordTablePanel.Controls.Add(orderedMeal[orderedMeal.Count - 1]);
 
+                totalToPay += total;
+                discount = 0;
+
+
+                setOrderedMealTotals();
+                clearDetails(true);
             }
             else
             {
@@ -157,5 +201,41 @@ namespace DinerGUIApplication
 
         }
 
+        public void removeOrder(orderedMeal Order)
+        {
+            orderedMeal.Remove(Order);
+            orderedMealsRecordTablePanel.Controls.Remove(Order);
+            orderedMealsRecordTablePanel.Refresh();
+
+            subtractTotalWhenOrderRemoved(Order.getTotal());
+        }
+
+
+        private void subtractTotalWhenOrderRemoved(double mealTotal)
+        {
+            totalToPay -= mealTotal;
+            lblTotalNoDiscount.Text = "\u20B1" + totalToPay.ToString();
+            lblTotalWDiscount.Text = "\u20B1" + (totalToPay - discount).ToString();
+
+            setOrderedMealTotals();
+
+        }
+
+
+        private void setOrderedMealTotals()
+        {
+            lblTotalNoDiscount.Text = "\u20B1" + totalToPay.ToString();
+            lblDiscountApplied.Text = "\u20B1" + discount.ToString();
+
+            lblTotalWDiscount.Text = "\u20B1" + (totalToPay - discount).ToString();
+
+        }
+
+
+        public void InitializeReceipt()
+        {
+            DateTime currentDateTime = DateTime.Now;
+            txtBxReceipt.Text = currentDateTime.ToString();
+        }
     }
 }

@@ -63,6 +63,16 @@ namespace DinerGUIApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DottyRegular_vZOy {
+            get {
+                object obj = ResourceManager.GetObject("DottyRegular_vZOy", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Film_Noir_Adventure {
             get {
                 object obj = ResourceManager.GetObject("Film_Noir_Adventure", resourceCulture);
@@ -86,6 +96,16 @@ namespace DinerGUIApplication.Properties {
         internal static byte[] Magic_Retro {
             get {
                 object obj = ResourceManager.GetObject("Magic_Retro", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MerchantCopy_GOXq {
+            get {
+                object obj = ResourceManager.GetObject("MerchantCopy_GOXq", resourceCulture);
                 return ((byte[])(obj));
             }
         }

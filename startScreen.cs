@@ -40,9 +40,6 @@ namespace DinerGUIApplication
 
         public void InitializeCustomFont_MagicRetro(Button btn)
         {
-
-            //Select your font from the resources.
-            //My font here is "Digireu.ttf"
             int fontLength = Properties.Resources.Franchise.Length;
 
             // create a buffer to read in to
