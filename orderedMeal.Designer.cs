@@ -37,7 +37,7 @@
             // orderedMealQuantity
             // 
             orderedMealQuantity.BackColor = Color.FromArgb(238, 232, 213);
-            orderedMealQuantity.Location = new Point(4, 4);
+            orderedMealQuantity.Location = new Point(4, 3);
             orderedMealQuantity.Name = "orderedMealQuantity";
             orderedMealQuantity.Size = new Size(61, 58);
             orderedMealQuantity.TabIndex = 0;

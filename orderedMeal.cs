@@ -14,6 +14,8 @@ namespace DinerGUIApplication
     {
 
         mainForm Main;
+        string mealName;
+        int quantity;
         double total;
 
         public orderedMeal()
@@ -28,7 +30,8 @@ namespace DinerGUIApplication
             this.orderedMealTotal.Text = total.ToString();
             this.orderedMealQuantity.Text = quantity.ToString();
 
-
+            this.mealName = mealName;
+            this.quantity = quantity;
             this.total = total;
             this.Main = Main;
         }
@@ -47,6 +50,16 @@ namespace DinerGUIApplication
         public double getTotal()
         {
             return total;
+        }
+
+        public string getMealName()
+        {
+            return mealName;
+        }
+
+        public int getQuantity()
+        {
+            return quantity;
         }
     }
 }

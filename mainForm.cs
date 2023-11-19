@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text;
+using static System.Windows.Forms.DataFormats;
 
 namespace DinerGUIApplication
 {
@@ -53,7 +56,7 @@ namespace DinerGUIApplication
             pfc.AddMemoryFont(data, fontLength);
 
             txtBx.Font = new Font(pfc.Families[0], txtBx.Font.Size);
-           
+
         }
 
 
@@ -192,6 +195,7 @@ namespace DinerGUIApplication
 
 
                 setOrderedMealTotals();
+                addToReceipt(orderName, orderQuantity, total);
                 clearDetails(true);
             }
             else
@@ -207,6 +211,7 @@ namespace DinerGUIApplication
             orderedMealsRecordTablePanel.Controls.Remove(Order);
             orderedMealsRecordTablePanel.Refresh();
 
+            removeFromReceipt(Order);
             subtractTotalWhenOrderRemoved(Order.getTotal());
         }
 
@@ -235,7 +240,32 @@ namespace DinerGUIApplication
         public void InitializeReceipt()
         {
             DateTime currentDateTime = DateTime.Now;
-            txtBxReceipt.Text = currentDateTime.ToString();
+
+            StringBuilder heading = new StringBuilder();
+            heading.Append("\n\n                  Diner by the Valley     " +
+                "\n                                 DELHI INDIA AUF      " +
+                "\n                                     BSIT 2A" +
+                "\n                         " +     RandomNumberGenerator.GetInt32(100000) +
+                "\n                         " +    currentDateTime.ToString());
+
+
+            txtBxReceipt.Text = heading.ToString();
+        }
+        private void addToReceipt(String orderName, int quantity, double total)
+        {
+            StringBuilder stb = new StringBuilder();
+            stb.Append("\n          " + orderName + "    " + quantity + "     " + total);
+
+            txtBxReceipt.AppendText(stb.ToString());
+        }
+
+        private void removeFromReceipt(orderedMeal order)
+        {
+            String prev = txtBxReceipt.Text;
+            String removedOrderReceipt = prev.Replace("\n          " + order.getMealName() + "    " + order.getQuantity() + "     " + order.getTotal(), "");
+
+            InitializeReceipt();
+            txtBxReceipt.Text += removedOrderReceipt;
         }
     }
 }
