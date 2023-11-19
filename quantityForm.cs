@@ -35,7 +35,7 @@ namespace DinerGUIApplication
 
             if (txtBxSpecialReq.Text.Length > 0)
             {
-                SpecialRequest = txtBxSpecialReq.Text;
+                SpecialRequest = txtBxSpecialReq.Text.ToUpper();
             }
         }
 

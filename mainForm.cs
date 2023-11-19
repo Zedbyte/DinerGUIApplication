@@ -76,10 +76,13 @@ namespace DinerGUIApplication
             meals.Add(new itemMeal(1, Image.FromFile(imageFilePaths[0]), "Miso Soup", "P100"));
             meals.Add(new itemMeal(2, Image.FromFile(imageFilePaths[1]), "Egg", "P200"));
             meals.Add(new itemMeal(3, Image.FromFile(imageFilePaths[2]), "Sandwich", "P300"));
-            meals.Add(new itemMeal(4, Image.FromFile(imageFilePaths[0]), "Fried Chicken", "P450"));
-            meals.Add(new itemMeal(5, Image.FromFile(imageFilePaths[1]), "Ham", "P50"));
-            meals.Add(new itemMeal(6, Image.FromFile(imageFilePaths[2]), "Pork Cutlet", "P70"));
-            meals.Add(new itemMeal(6, Image.FromFile(imageFilePaths[0]), "Salad", "P70"));
+        }
+
+        public void InitializeDrinks()
+        {
+            meals.Add(new itemMeal(1, Image.FromFile(imageFilePaths[0]), "Iced Tea", "P100"));
+            meals.Add(new itemMeal(2, Image.FromFile(imageFilePaths[1]), "Coffee", "P200"));
+            meals.Add(new itemMeal(3, Image.FromFile(imageFilePaths[2]), "Water", "P300"));
         }
 
         public void displayItemMeals()
@@ -373,6 +376,22 @@ namespace DinerGUIApplication
             PrintDialog printDialog = new PrintDialog();
 
             printDialog.ShowDialog();
+        }
+
+        private void btnFood_Click(object sender, EventArgs e)
+        {
+            meals.Clear();
+            InitializeMeals();
+            displayItemMeals();
+            mealsListener();
+        }
+
+        private void btnDrinks_Click(object sender, EventArgs e)
+        {
+            meals.Clear();
+            InitializeDrinks();
+            displayItemMeals();
+            mealsListener();
         }
     }
 }

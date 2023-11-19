@@ -71,6 +71,8 @@
             mealPictureDetail = new PictureBox();
             label2 = new Label();
             printReceipt = new PrintDialog();
+            btnFood = new Button();
+            btnDrinks = new Button();
             parentPanel.SuspendLayout();
             orderParentPanel.SuspendLayout();
             panel4.SuspendLayout();
@@ -522,12 +524,34 @@
             // 
             printReceipt.UseEXDialog = true;
             // 
+            // btnFood
+            // 
+            btnFood.Location = new Point(4, 185);
+            btnFood.Name = "btnFood";
+            btnFood.Size = new Size(57, 53);
+            btnFood.TabIndex = 2;
+            btnFood.Text = "button1";
+            btnFood.UseVisualStyleBackColor = true;
+            btnFood.Click += btnFood_Click;
+            // 
+            // btnDrinks
+            // 
+            btnDrinks.Location = new Point(4, 258);
+            btnDrinks.Name = "btnDrinks";
+            btnDrinks.Size = new Size(57, 51);
+            btnDrinks.TabIndex = 3;
+            btnDrinks.Text = "button2";
+            btnDrinks.UseVisualStyleBackColor = true;
+            btnDrinks.Click += btnDrinks_Click;
+            // 
             // mainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 107, 117);
             ClientSize = new Size(1289, 651);
+            Controls.Add(btnDrinks);
+            Controls.Add(btnFood);
             Controls.Add(label2);
             Controls.Add(parentPanel);
             MainMenuStrip = menuStrip1;
@@ -603,5 +627,7 @@
         private Label label3;
         private Label label4;
         private PrintDialog printReceipt;
+        private Button btnFood;
+        private Button btnDrinks;
     }
 }

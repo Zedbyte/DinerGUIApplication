@@ -39,10 +39,10 @@ namespace DinerGUIApplication
             this.Main = Main;
             this.index = index;
             this.price = price;
-            this.specialRequest = specialReq;
 
             if (specialReq != null && specialReq.Length > 0)
             {
+                this.specialRequest = specialReq.ToUpper();
                 lblSpecialReq.Text = "Special Request";
             }
         }
