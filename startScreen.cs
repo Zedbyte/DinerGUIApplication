@@ -84,8 +84,8 @@ namespace DinerGUIApplication
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            mainForm MainForm = new mainForm();
-            MainForm.Show();
+            dineOrTake dineOrTake = new dineOrTake();
+            dineOrTake.Show();
             this.Close();
         }
 

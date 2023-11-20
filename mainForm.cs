@@ -36,15 +36,19 @@ namespace DinerGUIApplication
         double totalToPay;
         double discount;
         string specialRequest;
+        string dineOrTake;
 
         int newQuantity;
         double newTotal;
 
 
-        public mainForm()
+        public mainForm(string dineOrTake)
         {
             InitializeComponent();
             InitializeMeals();
+
+            this.dineOrTake = dineOrTake;
+
             InitializeReceipt();
             InitializeCustomFont_Receipt(txtBxReceipt);
             InitializeCustomFont_Label(lblDinerName, 43f);
@@ -53,6 +57,8 @@ namespace DinerGUIApplication
             changeCurrentOrderTotalPanelLabels();
             displayItemMeals();
             mealsListener();
+
+          
         }
 
         private const int CP_NOCLOSE_BUTTON = 0x200;
@@ -471,6 +477,7 @@ namespace DinerGUIApplication
                 "\n           Angeles University Corp." +
                 "\n                  BSIT 2A" +
                 "\n     " + date +
+                "\n                 " + dineOrTake +
                 "\n              Receipt No. " + RandomNumberGenerator.GetInt32(100000) +
                 "\n===========================================");
             string formattedString = String.Format("\n{0,-16} {1,-10} {2,-10}", "     " + "Meal Name", "Quantity", "Total Price");
@@ -528,7 +535,7 @@ namespace DinerGUIApplication
         {
             if (orderedMeal.Count > 0)
             {
-                paymentForm paymentForm = new paymentForm(totalToPay, txtBxReceipt);
+                paymentForm paymentForm = new paymentForm(totalToPay, txtBxReceipt, dineOrTake);
                 paymentForm.Show();
             }
             else

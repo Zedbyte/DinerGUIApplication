@@ -14,8 +14,8 @@ namespace DinerGUIApplication
             /*splashScreen appStart = new splashScreen();
             appStart.Show();*/
 
-            mainForm mf = new mainForm();
-            mf.Show();
+            dineOrTake dineOrTake = new dineOrTake();
+            dineOrTake.Show();
 
             Application.Run();
         }

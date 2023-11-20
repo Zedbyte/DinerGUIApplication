@@ -21,13 +21,15 @@ namespace DinerGUIApplication
         double customerPayment;
         RichTextBox txtbxReceipt;
         StringBuilder heading = new StringBuilder();
+        string dineOrTake;
 
 
-        public cashForm(double totalToPay, RichTextBox txtbxReceipt)
+        public cashForm(double totalToPay, RichTextBox txtbxReceipt, string dineOrTake)
         {
             InitializeComponent();
             this.total = totalToPay;
             this.txtbxReceipt = txtbxReceipt;
+            this.dineOrTake = dineOrTake;
             InitializeReceipt(total);
             lblTotalToPay.Text = total.ToString();
             InitializeCustomFont_Receipt(txtBxReceipt);

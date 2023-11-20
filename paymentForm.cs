@@ -14,11 +14,13 @@ namespace DinerGUIApplication
     {
         double totalToPay;
         RichTextBox txtbxReceipt;
-        public paymentForm(double totalToPay, RichTextBox txtbxReceipt)
+        string dineOrTake;
+        public paymentForm(double totalToPay, RichTextBox txtbxReceipt, string dineOrTake)
         {
             InitializeComponent();
             this.totalToPay = totalToPay;
             this.txtbxReceipt = txtbxReceipt;
+            this.dineOrTake = dineOrTake;
 
             // Attach event handlers to the radio buttons
             rdButtonMasterCard.CheckedChanged += RadioButton_CheckedChanged;
@@ -224,7 +226,7 @@ namespace DinerGUIApplication
             }
             else if (rdButtonMore.Checked)
             {
-                morePaymentMethod morePaymentMethod = new morePaymentMethod(totalToPay, txtbxReceipt);
+                morePaymentMethod morePaymentMethod = new morePaymentMethod(totalToPay, txtbxReceipt, dineOrTake);
                 morePaymentMethod.Show();
                 this.Close();
                 return;
