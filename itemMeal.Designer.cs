@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(itemMeal));
             mealPicturebox = new PictureBox();
             mealName = new Label();
             mealPrice = new Label();
@@ -37,18 +36,18 @@
             // 
             // mealPicturebox
             // 
-            mealPicturebox.Image = (Image)resources.GetObject("mealPicturebox.Image");
             mealPicturebox.Location = new Point(0, 0);
             mealPicturebox.Name = "mealPicturebox";
-            mealPicturebox.Size = new Size(148, 90);
-            mealPicturebox.SizeMode = PictureBoxSizeMode.StretchImage;
+            mealPicturebox.Size = new Size(148, 101);
+            mealPicturebox.SizeMode = PictureBoxSizeMode.CenterImage;
             mealPicturebox.TabIndex = 0;
             mealPicturebox.TabStop = false;
             // 
             // mealName
             // 
             mealName.AutoSize = true;
-            mealName.Location = new Point(14, 93);
+            mealName.ForeColor = Color.Black;
+            mealName.Location = new Point(14, 108);
             mealName.Name = "mealName";
             mealName.Size = new Size(38, 15);
             mealName.TabIndex = 0;
@@ -57,7 +56,8 @@
             // mealPrice
             // 
             mealPrice.AutoSize = true;
-            mealPrice.Location = new Point(14, 117);
+            mealPrice.ForeColor = Color.Black;
+            mealPrice.Location = new Point(14, 134);
             mealPrice.Name = "mealPrice";
             mealPrice.Size = new Size(38, 15);
             mealPrice.TabIndex = 1;
@@ -67,14 +67,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(0, 107, 117);
-            BorderStyle = BorderStyle.FixedSingle;
+            BackColor = Color.White;
+            BorderStyle = BorderStyle.Fixed3D;
             Controls.Add(mealPrice);
             Controls.Add(mealName);
             Controls.Add(mealPicturebox);
             ForeColor = SystemColors.ControlLightLight;
             Name = "itemMeal";
-            Size = new Size(146, 139);
+            Size = new Size(144, 155);
             MouseEnter += itemMeal_MouseEnter;
             MouseLeave += itemMeal_MouseLeave;
             ((System.ComponentModel.ISupportInitialize)mealPicturebox).EndInit();

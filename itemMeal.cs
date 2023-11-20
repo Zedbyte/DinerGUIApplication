@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +16,7 @@ namespace DinerGUIApplication
     public partial class itemMeal : UserControl
     {
         int index;
+        PrivateFontCollection pfc4 = new PrivateFontCollection();
 
         public itemMeal()
         {
@@ -32,6 +35,10 @@ namespace DinerGUIApplication
 
             this.index = index;
         }
+
+        
+       
+
 
         public string getMealName()
         {
@@ -55,12 +62,12 @@ namespace DinerGUIApplication
 
         private void itemMeal_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(0, 186, 204);
+            this.BackColor = Color.FromArgb(255, 255, 235);
         }
 
         private void itemMeal_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(0, 107, 117);
+            this.BackColor = Color.FromArgb(255, 255, 255);
         }
     }
 }

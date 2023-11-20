@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
@@ -12,6 +13,9 @@ namespace DinerGUIApplication
     public partial class mainForm : Form
     {
         PrivateFontCollection pfc = new PrivateFontCollection();
+        PrivateFontCollection pfc1 = new PrivateFontCollection();
+        PrivateFontCollection pfc2 = new PrivateFontCollection();
+        PrivateFontCollection pfc3 = new PrivateFontCollection();
 
         List<itemMeal> meals = new List<itemMeal>();
         List<orderedMeal> orderedMeal = new List<orderedMeal>();
@@ -19,8 +23,10 @@ namespace DinerGUIApplication
         {
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro1.jpg",
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro2.jpg",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\ham.png"
+            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\hamncheese100.png"
         };
+
+        string foodGif = "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\foodings.gif";
 
         int index;
         string orderName;
@@ -41,8 +47,23 @@ namespace DinerGUIApplication
             InitializeMeals();
             InitializeReceipt();
             InitializeCustomFont_Receipt(txtBxReceipt);
+            InitializeCustomFont_Label(lblDinerName, 43f);
+            changeFoodDetailButtonFont();
+            changeFoodDetailPanelLabelFont();
+            changeCurrentOrderTotalPanelLabels();
             displayItemMeals();
             mealsListener();
+        }
+
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
         }
 
         [DllImport("gdi32.dll")]
@@ -70,6 +91,112 @@ namespace DinerGUIApplication
 
             txtBx.Font = new Font(pfc.Families[0], (float)8f);
 
+        }
+
+        public void InitializeCustomFont_Label(Label label, float size)
+        {
+
+            int fontLength = Properties.Resources.Franchise.Length;
+
+            // create a buffer to read in to
+            byte[] fontdata = Properties.Resources.Franchise;
+
+            // create an unsafe memory block for the font data
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            uint cFonts = 0;
+            AddFontMemResourceEx(data, (uint)fontLength, IntPtr.Zero, ref cFonts);
+
+            // pass the font to the font collection
+            pfc1.AddMemoryFont(data, fontLength);
+
+            label.Font = new Font(pfc1.Families[0], (float)size);
+
+        }
+
+        public void InitializeCustomFont_Cartoony(Label label, float size)
+        {
+
+            int fontLength = Properties.Resources.jellee_roman.Length;
+
+            // create a buffer to read in to
+            byte[] fontdata = Properties.Resources.jellee_roman;
+
+            // create an unsafe memory block for the font data
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            uint cFonts = 0;
+            AddFontMemResourceEx(data, (uint)fontLength, IntPtr.Zero, ref cFonts);
+
+            // pass the font to the font collection
+            pfc2.AddMemoryFont(data, fontLength);
+
+            label.Font = new Font(pfc2.Families[0], (float)size);
+
+        }
+
+        public void InitializeCustomFont_CartoonyButtons(Button btn, float size)
+        {
+
+            int fontLength = Properties.Resources.jellee_roman.Length;
+
+            // create a buffer to read in to
+            byte[] fontdata = Properties.Resources.jellee_roman;
+
+            // create an unsafe memory block for the font data
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            uint cFonts = 0;
+            AddFontMemResourceEx(data, (uint)fontLength, IntPtr.Zero, ref cFonts);
+
+            // pass the font to the font collection
+            pfc3.AddMemoryFont(data, fontLength);
+
+            btn.Font = new Font(pfc3.Families[0], (float)size);
+
+        }
+
+        public void changeFoodDetailPanelLabelFont()
+        {
+            foreach (Control ctl in foodDetailPanel.Controls)
+            {
+                if (ctl is Label)
+                {
+                    InitializeCustomFont_Cartoony((Label)ctl, 12f);
+                }
+            }
+        }
+
+        public void changeFoodDetailButtonFont()
+        {
+            foreach (Control ctl in foodDetailPanel.Controls)
+            {
+                if (ctl is Button)
+                {
+                    InitializeCustomFont_CartoonyButtons((Button)ctl, 12f);
+                }
+            }
+        }
+
+        public void changeCurrentOrderTotalPanelLabels()
+        {
+            foreach (Control ctl in currentOrderTotalPanel.Controls)
+            {
+                if (ctl is Label)
+                {
+                    InitializeCustomFont_Cartoony((Label)ctl, 12f);
+
+                }
+            }
         }
 
 
@@ -188,7 +315,7 @@ namespace DinerGUIApplication
             total = 0;
             index = 0;
 
-            mealPictureDetail.Image = null;
+            mealPictureDetail.Image = Image.FromFile(foodGif);
 
             if (addedSuccessfully)
             {
@@ -413,6 +540,15 @@ namespace DinerGUIApplication
         private void printDocumentReceipt_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawString(txtBxReceipt.Text, new Font(pfc.Families[0], (float)30f), Brushes.Black, new Point(10, 10));
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit.", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }
