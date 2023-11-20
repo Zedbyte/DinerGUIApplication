@@ -12,9 +12,13 @@ namespace DinerGUIApplication
 {
     public partial class paymentForm : Form
     {
-        public paymentForm()
+        double totalToPay;
+        RichTextBox txtbxReceipt;
+        public paymentForm(double totalToPay, RichTextBox txtbxReceipt)
         {
             InitializeComponent();
+            this.totalToPay = totalToPay;
+            this.txtbxReceipt = txtbxReceipt;
 
             // Attach event handlers to the radio buttons
             rdButtonMasterCard.CheckedChanged += RadioButton_CheckedChanged;
@@ -211,6 +215,7 @@ namespace DinerGUIApplication
                     txtBoxCode1.Text == "0" ||
                     txtBoxCode2.Text == "0" ||
                     txtBoxCode3.Text == "0")
+               
                 {
                     // Show a warning message
                     MessageBox.Show("You need to fill-up all necessary information to proceed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -219,15 +224,18 @@ namespace DinerGUIApplication
             }
             else if (rdButtonMore.Checked)
             {
-                morePaymentMethod morePaymentMethod = new morePaymentMethod();
+                morePaymentMethod morePaymentMethod = new morePaymentMethod(totalToPay, txtbxReceipt);
                 morePaymentMethod.Show();
                 this.Close();
+                return;
             }
 
             // If rdButtonCash is selected or all required textboxes are filled, proceed to the next form
             /*            this.Visible = false;
                         SampleForm sampleForm = new SampleForm();
                         sampleForm.Show();*/
+            MessageBox.Show("Payment successful!");
+            this.Close();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            richTextBox1 = new RichTextBox();
+            txtBxReceipt = new RichTextBox();
             panel1 = new Panel();
             label1 = new Label();
             calculatorPanel = new TableLayoutPanel();
@@ -46,6 +46,7 @@
             btn8 = new Button();
             btnPrintReceipt = new Button();
             panel2 = new Panel();
+            txtBxCalculator = new Label();
             lblTotalToPay = new Label();
             LBLTOPAYLBLONLY = new Label();
             panel3 = new Panel();
@@ -59,7 +60,6 @@
             panel4 = new Panel();
             panel5 = new Panel();
             label4 = new Label();
-            txtBxCalculator = new Label();
             panel1.SuspendLayout();
             calculatorPanel.SuspendLayout();
             panel2.SuspendLayout();
@@ -68,29 +68,30 @@
             panel5.SuspendLayout();
             SuspendLayout();
             // 
-            // richTextBox1
+            // txtBxReceipt
             // 
-            richTextBox1.BorderStyle = BorderStyle.None;
-            richTextBox1.Location = new Point(393, 90);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(294, 451);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
+            txtBxReceipt.BorderStyle = BorderStyle.None;
+            txtBxReceipt.Location = new Point(381, 90);
+            txtBxReceipt.Name = "txtBxReceipt";
+            txtBxReceipt.ReadOnly = true;
+            txtBxReceipt.Size = new Size(305, 451);
+            txtBxReceipt.TabIndex = 0;
+            txtBxReceipt.Text = "";
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 192, 128);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(393, 32);
+            panel1.Location = new Point(381, 32);
             panel1.Name = "panel1";
-            panel1.Size = new Size(294, 58);
+            panel1.Size = new Size(305, 58);
             panel1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(13, 13);
+            label1.Location = new Point(1, 13);
             label1.Name = "label1";
             label1.Size = new Size(93, 32);
             label1.TabIndex = 0;
@@ -303,6 +304,7 @@
             btnPrintReceipt.TabIndex = 3;
             btnPrintReceipt.Text = "Print Receipt";
             btnPrintReceipt.UseVisualStyleBackColor = false;
+            btnPrintReceipt.Click += btnPrintReceipt_Click;
             // 
             // panel2
             // 
@@ -317,15 +319,26 @@
             panel2.Size = new Size(309, 451);
             panel2.TabIndex = 4;
             // 
+            // txtBxCalculator
+            // 
+            txtBxCalculator.BackColor = Color.White;
+            txtBxCalculator.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxCalculator.Location = new Point(36, 85);
+            txtBxCalculator.Name = "txtBxCalculator";
+            txtBxCalculator.Size = new Size(235, 44);
+            txtBxCalculator.TabIndex = 7;
+            txtBxCalculator.Text = "0";
+            txtBxCalculator.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // lblTotalToPay
             // 
-            lblTotalToPay.AutoSize = true;
             lblTotalToPay.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalToPay.Location = new Point(251, 41);
+            lblTotalToPay.Location = new Point(115, 41);
             lblTotalToPay.Name = "lblTotalToPay";
-            lblTotalToPay.Size = new Size(23, 25);
+            lblTotalToPay.Size = new Size(159, 25);
             lblTotalToPay.TabIndex = 6;
             lblTotalToPay.Text = "0";
+            lblTotalToPay.TextAlign = ContentAlignment.MiddleRight;
             // 
             // LBLTOPAYLBLONLY
             // 
@@ -431,9 +444,9 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(255, 224, 192);
-            panel4.Location = new Point(380, 23);
+            panel4.Location = new Point(368, 23);
             panel4.Name = "panel4";
-            panel4.Size = new Size(319, 532);
+            panel4.Size = new Size(331, 532);
             panel4.TabIndex = 5;
             // 
             // panel5
@@ -456,17 +469,6 @@
             label4.TabIndex = 0;
             label4.Text = "Payment";
             // 
-            // txtBxCalculator
-            // 
-            txtBxCalculator.BackColor = Color.White;
-            txtBxCalculator.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            txtBxCalculator.Location = new Point(36, 85);
-            txtBxCalculator.Name = "txtBxCalculator";
-            txtBxCalculator.Size = new Size(235, 44);
-            txtBxCalculator.TabIndex = 7;
-            txtBxCalculator.Text = "0";
-            txtBxCalculator.TextAlign = ContentAlignment.MiddleRight;
-            // 
             // cashForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -474,7 +476,7 @@
             ClientSize = new Size(722, 585);
             Controls.Add(panel5);
             Controls.Add(panel1);
-            Controls.Add(richTextBox1);
+            Controls.Add(txtBxReceipt);
             Controls.Add(panel2);
             Controls.Add(panel4);
             Name = "cashForm";
@@ -495,7 +497,7 @@
 
         #endregion
 
-        private RichTextBox richTextBox1;
+        private RichTextBox txtBxReceipt;
         private Panel panel1;
         private Label label1;
         private TableLayoutPanel calculatorPanel;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             parentPanel = new Panel();
             orderParentPanel = new Panel();
             lblTotalWDiscount = new Label();
@@ -73,6 +74,8 @@
             printReceipt = new PrintDialog();
             btnFood = new Button();
             btnDrinks = new Button();
+            printPreviewDialogReceipt = new PrintPreviewDialog();
+            printDocumentReceipt = new System.Drawing.Printing.PrintDocument();
             parentPanel.SuspendLayout();
             orderParentPanel.SuspendLayout();
             panel4.SuspendLayout();
@@ -151,9 +154,9 @@
             // 
             panel4.BackColor = Color.FromArgb(253, 151, 103);
             panel4.Controls.Add(btnPlaceOrder);
-            panel4.Location = new Point(1, 500);
+            panel4.Location = new Point(0, 500);
             panel4.Name = "panel4";
-            panel4.Size = new Size(331, 66);
+            panel4.Size = new Size(332, 66);
             panel4.TabIndex = 6;
             // 
             // btnPlaceOrder
@@ -299,14 +302,14 @@
             // orderToolStripMenuItem
             // 
             orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            orderToolStripMenuItem.Size = new Size(165, 26);
+            orderToolStripMenuItem.Size = new Size(180, 26);
             orderToolStripMenuItem.Text = "Print";
             orderToolStripMenuItem.Click += orderToolStripMenuItem_Click;
             // 
             // placeOrderToolStripMenuItem
             // 
             placeOrderToolStripMenuItem.Name = "placeOrderToolStripMenuItem";
-            placeOrderToolStripMenuItem.Size = new Size(165, 26);
+            placeOrderToolStripMenuItem.Size = new Size(180, 26);
             placeOrderToolStripMenuItem.Text = "Place Order";
             // 
             // aboutToolStripMenuItem
@@ -545,6 +548,20 @@
             btnDrinks.UseVisualStyleBackColor = true;
             btnDrinks.Click += btnDrinks_Click;
             // 
+            // printPreviewDialogReceipt
+            // 
+            printPreviewDialogReceipt.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialogReceipt.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialogReceipt.ClientSize = new Size(400, 300);
+            printPreviewDialogReceipt.Enabled = true;
+            printPreviewDialogReceipt.Icon = (Icon)resources.GetObject("printPreviewDialogReceipt.Icon");
+            printPreviewDialogReceipt.Name = "printPreviewDialogReceipt";
+            printPreviewDialogReceipt.Visible = false;
+            // 
+            // printDocumentReceipt
+            // 
+            printDocumentReceipt.PrintPage += printDocumentReceipt_PrintPage;
+            // 
             // mainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -630,5 +647,7 @@
         private PrintDialog printReceipt;
         private Button btnFood;
         private Button btnDrinks;
+        private PrintPreviewDialog printPreviewDialogReceipt;
+        private System.Drawing.Printing.PrintDocument printDocumentReceipt;
     }
 }

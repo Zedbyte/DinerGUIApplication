@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
 
 namespace DinerGUIApplication
@@ -17,7 +19,7 @@ namespace DinerGUIApplication
         {
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro1.jpg",
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro2.jpg",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro3.jpg"
+            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\chicken_salad.png"
         };
 
         int index;
@@ -272,7 +274,6 @@ namespace DinerGUIApplication
             removeExistingMeal();
 
             orderedMeal.Add(new orderedMeal(existingMealIndex, existingMealName, newTotal, newQuantity, existingMeal.getMealPrice(), specialRequest, this));
-
         }
 
         private orderedMeal getExistingMeal()
@@ -376,9 +377,8 @@ namespace DinerGUIApplication
 
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrintDialog printDialog = new PrintDialog();
-
-            printDialog.ShowDialog();
+            printPreviewDialogReceipt.Document = printDocumentReceipt;
+            printPreviewDialogReceipt.ShowDialog();
         }
 
         private void btnFood_Click(object sender, EventArgs e)
@@ -399,15 +399,20 @@ namespace DinerGUIApplication
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            if (orderedMeal.Count  > 0)
+            if (orderedMeal.Count > 0)
             {
-                paymentForm paymentForm = new paymentForm();
+                paymentForm paymentForm = new paymentForm(totalToPay, txtBxReceipt);
                 paymentForm.Show();
             }
             else
             {
                 MessageBox.Show("You currently have no orders.");
             }
+        }
+
+        private void printDocumentReceipt_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(txtBxReceipt.Text, new Font(pfc.Families[0], (float)30f), Brushes.Black, new Point(10, 10));
         }
     }
 }

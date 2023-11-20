@@ -12,9 +12,13 @@ namespace DinerGUIApplication
 {
     public partial class morePaymentMethod : Form
     {
-        public morePaymentMethod()
+        double totalToPay;
+        RichTextBox txtbxReceipt;
+        public morePaymentMethod(double totalToPay, RichTextBox txtbxReceipt)
         {
             InitializeComponent();
+            this.totalToPay = totalToPay;
+            this.txtbxReceipt = txtbxReceipt;
         }
 
         private void btnGcash_Click(object sender, EventArgs e)
@@ -26,7 +30,7 @@ namespace DinerGUIApplication
 
         private void btnCash_Click(object sender, EventArgs e)
         {
-            cashForm cashForm = new cashForm();
+            cashForm cashForm = new cashForm(totalToPay, txtbxReceipt);
             cashForm.Show();
             this.Close();
         }
