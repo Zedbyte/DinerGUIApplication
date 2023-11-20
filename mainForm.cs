@@ -345,7 +345,10 @@ namespace DinerGUIApplication
                 "\n     " + date +
                 "\n              Receipt No. " + RandomNumberGenerator.GetInt32(100000) +
                 "\n===========================================");
+            string formattedString = String.Format("\n{0,-16} {1,-10} {2,-10}", "     " + "Meal Name", "Quantity", "Total Price");
+            heading.Append(formattedString);
 
+            heading.Append("\n-------------------------------------------");
 
             txtBxReceipt.Text = heading.ToString();
         }
@@ -392,6 +395,19 @@ namespace DinerGUIApplication
             InitializeDrinks();
             displayItemMeals();
             mealsListener();
+        }
+
+        private void btnPlaceOrder_Click(object sender, EventArgs e)
+        {
+            if (orderedMeal.Count  > 0)
+            {
+                paymentForm paymentForm = new paymentForm();
+                paymentForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("You currently have no orders.");
+            }
         }
     }
 }

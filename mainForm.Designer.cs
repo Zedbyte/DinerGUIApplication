@@ -167,6 +167,7 @@
             btnPlaceOrder.TabIndex = 0;
             btnPlaceOrder.Text = "Place Order";
             btnPlaceOrder.UseVisualStyleBackColor = false;
+            btnPlaceOrder.Click += btnPlaceOrder_Click;
             // 
             // totalWDiscountLABELONLY
             // 
