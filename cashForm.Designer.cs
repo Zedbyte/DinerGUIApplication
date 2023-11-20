@@ -70,6 +70,7 @@
             // 
             // txtBxReceipt
             // 
+            txtBxReceipt.BackColor = Color.White;
             txtBxReceipt.BorderStyle = BorderStyle.None;
             txtBxReceipt.Location = new Point(381, 90);
             txtBxReceipt.Name = "txtBxReceipt";

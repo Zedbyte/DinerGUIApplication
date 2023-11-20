@@ -20,6 +20,7 @@ namespace DinerGUIApplication
         double total;
         double customerPayment;
         RichTextBox txtbxReceipt;
+        StringBuilder heading = new StringBuilder();
 
 
         public cashForm(double totalToPay, RichTextBox txtbxReceipt)
@@ -90,7 +91,6 @@ namespace DinerGUIApplication
             /* DateTime currentDateTime = DateTime.Now;
              string date = currentDateTime.ToString("dddd, dd MMMM yyyy hh:mm tt");*/
 
-            StringBuilder heading = new StringBuilder();
             /*heading.Append("\n" +
                 "              Diner by the Valley" +
                 "\n          Angeles University Corp." +
@@ -103,7 +103,7 @@ namespace DinerGUIApplication
             string queueNumber = String.Format("\n{0,-20} {1,-20}", "     " + "Queue Number        ", RandomNumberGenerator.GetInt32(100));
             string orderNumber = String.Format("\n{0,-20} {1,-20}", "     " + "Order Number        ", RandomNumberGenerator.GetInt32(100));
 
-            heading.Append("\n\n\n\n\n\n\n\n-------------------------------------------");
+            heading.Append("\n\n\n\n\n\n\n\n\n\n\n\n-------------------------------------------");
 
             heading.Append(queueNumber);
             heading.Append(orderNumber);
@@ -121,7 +121,27 @@ namespace DinerGUIApplication
 
         private void btnPrintReceipt_Click(object sender, EventArgs e)
         {
+            if (txtBxCalculator.Text != "0")
+            {
+                double payment = Convert.ToDouble(txtBxCalculator.Text);
 
+                if (payment >= total)
+                {
+                    double change = payment - total;
+                    heading.Append("\n-------------------------------------------");
+                    string moneyPaid = String.Format("\n\n{0,-20} {1,-20}", "     " + "Payment:          ", "P " + payment);
+                    string changeOwed = String.Format("\n\n{0,-20} {1,-20}", "     " + "Change Owed       ",  "P "+ change);
+                    heading.Append(moneyPaid);
+                    heading.Append(changeOwed);
+
+                    txtBxCalculator.Text = "0";
+                    txtBxReceipt.Text = heading.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Insufficient Payment. Please pay the right amount.");
+                }
+            }
         }
     }
 }

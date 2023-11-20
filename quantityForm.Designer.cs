@@ -125,6 +125,7 @@
             Controls.Add(lblQuantity);
             Controls.Add(txtBxSpecialReq);
             Controls.Add(quantityUpDown);
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "quantityForm";
