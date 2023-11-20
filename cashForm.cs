@@ -136,12 +136,31 @@ namespace DinerGUIApplication
 
                     txtBxCalculator.Text = "0";
                     txtBxReceipt.Text = heading.ToString();
+
+                    printPreviewReceipt.Document = printDocumentReceipt;
+                    printPreviewReceipt.ShowDialog();
                 }
                 else
                 {
                     MessageBox.Show("Insufficient Payment. Please pay the right amount.");
                 }
             }
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printPreviewReceipt.Document = printDocumentReceipt;
+            printPreviewReceipt.ShowDialog();
+        }
+
+        private void printPreviewReceipt_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocumentReceipt_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(txtBxReceipt.Text, new Font(pfc.Families[0], (float)30f), Brushes.Black, new Point(10, 10));
         }
     }
 }

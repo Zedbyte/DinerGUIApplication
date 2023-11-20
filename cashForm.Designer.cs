@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cashForm));
             txtBxReceipt = new RichTextBox();
             panel1 = new Panel();
             label1 = new Label();
@@ -58,20 +59,22 @@
             button2 = new Button();
             button3 = new Button();
             panel4 = new Panel();
+            panel6 = new Panel();
+            receiptStrip = new MenuStrip();
+            printToolStripMenuItem = new ToolStripMenuItem();
             panel5 = new Panel();
             label4 = new Label();
-            panel6 = new Panel();
-            printToolStripMenuItem = new ToolStripMenuItem();
-            receiptStrip = new MenuStrip();
+            printPreviewReceipt = new PrintPreviewDialog();
+            printDocumentReceipt = new System.Drawing.Printing.PrintDocument();
             panel1.SuspendLayout();
             calculatorPanel.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel4.SuspendLayout();
-            panel5.SuspendLayout();
             panel6.SuspendLayout();
             receiptStrip.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // txtBxReceipt
@@ -457,6 +460,32 @@
             panel4.Size = new Size(331, 532);
             panel4.TabIndex = 5;
             // 
+            // panel6
+            // 
+            panel6.BackColor = Color.White;
+            panel6.Controls.Add(receiptStrip);
+            panel6.Location = new Point(13, 67);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(305, 30);
+            panel6.TabIndex = 0;
+            // 
+            // receiptStrip
+            // 
+            receiptStrip.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            receiptStrip.Items.AddRange(new ToolStripItem[] { printToolStripMenuItem });
+            receiptStrip.Location = new Point(0, 0);
+            receiptStrip.Name = "receiptStrip";
+            receiptStrip.Size = new Size(305, 29);
+            receiptStrip.TabIndex = 0;
+            receiptStrip.Text = "menu";
+            // 
+            // printToolStripMenuItem
+            // 
+            printToolStripMenuItem.Name = "printToolStripMenuItem";
+            printToolStripMenuItem.Size = new Size(56, 25);
+            printToolStripMenuItem.Text = "Print";
+            printToolStripMenuItem.Click += printToolStripMenuItem_Click;
+            // 
             // panel5
             // 
             panel5.BackColor = Color.Gray;
@@ -477,30 +506,20 @@
             label4.TabIndex = 0;
             label4.Text = "Payment";
             // 
-            // panel6
+            // printPreviewReceipt
             // 
-            panel6.BackColor = Color.White;
-            panel6.Controls.Add(receiptStrip);
-            panel6.Location = new Point(13, 67);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(305, 30);
-            panel6.TabIndex = 0;
+            printPreviewReceipt.AutoScrollMargin = new Size(0, 0);
+            printPreviewReceipt.AutoScrollMinSize = new Size(0, 0);
+            printPreviewReceipt.ClientSize = new Size(400, 300);
+            printPreviewReceipt.Enabled = true;
+            printPreviewReceipt.Icon = (Icon)resources.GetObject("printPreviewReceipt.Icon");
+            printPreviewReceipt.Name = "printPreviewReceipt";
+            printPreviewReceipt.Visible = false;
+            printPreviewReceipt.Load += printPreviewReceipt_Load;
             // 
-            // printToolStripMenuItem
+            // printDocumentReceipt
             // 
-            printToolStripMenuItem.Name = "printToolStripMenuItem";
-            printToolStripMenuItem.Size = new Size(56, 25);
-            printToolStripMenuItem.Text = "Print";
-            // 
-            // receiptStrip
-            // 
-            receiptStrip.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            receiptStrip.Items.AddRange(new ToolStripItem[] { printToolStripMenuItem });
-            receiptStrip.Location = new Point(0, 0);
-            receiptStrip.Name = "receiptStrip";
-            receiptStrip.Size = new Size(305, 29);
-            receiptStrip.TabIndex = 0;
-            receiptStrip.Text = "menu";
+            printDocumentReceipt.PrintPage += printDocumentReceipt_PrintPage;
             // 
             // cashForm
             // 
@@ -524,12 +543,12 @@
             panel3.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             panel4.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             receiptStrip.ResumeLayout(false);
             receiptStrip.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -570,5 +589,7 @@
         private Panel panel6;
         private MenuStrip receiptStrip;
         private ToolStripMenuItem printToolStripMenuItem;
+        private PrintPreviewDialog printPreviewReceipt;
+        private System.Drawing.Printing.PrintDocument printDocumentReceipt;
     }
 }
