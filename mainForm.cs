@@ -19,7 +19,7 @@ namespace DinerGUIApplication
         {
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro1.jpg",
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro2.jpg",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro3.jpg"
+            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\ham.png"
         };
 
         int index;

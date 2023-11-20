@@ -103,7 +103,7 @@ namespace DinerGUIApplication
             string queueNumber = String.Format("\n{0,-20} {1,-20}", "     " + "Queue Number        ", RandomNumberGenerator.GetInt32(100));
             string orderNumber = String.Format("\n{0,-20} {1,-20}", "     " + "Order Number        ", RandomNumberGenerator.GetInt32(100));
 
-            heading.Append("\n\n\n\n\n\n\n\n\n\n\n\n-------------------------------------------");
+            heading.Append("\n\n\n\n\n\n\n-------------------------------------------");
 
             heading.Append(queueNumber);
             heading.Append(orderNumber);
@@ -130,7 +130,7 @@ namespace DinerGUIApplication
                     double change = payment - total;
                     heading.Append("\n-------------------------------------------");
                     string moneyPaid = String.Format("\n\n{0,-20} {1,-20}", "     " + "Payment:          ", "P " + payment);
-                    string changeOwed = String.Format("\n\n{0,-20} {1,-20}", "     " + "Change Owed       ",  "P "+ change);
+                    string changeOwed = String.Format("\n\n{0,-20} {1,-20}", "     " + "Change Owed       ", "P " + change);
                     heading.Append(moneyPaid);
                     heading.Append(changeOwed);
 
