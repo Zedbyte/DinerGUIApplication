@@ -67,7 +67,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(108, 124, 103);
             BorderStyle = BorderStyle.Fixed3D;
             Controls.Add(mealPrice);
             Controls.Add(mealName);

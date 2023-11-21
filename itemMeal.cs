@@ -36,8 +36,8 @@ namespace DinerGUIApplication
             this.index = index;
         }
 
-        
-       
+
+
 
 
         public string getMealName()

@@ -58,7 +58,7 @@ namespace DinerGUIApplication
             displayItemMeals();
             mealsListener();
 
-          
+
         }
 
         private const int CP_NOCLOSE_BUTTON = 0x200;

@@ -37,7 +37,8 @@
             // 
             // orderedMealQuantity
             // 
-            orderedMealQuantity.BackColor = Color.FromArgb(238, 232, 213);
+            orderedMealQuantity.BackColor = Color.FromArgb(108, 124, 103);
+            orderedMealQuantity.ForeColor = Color.White;
             orderedMealQuantity.Location = new Point(4, 3);
             orderedMealQuantity.Name = "orderedMealQuantity";
             orderedMealQuantity.Size = new Size(61, 58);
@@ -72,9 +73,9 @@
             btnRemoveOrder.IconColor = Color.White;
             btnRemoveOrder.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRemoveOrder.IconSize = 25;
-            btnRemoveOrder.Location = new Point(222, 25);
+            btnRemoveOrder.Location = new Point(222, 24);
             btnRemoveOrder.Name = "btnRemoveOrder";
-            btnRemoveOrder.Size = new Size(48, 16);
+            btnRemoveOrder.Size = new Size(48, 18);
             btnRemoveOrder.TabIndex = 3;
             btnRemoveOrder.UseVisualStyleBackColor = false;
             btnRemoveOrder.Click += btnRemoveOrder_Click;
@@ -91,7 +92,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(236, 154, 41);
+            BackColor = Color.FromArgb(255, 250, 245);
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(lblSpecialReq);
             Controls.Add(btnRemoveOrder);

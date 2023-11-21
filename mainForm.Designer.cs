@@ -32,6 +32,13 @@
             parentPanel = new Panel();
             orderParentPanel = new Panel();
             panel3 = new Panel();
+            currentOrderTotalPanel = new Panel();
+            lblTotalNoDiscount = new Label();
+            lblDiscountApplied = new Label();
+            lblTotalWDiscount = new Label();
+            discountLABELONLY = new Label();
+            totalNoDiscLABELONLY = new Label();
+            totalWDiscountLABELONLY = new Label();
             panel4 = new Panel();
             btnPlaceOrder = new Button();
             panel1 = new Panel();
@@ -64,6 +71,7 @@
             lblMealPrice = new Label();
             lblMealName = new Label();
             mealPictureDetail = new PictureBox();
+            panel6 = new Panel();
             btnFood = new Button();
             btnDrinks = new Button();
             lblDinerName = new Label();
@@ -71,15 +79,9 @@
             printPreviewDialogReceipt = new PrintPreviewDialog();
             printDocumentReceipt = new System.Drawing.Printing.PrintDocument();
             btnExits = new FontAwesome.Sharp.IconButton();
-            totalWDiscountLABELONLY = new Label();
-            totalNoDiscLABELONLY = new Label();
-            discountLABELONLY = new Label();
-            lblTotalWDiscount = new Label();
-            lblDiscountApplied = new Label();
-            lblTotalNoDiscount = new Label();
-            currentOrderTotalPanel = new Panel();
             parentPanel.SuspendLayout();
             orderParentPanel.SuspendLayout();
+            currentOrderTotalPanel.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
             orderPanelTitle.SuspendLayout();
@@ -90,30 +92,30 @@
             foodParentPanel.SuspendLayout();
             foodDetailPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mealPictureDetail).BeginInit();
-            currentOrderTotalPanel.SuspendLayout();
             SuspendLayout();
             // 
             // parentPanel
             // 
-            parentPanel.BackColor = Color.FromArgb(192, 255, 255);
+            parentPanel.BackColor = Color.FromArgb(236, 236, 236);
             parentPanel.Controls.Add(orderParentPanel);
             parentPanel.Controls.Add(receiptParentPanel);
             parentPanel.Controls.Add(foodParentPanel);
-            parentPanel.Location = new Point(123, 103);
+            parentPanel.Controls.Add(panel6);
+            parentPanel.Location = new Point(98, 92);
             parentPanel.Name = "parentPanel";
-            parentPanel.Size = new Size(1225, 596);
+            parentPanel.Size = new Size(1248, 622);
             parentPanel.TabIndex = 0;
             // 
             // orderParentPanel
             // 
-            orderParentPanel.BackColor = Color.WhiteSmoke;
+            orderParentPanel.BackColor = Color.FromArgb(255, 250, 245);
             orderParentPanel.Controls.Add(panel3);
             orderParentPanel.Controls.Add(currentOrderTotalPanel);
             orderParentPanel.Controls.Add(panel4);
             orderParentPanel.Controls.Add(panel1);
             orderParentPanel.Controls.Add(orderedMealsRecordTablePanel);
             orderParentPanel.Controls.Add(orderPanelTitle);
-            orderParentPanel.Location = new Point(541, 14);
+            orderParentPanel.Location = new Point(552, 30);
             orderParentPanel.Name = "orderParentPanel";
             orderParentPanel.Size = new Size(332, 566);
             orderParentPanel.TabIndex = 2;
@@ -126,22 +128,93 @@
             panel3.Size = new Size(330, 2);
             panel3.TabIndex = 3;
             // 
+            // currentOrderTotalPanel
+            // 
+            currentOrderTotalPanel.Controls.Add(lblTotalNoDiscount);
+            currentOrderTotalPanel.Controls.Add(lblDiscountApplied);
+            currentOrderTotalPanel.Controls.Add(lblTotalWDiscount);
+            currentOrderTotalPanel.Controls.Add(discountLABELONLY);
+            currentOrderTotalPanel.Controls.Add(totalNoDiscLABELONLY);
+            currentOrderTotalPanel.Controls.Add(totalWDiscountLABELONLY);
+            currentOrderTotalPanel.Location = new Point(0, 382);
+            currentOrderTotalPanel.Name = "currentOrderTotalPanel";
+            currentOrderTotalPanel.Size = new Size(332, 112);
+            currentOrderTotalPanel.TabIndex = 10;
+            // 
+            // lblTotalNoDiscount
+            // 
+            lblTotalNoDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotalNoDiscount.Location = new Point(197, 5);
+            lblTotalNoDiscount.Name = "lblTotalNoDiscount";
+            lblTotalNoDiscount.Size = new Size(95, 21);
+            lblTotalNoDiscount.TabIndex = 7;
+            lblTotalNoDiscount.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // lblDiscountApplied
+            // 
+            lblDiscountApplied.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDiscountApplied.Location = new Point(197, 33);
+            lblDiscountApplied.Name = "lblDiscountApplied";
+            lblDiscountApplied.Size = new Size(95, 21);
+            lblDiscountApplied.TabIndex = 8;
+            lblDiscountApplied.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // lblTotalWDiscount
+            // 
+            lblTotalWDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotalWDiscount.Location = new Point(197, 81);
+            lblTotalWDiscount.Name = "lblTotalWDiscount";
+            lblTotalWDiscount.Size = new Size(95, 21);
+            lblTotalWDiscount.TabIndex = 9;
+            lblTotalWDiscount.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // discountLABELONLY
+            // 
+            discountLABELONLY.AutoSize = true;
+            discountLABELONLY.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            discountLABELONLY.Location = new Point(15, 33);
+            discountLABELONLY.Name = "discountLABELONLY";
+            discountLABELONLY.Size = new Size(128, 21);
+            discountLABELONLY.TabIndex = 4;
+            discountLABELONLY.Text = "Discount Applied";
+            // 
+            // totalNoDiscLABELONLY
+            // 
+            totalNoDiscLABELONLY.AutoSize = true;
+            totalNoDiscLABELONLY.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            totalNoDiscLABELONLY.Location = new Point(15, 5);
+            totalNoDiscLABELONLY.Name = "totalNoDiscLABELONLY";
+            totalNoDiscLABELONLY.Size = new Size(42, 21);
+            totalNoDiscLABELONLY.TabIndex = 3;
+            totalNoDiscLABELONLY.Text = "Total";
+            // 
+            // totalWDiscountLABELONLY
+            // 
+            totalWDiscountLABELONLY.AutoSize = true;
+            totalWDiscountLABELONLY.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            totalWDiscountLABELONLY.ForeColor = Color.Green;
+            totalWDiscountLABELONLY.Location = new Point(15, 77);
+            totalWDiscountLABELONLY.Name = "totalWDiscountLABELONLY";
+            totalWDiscountLABELONLY.Size = new Size(52, 25);
+            totalWDiscountLABELONLY.TabIndex = 5;
+            totalWDiscountLABELONLY.Text = "Total";
+            // 
             // panel4
             // 
-            panel4.BackColor = Color.FromArgb(224, 224, 224);
+            panel4.BackColor = Color.FromArgb(108, 124, 103);
             panel4.Controls.Add(btnPlaceOrder);
-            panel4.Location = new Point(0, 500);
+            panel4.Location = new Point(9, 497);
             panel4.Name = "panel4";
-            panel4.Size = new Size(332, 66);
+            panel4.Size = new Size(315, 60);
             panel4.TabIndex = 6;
             // 
             // btnPlaceOrder
             // 
-            btnPlaceOrder.BackColor = Color.FromArgb(64, 64, 64);
+            btnPlaceOrder.BackColor = Color.White;
             btnPlaceOrder.FlatStyle = FlatStyle.Flat;
             btnPlaceOrder.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPlaceOrder.ForeColor = Color.White;
-            btnPlaceOrder.Location = new Point(57, 11);
+            btnPlaceOrder.ForeColor = Color.Black;
+            btnPlaceOrder.Location = new Point(53, 7);
             btnPlaceOrder.Name = "btnPlaceOrder";
             btnPlaceOrder.Size = new Size(212, 45);
             btnPlaceOrder.TabIndex = 0;
@@ -183,7 +256,7 @@
             // 
             // orderPanelTitle
             // 
-            orderPanelTitle.BackColor = Color.FromArgb(192, 255, 192);
+            orderPanelTitle.BackColor = Color.FromArgb(108, 124, 103);
             orderPanelTitle.Controls.Add(label3);
             orderPanelTitle.Location = new Point(15, 12);
             orderPanelTitle.Name = "orderPanelTitle";
@@ -194,6 +267,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(58, 10);
             label3.Name = "label3";
             label3.Size = new Size(187, 37);
@@ -202,11 +276,11 @@
             // 
             // receiptParentPanel
             // 
-            receiptParentPanel.BackColor = Color.WhiteSmoke;
+            receiptParentPanel.BackColor = Color.FromArgb(255, 250, 245);
             receiptParentPanel.Controls.Add(panel5);
             receiptParentPanel.Controls.Add(txtBxReceipt);
             receiptParentPanel.Controls.Add(receiptPanelTitle);
-            receiptParentPanel.Location = new Point(878, 14);
+            receiptParentPanel.Location = new Point(889, 30);
             receiptParentPanel.Name = "receiptParentPanel";
             receiptParentPanel.Size = new Size(332, 566);
             receiptParentPanel.TabIndex = 1;
@@ -217,23 +291,24 @@
             panel5.Controls.Add(menuStrip1);
             panel5.Location = new Point(14, 80);
             panel5.Name = "panel5";
-            panel5.Size = new Size(305, 34);
+            panel5.Size = new Size(307, 34);
             panel5.TabIndex = 3;
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = Color.FromArgb(192, 255, 192);
+            menuStrip1.BackColor = Color.FromArgb(108, 124, 103);
             menuStrip1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, aboutToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(305, 29);
+            menuStrip1.Size = new Size(307, 29);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { orderToolStripMenuItem, placeOrderToolStripMenuItem });
+            fileToolStripMenuItem.ForeColor = Color.White;
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(65, 25);
             fileToolStripMenuItem.Text = "Order";
@@ -253,6 +328,7 @@
             // 
             // aboutToolStripMenuItem
             // 
+            aboutToolStripMenuItem.ForeColor = Color.White;
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             aboutToolStripMenuItem.Size = new Size(68, 25);
             aboutToolStripMenuItem.Text = "About";
@@ -260,29 +336,29 @@
             // txtBxReceipt
             // 
             txtBxReceipt.BackColor = Color.White;
-            txtBxReceipt.BorderStyle = BorderStyle.None;
+            txtBxReceipt.BorderStyle = BorderStyle.FixedSingle;
             txtBxReceipt.Location = new Point(14, 113);
             txtBxReceipt.Name = "txtBxReceipt";
             txtBxReceipt.ReadOnly = true;
             txtBxReceipt.ScrollBars = RichTextBoxScrollBars.Vertical;
-            txtBxReceipt.Size = new Size(305, 438);
+            txtBxReceipt.Size = new Size(307, 438);
             txtBxReceipt.TabIndex = 2;
             txtBxReceipt.Text = "";
             // 
             // receiptPanelTitle
             // 
-            receiptPanelTitle.BackColor = Color.FromArgb(192, 255, 192);
+            receiptPanelTitle.BackColor = Color.FromArgb(221, 214, 203);
             receiptPanelTitle.Controls.Add(label4);
             receiptPanelTitle.Location = new Point(14, 12);
             receiptPanelTitle.Name = "receiptPanelTitle";
-            receiptPanelTitle.Size = new Size(305, 61);
+            receiptPanelTitle.Size = new Size(307, 61);
             receiptPanelTitle.TabIndex = 1;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(103, 8);
+            label4.Location = new Point(101, 10);
             label4.Name = "label4";
             label4.Size = new Size(107, 37);
             label4.TabIndex = 15;
@@ -290,11 +366,11 @@
             // 
             // foodParentPanel
             // 
-            foodParentPanel.BackColor = Color.WhiteSmoke;
+            foodParentPanel.BackColor = Color.FromArgb(255, 250, 245);
             foodParentPanel.Controls.Add(foodFlowLayoutPanel);
             foodParentPanel.Controls.Add(label1);
             foodParentPanel.Controls.Add(foodDetailPanel);
-            foodParentPanel.Location = new Point(16, 14);
+            foodParentPanel.Location = new Point(27, 30);
             foodParentPanel.Name = "foodParentPanel";
             foodParentPanel.Size = new Size(520, 566);
             foodParentPanel.TabIndex = 0;
@@ -302,7 +378,7 @@
             // foodFlowLayoutPanel
             // 
             foodFlowLayoutPanel.AutoScroll = true;
-            foodFlowLayoutPanel.BackColor = Color.FromArgb(224, 224, 224);
+            foodFlowLayoutPanel.BackColor = Color.FromArgb(255, 250, 245);
             foodFlowLayoutPanel.Location = new Point(13, 237);
             foodFlowLayoutPanel.Name = "foodFlowLayoutPanel";
             foodFlowLayoutPanel.Padding = new Padding(10, 10, 0, 0);
@@ -325,7 +401,7 @@
             // 
             // foodDetailPanel
             // 
-            foodDetailPanel.BackColor = Color.FromArgb(192, 255, 192);
+            foodDetailPanel.BackColor = Color.FromArgb(108, 124, 103);
             foodDetailPanel.Controls.Add(LBLTTL);
             foodDetailPanel.Controls.Add(LBLQTY);
             foodDetailPanel.Controls.Add(LBLPRICE);
@@ -338,6 +414,7 @@
             foodDetailPanel.Controls.Add(lblMealName);
             foodDetailPanel.Controls.Add(mealPictureDetail);
             foodDetailPanel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            foodDetailPanel.ForeColor = Color.White;
             foodDetailPanel.Location = new Point(13, 12);
             foodDetailPanel.Name = "foodDetailPanel";
             foodDetailPanel.Size = new Size(494, 161);
@@ -412,20 +489,20 @@
             // 
             // addButton
             // 
-            addButton.BackColor = Color.FromArgb(192, 255, 255);
+            addButton.BackColor = Color.FromArgb(108, 124, 103);
             addButton.FlatAppearance.BorderSize = 0;
             addButton.FlatStyle = FlatStyle.Flat;
             addButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            addButton.ForeColor = Color.Black;
             addButton.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            addButton.IconColor = Color.Black;
+            addButton.IconColor = Color.White;
             addButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            addButton.IconSize = 35;
+            addButton.IconSize = 27;
             addButton.ImageAlign = ContentAlignment.MiddleRight;
-            addButton.Location = new Point(395, 101);
+            addButton.Location = new Point(441, 106);
             addButton.Name = "addButton";
-            addButton.Size = new Size(83, 40);
+            addButton.Size = new Size(37, 34);
             addButton.TabIndex = 3;
-            addButton.Text = "Add";
             addButton.TextAlign = ContentAlignment.MiddleLeft;
             addButton.UseVisualStyleBackColor = false;
             addButton.Click += addButton_Click;
@@ -457,12 +534,20 @@
             mealPictureDetail.TabIndex = 0;
             mealPictureDetail.TabStop = false;
             // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(108, 124, 103);
+            panel6.Location = new Point(765, -4);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(483, 640);
+            panel6.TabIndex = 3;
+            // 
             // btnFood
             // 
             btnFood.BackColor = Color.Transparent;
             btnFood.FlatAppearance.BorderSize = 0;
             btnFood.FlatStyle = FlatStyle.Flat;
-            btnFood.Location = new Point(26, 262);
+            btnFood.Location = new Point(12, 262);
             btnFood.Name = "btnFood";
             btnFood.Size = new Size(65, 53);
             btnFood.TabIndex = 2;
@@ -476,7 +561,7 @@
             btnDrinks.FlatAppearance.BorderSize = 0;
             btnDrinks.FlatStyle = FlatStyle.Flat;
             btnDrinks.Image = (Image)resources.GetObject("btnDrinks.Image");
-            btnDrinks.Location = new Point(26, 354);
+            btnDrinks.Location = new Point(12, 353);
             btnDrinks.Name = "btnDrinks";
             btnDrinks.Size = new Size(64, 52);
             btnDrinks.TabIndex = 3;
@@ -489,7 +574,7 @@
             lblDinerName.BackColor = Color.Transparent;
             lblDinerName.Font = new Font("Segoe UI", 20.25F, FontStyle.Italic, GraphicsUnit.Point);
             lblDinerName.ForeColor = Color.Black;
-            lblDinerName.Location = new Point(597, 38);
+            lblDinerName.Location = new Point(110, 29);
             lblDinerName.Name = "lblDinerName";
             lblDinerName.Size = new Size(239, 37);
             lblDinerName.TabIndex = 1;
@@ -515,89 +600,17 @@
             // 
             // btnExits
             // 
-            btnExits.BackColor = Color.Transparent;
+            btnExits.BackColor = Color.FromArgb(108, 124, 103);
             btnExits.FlatAppearance.BorderSize = 0;
-            btnExits.FlatStyle = FlatStyle.Flat;
             btnExits.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
-            btnExits.IconColor = Color.Red;
+            btnExits.IconColor = Color.White;
             btnExits.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnExits.Location = new Point(1321, 11);
+            btnExits.Location = new Point(26, 21);
             btnExits.Name = "btnExits";
             btnExits.Size = new Size(67, 54);
             btnExits.TabIndex = 5;
             btnExits.UseVisualStyleBackColor = false;
             btnExits.Click += btnExit_Click;
-            // 
-            // totalWDiscountLABELONLY
-            // 
-            totalWDiscountLABELONLY.AutoSize = true;
-            totalWDiscountLABELONLY.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            totalWDiscountLABELONLY.ForeColor = Color.Green;
-            totalWDiscountLABELONLY.Location = new Point(15, 77);
-            totalWDiscountLABELONLY.Name = "totalWDiscountLABELONLY";
-            totalWDiscountLABELONLY.Size = new Size(52, 25);
-            totalWDiscountLABELONLY.TabIndex = 5;
-            totalWDiscountLABELONLY.Text = "Total";
-            // 
-            // totalNoDiscLABELONLY
-            // 
-            totalNoDiscLABELONLY.AutoSize = true;
-            totalNoDiscLABELONLY.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            totalNoDiscLABELONLY.Location = new Point(15, 5);
-            totalNoDiscLABELONLY.Name = "totalNoDiscLABELONLY";
-            totalNoDiscLABELONLY.Size = new Size(42, 21);
-            totalNoDiscLABELONLY.TabIndex = 3;
-            totalNoDiscLABELONLY.Text = "Total";
-            // 
-            // discountLABELONLY
-            // 
-            discountLABELONLY.AutoSize = true;
-            discountLABELONLY.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            discountLABELONLY.Location = new Point(15, 33);
-            discountLABELONLY.Name = "discountLABELONLY";
-            discountLABELONLY.Size = new Size(128, 21);
-            discountLABELONLY.TabIndex = 4;
-            discountLABELONLY.Text = "Discount Applied";
-            // 
-            // lblTotalWDiscount
-            // 
-            lblTotalWDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTotalWDiscount.Location = new Point(197, 81);
-            lblTotalWDiscount.Name = "lblTotalWDiscount";
-            lblTotalWDiscount.Size = new Size(95, 21);
-            lblTotalWDiscount.TabIndex = 9;
-            lblTotalWDiscount.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // lblDiscountApplied
-            // 
-            lblDiscountApplied.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDiscountApplied.Location = new Point(197, 33);
-            lblDiscountApplied.Name = "lblDiscountApplied";
-            lblDiscountApplied.Size = new Size(95, 21);
-            lblDiscountApplied.TabIndex = 8;
-            lblDiscountApplied.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // lblTotalNoDiscount
-            // 
-            lblTotalNoDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTotalNoDiscount.Location = new Point(197, 5);
-            lblTotalNoDiscount.Name = "lblTotalNoDiscount";
-            lblTotalNoDiscount.Size = new Size(95, 21);
-            lblTotalNoDiscount.TabIndex = 7;
-            lblTotalNoDiscount.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // currentOrderTotalPanel
-            // 
-            currentOrderTotalPanel.Controls.Add(lblTotalNoDiscount);
-            currentOrderTotalPanel.Controls.Add(lblDiscountApplied);
-            currentOrderTotalPanel.Controls.Add(lblTotalWDiscount);
-            currentOrderTotalPanel.Controls.Add(discountLABELONLY);
-            currentOrderTotalPanel.Controls.Add(totalNoDiscLABELONLY);
-            currentOrderTotalPanel.Controls.Add(totalWDiscountLABELONLY);
-            currentOrderTotalPanel.Location = new Point(0, 382);
-            currentOrderTotalPanel.Name = "currentOrderTotalPanel";
-            currentOrderTotalPanel.Size = new Size(332, 123);
-            currentOrderTotalPanel.TabIndex = 10;
             // 
             // mainForm
             // 
@@ -605,12 +618,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1400, 740);
             Controls.Add(btnExits);
             Controls.Add(btnFood);
             Controls.Add(lblDinerName);
             Controls.Add(btnDrinks);
             Controls.Add(parentPanel);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
@@ -619,6 +634,8 @@
             Text = "Diner of the Valley";
             parentPanel.ResumeLayout(false);
             orderParentPanel.ResumeLayout(false);
+            currentOrderTotalPanel.ResumeLayout(false);
+            currentOrderTotalPanel.PerformLayout();
             panel4.ResumeLayout(false);
             panel1.ResumeLayout(false);
             orderPanelTitle.ResumeLayout(false);
@@ -635,8 +652,6 @@
             foodDetailPanel.ResumeLayout(false);
             foodDetailPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)mealPictureDetail).EndInit();
-            currentOrderTotalPanel.ResumeLayout(false);
-            currentOrderTotalPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -692,5 +707,6 @@
         private Label discountLABELONLY;
         private Label totalNoDiscLABELONLY;
         private Label totalWDiscountLABELONLY;
+        private Panel panel6;
     }
 }
