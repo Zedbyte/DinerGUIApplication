@@ -49,18 +49,20 @@
             // orderedMealName
             // 
             orderedMealName.AutoSize = true;
-            orderedMealName.Location = new Point(91, 10);
+            orderedMealName.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            orderedMealName.Location = new Point(91, 9);
             orderedMealName.Name = "orderedMealName";
-            orderedMealName.Size = new Size(33, 15);
+            orderedMealName.Size = new Size(43, 23);
             orderedMealName.TabIndex = 1;
             orderedMealName.Text = "Meal";
             // 
             // orderedMealTotal
             // 
             orderedMealTotal.AutoSize = true;
+            orderedMealTotal.Font = new Font("Pink Chicken", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             orderedMealTotal.Location = new Point(92, 33);
             orderedMealTotal.Name = "orderedMealTotal";
-            orderedMealTotal.Size = new Size(13, 15);
+            orderedMealTotal.Size = new Size(19, 19);
             orderedMealTotal.TabIndex = 2;
             orderedMealTotal.Text = "0";
             // 

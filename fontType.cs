@@ -14,6 +14,8 @@ namespace DinerGUIApplication
         PrivateFontCollection pfc1 = new PrivateFontCollection();
         PrivateFontCollection pfc2 = new PrivateFontCollection();
         PrivateFontCollection pfc3 = new PrivateFontCollection();
+      /*  PrivateFontCollection pfc4 = new PrivateFontCollection();
+        PrivateFontCollection pfc5 = new PrivateFontCollection();*/
 
         [DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
@@ -113,6 +115,54 @@ namespace DinerGUIApplication
             btn.Font = new Font(pfc3.Families[0], (float)size);
 
         }
+
+     /*   public void InitializeCustomFont_NumericUpDown(NumericUpDown NumUpD, float size)
+        {
+
+            int fontLength = Properties.Resources.jellee_roman.Length;
+
+            // create a buffer to read in to
+            byte[] fontdata = Properties.Resources.jellee_roman;
+
+            // create an unsafe memory block for the font data
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            uint cFonts = 0;
+            AddFontMemResourceEx(data, (uint)fontLength, IntPtr.Zero, ref cFonts);
+
+            // pass the font to the font collection
+            pfc4.AddMemoryFont(data, fontLength);
+
+            NumUpD.Font = new Font(pfc4.Families[0], (float)8f);
+
+        }
+
+        public void InitializeCustomFont_TextBox(TextBox txtBx, float size)
+        {
+
+            int fontLength = Properties.Resources.jellee_roman.Length;
+
+            // create a buffer to read in to
+            byte[] fontdata = Properties.Resources.jellee_roman;
+
+            // create an unsafe memory block for the font data
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            uint cFonts = 0;
+            AddFontMemResourceEx(data, (uint)fontLength, IntPtr.Zero, ref cFonts);
+
+            // pass the font to the font collection
+            pfc5.AddMemoryFont(data, fontLength);
+
+            txtBx.Font = new Font(pfc5.Families[0], (float)8f);
+
+        }*/
 
         public PrivateFontCollection getPFC()
         {

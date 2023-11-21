@@ -16,9 +16,16 @@ namespace DinerGUIApplication
 
         public string SpecialRequest { get; private set; }
 
+        fontType ft = new fontType();
+
         public quantityForm()
         {
             InitializeComponent();
+
+            ft.InitializeCustomFont_Cartoony(lblQuantity, 15f);
+            ft.InitializeCustomFont_Cartoony(lblSpecialReq, 15f);
+            /* ft.InitializeCustomFont_NumericUpDown(quantityUpDown, 16f);
+             ft.InitializeCustomFont_TextBox(txtBxSpecialReq, 12f);*/
         }
 
         private void btnDone_Click(object sender, EventArgs e)

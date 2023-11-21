@@ -43,6 +43,13 @@ namespace DinerGUIApplication
         int newQuantity;
         double newTotal;
 
+
+        int adminIndex;
+        string adminImageFilePath;
+        string adminMealName;
+        string adminMealPrice;
+        string adminMealDetails;
+
         fontType ft = new fontType();
 
         public mainForm(string dineOrTake)
@@ -215,16 +222,16 @@ namespace DinerGUIApplication
 
         public void InitializeMeals()
         {
-            meals.Add(new itemMeal(1, Image.FromFile(imageFilePathsMain[0]), "Vegetable Salad", "P100"));
-            meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsMain[1]), "Egg", "P200"));
-            meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsMain[2]), "Sandwich", "P300"));
+            meals.Add(new itemMeal(1, Image.FromFile(imageFilePathsMain[0]), "Vegetable Salad", "P100", "Vegetable with Salad and Dressing"));
+            meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsMain[1]), "Egg", "P200", "Boiled Egg in 5 minute water."));
+            meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsMain[2]), "Sandwich", "P300", "Two buns and ham and mayonnaise."));
         }
 
         public void InitializeDrinks()
         {
-            meals.Add(new itemMeal(1, Image.FromFile(imageFilePathsDrinks[0]), "Iced Tea", "P100"));
-            meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsDrinks[1]), "Coffee", "P200"));
-            meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsDrinks[2]), "Water", "P300"));
+            meals.Add(new itemMeal(1, Image.FromFile(imageFilePathsDrinks[0]), "Iced Tea", "P100", "Iced tea with ice"));
+            meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsDrinks[1]), "Coffee", "P200", "Coffee? Hot? Cold?"));
+            meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsDrinks[2]), "Water", "P300", "Water? Cold."));
         }
 
         public void displayItemMeals()
@@ -568,6 +575,41 @@ namespace DinerGUIApplication
         private void mealDetailButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void settingsIcon_Click(object sender, EventArgs e)
+        {
+            int x = this.Left + (this.Width / 2) - 200;
+            int y = this.Top + (this.Height / 2) - 100;
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Authorized Personnel Only.\n\n\nEnter password.",
+                       "Enter Password",
+                       "Password",
+                       x,
+                       y);
+            if (input == "OOP10")
+            {
+                adminForm admin = new adminForm();
+                admin.ShowDialog();
+
+                adminIndex = admin.Index;
+                adminImageFilePath = admin.ImageFilePath;
+                adminMealName = admin.MealName;
+                adminMealPrice = admin.MealPrice;
+                adminMealDetails = admin.MealDetails;
+
+                if (adminIndex != 0 && adminImageFilePath != null && adminMealName != null && adminMealPrice != null && adminMealDetails != null)
+                {
+                    meals.Add(new itemMeal(adminIndex, Image.FromFile(adminImageFilePath), adminMealName, "P" + adminMealPrice, adminMealDetails));
+                }
+                displayItemMeals();
+                mealsListener();
+            }
+            else
+            {
+                MessageBox.Show("Wrong password.");
+            }
+
+            
         }
     }
 }

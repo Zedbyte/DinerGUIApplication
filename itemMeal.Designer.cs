@@ -36,9 +36,9 @@
             // 
             // mealPicturebox
             // 
-            mealPicturebox.Location = new Point(0, 0);
+            mealPicturebox.Location = new Point(-2, 0);
             mealPicturebox.Name = "mealPicturebox";
-            mealPicturebox.Size = new Size(148, 101);
+            mealPicturebox.Size = new Size(150, 101);
             mealPicturebox.SizeMode = PictureBoxSizeMode.CenterImage;
             mealPicturebox.TabIndex = 0;
             mealPicturebox.TabStop = false;

@@ -95,7 +95,7 @@
             // 
             // txtBxSpecialReq
             // 
-            txtBxSpecialReq.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBxSpecialReq.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtBxSpecialReq.Location = new Point(59, 182);
             txtBxSpecialReq.Multiline = true;
             txtBxSpecialReq.Name = "txtBxSpecialReq";
@@ -104,11 +104,11 @@
             // 
             // quantityUpDown
             // 
-            quantityUpDown.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            quantityUpDown.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             quantityUpDown.Location = new Point(59, 95);
             quantityUpDown.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
             quantityUpDown.Name = "quantityUpDown";
-            quantityUpDown.Size = new Size(219, 35);
+            quantityUpDown.Size = new Size(219, 33);
             quantityUpDown.TabIndex = 7;
             // 
             // quantityForm
@@ -125,6 +125,7 @@
             Controls.Add(lblQuantity);
             Controls.Add(txtBxSpecialReq);
             Controls.Add(quantityUpDown);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;

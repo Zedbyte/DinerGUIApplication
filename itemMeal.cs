@@ -22,8 +22,9 @@ namespace DinerGUIApplication
         {
         }
         fontType ft = new fontType();
+        string mealDetails;
 
-        public itemMeal(int index, Image image, String mealNameParam, String mealPriceParam)
+        public itemMeal(int index, Image image, String mealNameParam, String mealPriceParam, string mealDetails)
         {
             InitializeComponent();
 
@@ -34,9 +35,11 @@ namespace DinerGUIApplication
             this.mealPrice.Text = mealPriceParam;
             this.mealPicturebox.Image = image;
 
+            this.mealDetails = mealDetails;
+
             this.index = index;
 
-    
+
             ft.InitializeCustomFont_Cartoony(mealName, 10f);
             ft.InitializeCustomFont_Cartoony(mealPrice, 10f);
 
@@ -70,6 +73,11 @@ namespace DinerGUIApplication
         private void itemMeal_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(108, 124, 103);
+        }
+
+        public string getMealDetails()
+        {
+            return mealDetails;
         }
     }
 }

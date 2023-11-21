@@ -80,6 +80,7 @@
             printPreviewDialogReceipt = new PrintPreviewDialog();
             printDocumentReceipt = new System.Drawing.Printing.PrintDocument();
             btnExits = new FontAwesome.Sharp.IconButton();
+            settingsIcon = new FontAwesome.Sharp.IconButton();
             parentPanel.SuspendLayout();
             orderParentPanel.SuspendLayout();
             currentOrderTotalPanel.SuspendLayout();
@@ -267,11 +268,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
             label3.Location = new Point(58, 10);
             label3.Name = "label3";
-            label3.Size = new Size(187, 37);
+            label3.Size = new Size(166, 32);
             label3.TabIndex = 14;
             label3.Text = "Current Order";
             // 
@@ -358,10 +359,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(101, 10);
             label4.Name = "label4";
-            label4.Size = new Size(107, 37);
+            label4.Size = new Size(98, 32);
             label4.TabIndex = 15;
             label4.Text = "Receipt";
             // 
@@ -490,7 +491,7 @@
             // lblTotal
             // 
             lblTotal.ForeColor = Color.Lime;
-            lblTotal.Location = new Point(249, 115);
+            lblTotal.Location = new Point(253, 114);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(93, 21);
             lblTotal.TabIndex = 8;
@@ -629,6 +630,19 @@
             btnExits.UseVisualStyleBackColor = false;
             btnExits.Click += btnExit_Click;
             // 
+            // settingsIcon
+            // 
+            settingsIcon.BackColor = Color.FromArgb(108, 124, 103);
+            settingsIcon.IconChar = FontAwesome.Sharp.IconChar.Gear;
+            settingsIcon.IconColor = Color.White;
+            settingsIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            settingsIcon.Location = new Point(1280, 12);
+            settingsIcon.Name = "settingsIcon";
+            settingsIcon.Size = new Size(66, 54);
+            settingsIcon.TabIndex = 7;
+            settingsIcon.UseVisualStyleBackColor = false;
+            settingsIcon.Click += settingsIcon_Click;
+            // 
             // mainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -637,6 +651,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1400, 740);
+            Controls.Add(settingsIcon);
             Controls.Add(btnExits);
             Controls.Add(btnFood);
             Controls.Add(lblDinerName);
@@ -726,5 +741,6 @@
         private Label totalWDiscountLABELONLY;
         private Panel panel6;
         private FontAwesome.Sharp.IconButton mealDetailButton;
+        private FontAwesome.Sharp.IconButton settingsIcon;
     }
 }
