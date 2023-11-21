@@ -46,22 +46,24 @@
             // mealName
             // 
             mealName.AutoSize = true;
-            mealName.ForeColor = Color.Black;
-            mealName.Location = new Point(14, 108);
+            mealName.ForeColor = Color.Transparent;
+            mealName.Location = new Point(3, 108);
             mealName.Name = "mealName";
-            mealName.Size = new Size(38, 15);
+            mealName.Size = new Size(37, 21);
             mealName.TabIndex = 0;
             mealName.Text = "label1";
+            mealName.UseCompatibleTextRendering = true;
             // 
             // mealPrice
             // 
             mealPrice.AutoSize = true;
-            mealPrice.ForeColor = Color.Black;
-            mealPrice.Location = new Point(14, 134);
+            mealPrice.ForeColor = Color.Transparent;
+            mealPrice.Location = new Point(3, 129);
             mealPrice.Name = "mealPrice";
-            mealPrice.Size = new Size(38, 15);
+            mealPrice.Size = new Size(37, 21);
             mealPrice.TabIndex = 1;
             mealPrice.Text = "label2";
+            mealPrice.UseCompatibleTextRendering = true;
             // 
             // itemMeal
             // 

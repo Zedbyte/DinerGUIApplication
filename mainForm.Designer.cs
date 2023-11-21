@@ -60,6 +60,7 @@
             foodFlowLayoutPanel = new FlowLayoutPanel();
             label1 = new Label();
             foodDetailPanel = new Panel();
+            mealDetailButton = new FontAwesome.Sharp.IconButton();
             LBLTTL = new Label();
             LBLQTY = new Label();
             LBLPRICE = new Label();
@@ -402,6 +403,7 @@
             // foodDetailPanel
             // 
             foodDetailPanel.BackColor = Color.FromArgb(108, 124, 103);
+            foodDetailPanel.Controls.Add(mealDetailButton);
             foodDetailPanel.Controls.Add(LBLTTL);
             foodDetailPanel.Controls.Add(LBLQTY);
             foodDetailPanel.Controls.Add(LBLPRICE);
@@ -419,6 +421,21 @@
             foodDetailPanel.Name = "foodDetailPanel";
             foodDetailPanel.Size = new Size(494, 161);
             foodDetailPanel.TabIndex = 1;
+            // 
+            // mealDetailButton
+            // 
+            mealDetailButton.FlatAppearance.BorderSize = 0;
+            mealDetailButton.FlatStyle = FlatStyle.Flat;
+            mealDetailButton.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            mealDetailButton.IconColor = Color.White;
+            mealDetailButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            mealDetailButton.IconSize = 36;
+            mealDetailButton.Location = new Point(12, 15);
+            mealDetailButton.Name = "mealDetailButton";
+            mealDetailButton.Size = new Size(32, 34);
+            mealDetailButton.TabIndex = 14;
+            mealDetailButton.UseVisualStyleBackColor = true;
+            mealDetailButton.Click += mealDetailButton_Click;
             // 
             // LBLTTL
             // 
@@ -561,9 +578,9 @@
             btnDrinks.FlatAppearance.BorderSize = 0;
             btnDrinks.FlatStyle = FlatStyle.Flat;
             btnDrinks.Image = (Image)resources.GetObject("btnDrinks.Image");
-            btnDrinks.Location = new Point(12, 353);
+            btnDrinks.Location = new Point(6, 359);
             btnDrinks.Name = "btnDrinks";
-            btnDrinks.Size = new Size(64, 52);
+            btnDrinks.Size = new Size(81, 90);
             btnDrinks.TabIndex = 3;
             btnDrinks.UseVisualStyleBackColor = false;
             btnDrinks.Click += btnDrinks_Click;
@@ -708,5 +725,6 @@
         private Label totalNoDiscLABELONLY;
         private Label totalWDiscountLABELONLY;
         private Panel panel6;
+        private FontAwesome.Sharp.IconButton mealDetailButton;
     }
 }

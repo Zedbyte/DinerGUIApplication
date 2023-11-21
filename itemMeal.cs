@@ -21,6 +21,7 @@ namespace DinerGUIApplication
         public itemMeal()
         {
         }
+        fontType ft = new fontType();
 
         public itemMeal(int index, Image image, String mealNameParam, String mealPriceParam)
         {
@@ -34,12 +35,13 @@ namespace DinerGUIApplication
             this.mealPicturebox.Image = image;
 
             this.index = index;
+
+    
+            ft.InitializeCustomFont_Cartoony(mealName, 10f);
+            ft.InitializeCustomFont_Cartoony(mealPrice, 10f);
+
+
         }
-
-
-
-
-
         public string getMealName()
         {
             return mealName.Text;
@@ -62,12 +64,12 @@ namespace DinerGUIApplication
 
         private void itemMeal_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(255, 255, 235);
+            this.BackColor = Color.FromArgb(88, 101, 84);
         }
 
         private void itemMeal_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(255, 255, 255);
+            this.BackColor = Color.FromArgb(108, 124, 103);
         }
     }
 }
