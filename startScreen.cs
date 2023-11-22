@@ -18,9 +18,9 @@ namespace DinerGUIApplication
 
         List<string> imageFilePaths = new List<string>
         {
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Slideshow\\s1.gif",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Slideshow\\s2.gif",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Slideshow\\s3.gif"
+            "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\Slideshow\\s1.gif",
+            "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\Slideshow\\s2.gif",
+            "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\Slideshow\\s3.gif"
         };
 
         List<Image> images = new List<Image>();

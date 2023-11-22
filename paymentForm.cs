@@ -237,7 +237,7 @@ namespace DinerGUIApplication
                         SampleForm sampleForm = new SampleForm();
                         sampleForm.Show();*/
             MessageBox.Show("Payment successful!");
-            Application.Exit();
+            this.Close();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)

@@ -43,11 +43,11 @@ namespace DinerGUIApplication
             }
             if (imageFilePathBox.Text == "")
             {
-                ImageFilePath = "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\noImage.png";
+                ImageFilePath = "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\Resources\\noImage.png";
             }
             else
             {
-                ImageFilePath = "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\noImage.png";
+                ImageFilePath = "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\Resources\\noImage.png";
             }
 
             if (mealNameBox.Text != null)

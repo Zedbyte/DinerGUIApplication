@@ -22,19 +22,19 @@ namespace DinerGUIApplication
         List<orderedMeal> orderedMeal = new List<orderedMeal>();
         List<string> imageFilePathsMain = new List<string>
         {
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\vegsalad.png",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\chicksalad.png",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\hamncheese.png"
+            "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\FoodResources\\vegsalad.png",
+            "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\FoodResources\\chicksalad.png",
+            "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\FoodResources\\hamncheese.png"
         };
 
         List<string> imageFilePathsDrinks = new List<string>
         {
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\water.png",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\cola.png",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\coffee.png"
+            "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\FoodResources\\water.png",
+            "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\FoodResources\\cola.png",
+            "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\FoodResources\\coffee.png"
         };
 
-        string foodGif = "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\foodings.gif";
+        string foodGif = "C:\\Users\\User\\Desktop\\BSIT 2A\\Diner\\FoodResources\\foodings.gif";
 
         int index;
         string orderName;
@@ -65,26 +65,30 @@ namespace DinerGUIApplication
         public mainForm(string dineOrTake)
         {
             InitializeComponent();
+
+            //Add the meals and drinks to the list
             InitializeMeals();
             InitializeDrinks();  //BETA VERSION
 
 
             this.dineOrTake = dineOrTake;
-
+            //Initialize the receipt and font
             InitializeReceipt();
             ft.InitializeCustomFont_Receipt(txtBxReceipt);
             ft.InitializeCustomFont_Label(lblDinerName, 43f);
 
+            //Change fonts of the panels
             changeFoodDetailButtonFont();
             changeFoodDetailPanelLabelFont();
             changeCurrentOrderTotalPanelLabels();
 
+            //Display the meals in the panel
             displayItemMeals(meals);
             mealsListener(meals);
 
 
         }
-
+        //Disable the close button
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
         {
@@ -194,7 +198,7 @@ namespace DinerGUIApplication
                 btn.Font = new Font(pfc3.Families[0], (float)size);
 
             }*/
-
+        //Change Food Detail Panel Labels Fonts
         public void changeFoodDetailPanelLabelFont()
         {
             foreach (Control ctl in foodDetailPanel.Controls)
@@ -205,7 +209,7 @@ namespace DinerGUIApplication
                 }
             }
         }
-
+        //Change the font of the food detail buttons
         public void changeFoodDetailButtonFont()
         {
             foreach (Control ctl in foodDetailPanel.Controls)
@@ -216,7 +220,7 @@ namespace DinerGUIApplication
                 }
             }
         }
-
+        //Change the font of the total Panel label
         public void changeCurrentOrderTotalPanelLabels()
         {
             foreach (Control ctl in currentOrderTotalPanel.Controls)
@@ -229,21 +233,23 @@ namespace DinerGUIApplication
             }
         }
 
-
+        //Initialize the Meals
         public void InitializeMeals()
         {
-            meals.Add(new itemMeal(1, Image.FromFile(imageFilePathsMain[0]), "Veggie Salad", "P80", "Vegetable with Salad and Dressing"));
-            meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsMain[1]), "Chick Salad", "P100", "Boiled Egg in 5 minute water."));
-            meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsMain[2]), "Sandwich", "P30", "Two buns and ham and mayonnaise."));
+            meals.Add(new itemMeal(1, Image.FromFile(imageFilePathsMain[0]), "Veggie Salad", "P80", "A colorful mix of crisp lettuce, juicy cherry tomatoes, and \ncrunchy cucumbers tossed in a zesty vinaigrette creates a refreshing and delightful salad, perfect for any meal."));
+            meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsMain[1]), "Chick Salad", "P100", "A classic chicken salad combines tender, shredded chicken with crisp celery, diced apples, and toasted almonds, all dressed in a creamy blend of mayonnaise and a \nhint of tangy Dijon mustard, delivering a satisfying balance of flavors and textures in every bite.\r\n"));
+            meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsMain[2]), "Sandwich", "P30", "Layer slices of roasted turkey breast, creamy avocado, crispy bacon, and fresh spinach between slices of whole-grain bread spread with a zesty garlic aioli for a \nflavorful and satisfying sandwich experience."));
         }
         //BETA VERSION
+        //Initialize the Drinks
         public void InitializeDrinks()
         {
             drinks.Add(new itemMeal(4, Image.FromFile(imageFilePathsDrinks[0]), "Water", "P0", "Free Water for each order!"));
-            drinks.Add(new itemMeal(5, Image.FromFile(imageFilePathsDrinks[1]), "Cola", "P15", "Cold Cola from the Himalayans,"));
+            drinks.Add(new itemMeal(5, Image.FromFile(imageFilePathsDrinks[1]), "Cola", "P15", "Cola, the iconic carbonated beverage, boasts a bubbly blend of caramel sweetness and a hint of citrus, delivering a fizzy, refreshing drink that's enjoyed worldwide."));
             drinks.Add(new itemMeal(6, Image.FromFile(imageFilePathsDrinks[2]), "Coffee", "P20", "Tired student? There is coffee for you! Made from fresh cacao beans from the Ifugao Province."));
         }
         //BETA VERSION
+        //Display the meals based in the list
         public void displayItemMeals(List<itemMeal> meals)
         {
             /* foreach (itemMeal itemMeals in meals)
@@ -258,6 +264,7 @@ namespace DinerGUIApplication
             }
         }
         //BETA VERSION
+        //Craete listeners (Click) for the meals
         public void mealsListener(List<itemMeal> meals)
         {
             for (int i = 0; i < meals.Count; i++)
@@ -270,26 +277,32 @@ namespace DinerGUIApplication
             }
 
         }
-
+        //When a meal is clicked, add the meal details on the detail panel
         public void mealsClicked(object sender, EventArgs e)
-        {
+        {   
+            //Clear the detail panel
             clearDetails(false);
             itemMeal meal = (itemMeal)sender;
 
+            //Set the details
             setMealNameDetail(meal);
             setMealPriceDetail(meal);
             setMealPictureDetail(meal);
             setMealIndex(meal);
             setMealDetail(meal);
 
+            //Open the quantity Selector 
             quantityForm qtySelector = new quantityForm();
             qtySelector.ShowDialog();
 
+            //The quantity will be saved on the variable (orderQuantity)
             setMealQuantityVariable(qtySelector);
             setMealQuantityDetail(orderQuantity);
 
+            //If there is a special request, add it to the variable  (SpecialReq) 
             setSpecialRequestReceipt(qtySelector.SpecialRequest);
 
+            //Set the total of the meal
             setMealTotal(meal.getMealPrice(), orderQuantity);
 
 
@@ -377,12 +390,14 @@ namespace DinerGUIApplication
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            //If the variable orderName is not null, orderPrice is equal to 0, orderQuantity is greater than 0 then execute
             if (orderName != null && orderPrice >= 0 && orderQuantity > 0)
             {
-
+                //Add the total of the meal to the total of the whole orders
                 totalToPay += total;
                 discount = 0;
 
+                //If an order exists already in the order panel, and the special request is equal to the new special request then edit the current order
                 if (doesOrderExistsAlready(index) && (getExistingMeal().getSpecialRequest() == specialRequest))
                 {
                     //Remove the existing meal in the receipt
@@ -391,15 +406,17 @@ namespace DinerGUIApplication
                     //Get the quantity of the existing meal, remove the meal, add the new meal.
                     updateExistingMeal(orderQuantity);
 
-                    //Add to receipt the new meal
+                    //Add to receipt the new meal (Update)
                     addToReceipt(orderName, newQuantity, newTotal, specialRequest);
 
                 }
+                //Else, treat the new order as a separate order
                 else
                 {
+                    //Add the new order to the panel
                     orderedMeal.Add(new orderedMeal(index, orderName, total, orderQuantity, orderPrice, specialRequest, this));
 
-
+                    //Add it to the receipt (Post)
                     addToReceipt(orderName, orderQuantity, total, specialRequest);
                 }
                 //Adds the newly added meal to the record
@@ -407,11 +424,13 @@ namespace DinerGUIApplication
 
 
 
-
+                //Set the total
                 setOrderedMealTotals();
 
+                //Clear the details in the detail panel
                 clearDetails(true);
             }
+            //If the order is invalid (not containing a quantity, show an error)
             else
             {
                 MessageBox.Show("Order Invalid. Please try again.");
@@ -440,11 +459,13 @@ namespace DinerGUIApplication
             orderedMeal.Add(new orderedMeal(existingMealIndex, existingMealName, newTotal, newQuantity, existingMeal.getMealPrice(), specialRequest, this));
         }
 
+        //Find the new meal in the list
         private orderedMeal getExistingMeal()
         {
             return orderedMeal.Find(m => m.getMealIndex() == index);
         }
 
+        //Remove the existing meal (The existing meals are already saved once this is called, so we will append the details of the existing meal to the new meal)
         private void removeExistingMeal()
         {
             orderedMealsRecordTablePanel.Controls.Remove(orderedMeal.Find(m => m.getMealIndex() == index));
@@ -454,6 +475,7 @@ namespace DinerGUIApplication
             orderedMealsRecordTablePanel.Refresh();
         }
 
+        //Iterates through the list, if it exists, return true, else return false.
         private bool doesOrderExistsAlready(int index)
         {
             foreach (orderedMeal meal in orderedMeal)
@@ -463,7 +485,7 @@ namespace DinerGUIApplication
 
             return false;
         }
-
+        //This method will be called by the orderedMeal user control (It removes the order in the order panel)
         public void removeOrder(orderedMeal Order, string specialRequest)
         {
             orderedMeal.Remove(Order);
@@ -474,7 +496,7 @@ namespace DinerGUIApplication
             subtractTotalWhenOrderRemoved(Order.getTotal());
         }
 
-
+        //If the order is removed, subtract that order to the total
         private void subtractTotalWhenOrderRemoved(double mealTotal)
         {
             totalToPay -= mealTotal;
@@ -485,7 +507,7 @@ namespace DinerGUIApplication
 
         }
 
-
+        //Set the total labels
         private void setOrderedMealTotals()
         {
             lblTotalNoDiscount.Text = "\u20B1" + totalToPay.ToString();
@@ -495,7 +517,7 @@ namespace DinerGUIApplication
 
         }
 
-
+        //Initializes the look of the receipt
         public void InitializeReceipt()
         {
             txtBxReceipt.Clear();
@@ -518,6 +540,7 @@ namespace DinerGUIApplication
 
             txtBxReceipt.Text = heading.ToString();
         }
+        //Add an item to the receipt
         private void addToReceipt(String orderName, int quantity, double total, string specialReq = "")
         {
             StringBuilder stb = new StringBuilder();
@@ -526,7 +549,7 @@ namespace DinerGUIApplication
 
             txtBxReceipt.AppendText(stb.ToString());
         }
-
+        //Remove an item from the receipt (Get the text of the receipt and replace it with a new one)
         private void removeFromReceipt(orderedMeal order, string specialReq = "")
         {
             String prev = txtBxReceipt.Text;
@@ -539,13 +562,13 @@ namespace DinerGUIApplication
             InitializeReceipt();
             txtBxReceipt.Text = removedOrderReceipt;
         }
-
+        //Print 
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             printPreviewDialogReceipt.Document = printDocumentReceipt;
             printPreviewDialogReceipt.ShowDialog();
         }
-
+        //If the button for Food (category) is clicked, change the items in the panel
         private void btnFood_Click(object sender, EventArgs e)
         {
             lblCategory.Text = "Main Dish";
@@ -555,13 +578,15 @@ namespace DinerGUIApplication
             displayItemMeals(meals);  //BETA VERSION
             mealsListener(meals);  //BETA VERSION
                                    //BETA VERSION
+
+            //If there is an item in the newDrink list (added by the admin) add it to the panel as well
             if (newMeals.Count > 0)
             {
                 displayItemMeals(newMeals);
                 mealsListener(newMeals);
             }
         }
-
+        //If the button for Drink (category) is clicked, change the items in the panel
         private void btnDrinks_Click(object sender, EventArgs e)
         {
             lblCategory.Text = "Drinks";
@@ -571,6 +596,8 @@ namespace DinerGUIApplication
             displayItemMeals(drinks);  //BETA VERSION
             mealsListener(drinks);  //BETA VERSION
                                     //BETA VERSION
+
+            //If there is an item in the newDrink list (added by the admin) add it to the panel as well
             if (newDrinks.Count > 0)
             {
                 displayItemMeals(newDrinks);
@@ -578,6 +605,7 @@ namespace DinerGUIApplication
             }
         }
 
+        //Initialize payment form
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
             if (orderedMeal.Count > 0)
@@ -590,12 +618,12 @@ namespace DinerGUIApplication
                 MessageBox.Show("You currently have no orders.");
             }
         }
-
+        //Print Recceipt
         private void printDocumentReceipt_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawString(txtBxReceipt.Text, new Font(ft.getPFC().Families[0], (float)30f), Brushes.Black, new Point(10, 10));
         }
-
+        //Exit
         private void btnExit_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit.", MessageBoxButtons.YesNo);
@@ -604,7 +632,7 @@ namespace DinerGUIApplication
                 Application.Exit();
             }
         }
-
+        //Click the question mark!!
         private void mealDetailButton_Click(object sender, EventArgs e)
         {
             if (orderName != null && mealDetail != null)
@@ -617,9 +645,10 @@ namespace DinerGUIApplication
                 MessageBox.Show("No order yet!");
             }
         }
-
+        //Settings (admin)
         private void settingsIcon_Click(object sender, EventArgs e)
         {
+            //Center the input box
             int x = this.Left + (this.Width / 2) - 200;
             int y = this.Top + (this.Height / 2) - 100;
             string input = Microsoft.VisualBasic.Interaction.InputBox("Authorized Personnel Only.\n\n\nEnter password.",
@@ -627,11 +656,13 @@ namespace DinerGUIApplication
                        "Password",
                        x,
                        y);
+            //If the password is OOP10 open the admin form
             if (input == "OOP10")
             {
                 adminForm admin = new adminForm();
                 admin.ShowDialog();
 
+                //Once admin is closed, get all the details
                 adminIndex = admin.Index;
                 adminImageFilePath = admin.ImageFilePath;
                 adminMealName = admin.MealName;
@@ -640,30 +671,41 @@ namespace DinerGUIApplication
                 adminCategory = admin.CategoryBox;
 
                 //BETA VERSION
+                //If the category is equal to Meals
                 if (adminCategory.Equals("Meals"))
-                {
+                {   //If all the details are filled
                     if (adminIndex != 0 && adminImageFilePath != null && adminMealName != null && adminMealPrice != null && adminMealDetails != null)
                     {
                         newMeals.Add(new itemMeal(adminIndex, Image.FromFile(adminImageFilePath), adminMealName, "P" + adminMealPrice, adminMealDetails));
                     }
+                    //Clear the existing foods
                     foodFlowLayoutPanel.Controls.Clear();
                     lblCategory.Text = "Main Dish";
+
+                    //Display again the hard coded meals
                     displayItemMeals(meals);
                     mealsListener(meals);
+                    //Dispaly the new meal added by the admin
                     displayItemMeals(newMeals);
                     mealsListener(newMeals);
                 }
                 //BETA VERSION
+                //If the category is equal to Drinks
                 else if (adminCategory.Equals("Drinks"))
                 {
+                    //If all the details are filled
                     if (adminIndex != 0 && adminImageFilePath != null && adminMealName != null && adminMealPrice != null && adminMealDetails != null)
                     {
                         newDrinks.Add(new itemMeal(adminIndex, Image.FromFile(adminImageFilePath), adminMealName, "P" + adminMealPrice, adminMealDetails));
                     }
+                    //Clear the existing foods
                     foodFlowLayoutPanel.Controls.Clear();
                     lblCategory.Text = "Drinks";
+
+                    //Display again the hard coded meals
                     displayItemMeals(drinks);
                     mealsListener(drinks);
+                    //Dispaly the new meal added by the admin
                     displayItemMeals(newDrinks);
                     mealsListener(newDrinks);
                 }
@@ -680,7 +722,7 @@ namespace DinerGUIApplication
         {
 
         }
-
+        //About Section
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Diner by the Valley is a vibrant diner nestled in the heart of the valley, " +
@@ -698,7 +740,7 @@ namespace DinerGUIApplication
                 "\tMarcus Cariño\n" +
                 "\tJaneil Isheen Gonzales");
         }
-
+        //Place order inside the receipt
         private void placeOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (orderedMeal.Count > 0)
