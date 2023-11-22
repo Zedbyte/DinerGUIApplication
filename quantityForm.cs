@@ -33,6 +33,12 @@ namespace DinerGUIApplication
             if (quantityUpDown.Value > 0)
             {
                 Quantity = Convert.ToInt32(quantityUpDown.Value);
+
+                if (txtBxSpecialReq.Text.Length > 0)
+                {
+                    SpecialRequest = txtBxSpecialReq.Text.ToUpper();
+                }
+
                 this.Close();
             }
             else
@@ -40,10 +46,6 @@ namespace DinerGUIApplication
                 MessageBox.Show("Please select a quantity.");
             }
 
-            if (txtBxSpecialReq.Text.Length > 0)
-            {
-                SpecialRequest = txtBxSpecialReq.Text.ToUpper();
-            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

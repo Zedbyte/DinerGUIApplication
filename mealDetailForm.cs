@@ -12,16 +12,12 @@ namespace DinerGUIApplication
 {
     public partial class mealDetailForm : Form
     {
-        Image img;
-        string name;
-        string foodDetail;
         public mealDetailForm() { }
-        public mealDetailForm(Image img, string name, string foodDetail)
+        public mealDetailForm(string name, string foodDetail)
         {
             InitializeComponent();
-            this.img = img;
-            this.name = name;
-            this.foodDetail = foodDetail;
+            mealName.Text = name;
+            mealDetailBox.Text = foodDetail;
         }
     }
 }

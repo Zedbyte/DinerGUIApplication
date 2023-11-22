@@ -84,6 +84,7 @@
             txtBxReceipt.Location = new Point(381, 122);
             txtBxReceipt.Name = "txtBxReceipt";
             txtBxReceipt.ReadOnly = true;
+            txtBxReceipt.ScrollBars = RichTextBoxScrollBars.Vertical;
             txtBxReceipt.Size = new Size(305, 419);
             txtBxReceipt.TabIndex = 0;
             txtBxReceipt.Text = "";

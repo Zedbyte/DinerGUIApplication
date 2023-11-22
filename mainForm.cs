@@ -13,6 +13,12 @@ namespace DinerGUIApplication
                 PrivateFontCollection pfc3 = new PrivateFontCollection();*/
 
         List<itemMeal> meals = new List<itemMeal>();
+        List<itemMeal> drinks = new List<itemMeal>();
+
+        //BETA VERSION
+        List<itemMeal> newMeals = new List<itemMeal>();
+        List<itemMeal> newDrinks = new List<itemMeal>();
+
         List<orderedMeal> orderedMeal = new List<orderedMeal>();
         List<string> imageFilePathsMain = new List<string>
         {
@@ -39,6 +45,7 @@ namespace DinerGUIApplication
         double discount;
         string specialRequest;
         string dineOrTake;
+        string mealDetail;
 
         int newQuantity;
         double newTotal;
@@ -50,12 +57,16 @@ namespace DinerGUIApplication
         string adminMealPrice;
         string adminMealDetails;
 
+        //BETA VERSION
+        string adminCategory;
+
         fontType ft = new fontType();
 
         public mainForm(string dineOrTake)
         {
             InitializeComponent();
             InitializeMeals();
+            InitializeDrinks();  //BETA VERSION
 
 
             this.dineOrTake = dineOrTake;
@@ -68,8 +79,8 @@ namespace DinerGUIApplication
             changeFoodDetailPanelLabelFont();
             changeCurrentOrderTotalPanelLabels();
 
-            displayItemMeals();
-            mealsListener();
+            displayItemMeals(meals);
+            mealsListener(meals);
 
 
         }
@@ -225,29 +236,29 @@ namespace DinerGUIApplication
             meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsMain[1]), "Chick Salad", "P100", "Boiled Egg in 5 minute water."));
             meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsMain[2]), "Sandwich", "P30", "Two buns and ham and mayonnaise."));
         }
-
+        //BETA VERSION
         public void InitializeDrinks()
         {
-            meals.Add(new itemMeal(4, Image.FromFile(imageFilePathsDrinks[0]), "Water", "P0", "Free Water for each order!"));
-            meals.Add(new itemMeal(5, Image.FromFile(imageFilePathsDrinks[1]), "Cola", "P15", "Cold Cola from the Himalayans,"));
-            meals.Add(new itemMeal(6, Image.FromFile(imageFilePathsDrinks[2]), "Coffee", "P20", "Tired student? There is coffee for you! Made from fresh cacao beans from the Ifugao Province."));
+            drinks.Add(new itemMeal(4, Image.FromFile(imageFilePathsDrinks[0]), "Water", "P0", "Free Water for each order!"));
+            drinks.Add(new itemMeal(5, Image.FromFile(imageFilePathsDrinks[1]), "Cola", "P15", "Cold Cola from the Himalayans,"));
+            drinks.Add(new itemMeal(6, Image.FromFile(imageFilePathsDrinks[2]), "Coffee", "P20", "Tired student? There is coffee for you! Made from fresh cacao beans from the Ifugao Province."));
         }
-
-        public void displayItemMeals()
+        //BETA VERSION
+        public void displayItemMeals(List<itemMeal> meals)
         {
             /* foreach (itemMeal itemMeals in meals)
              {
                  itemMeals.TopLevel = false;
              }*/
-            foodFlowLayoutPanel.Controls.Clear();
+            /*foodFlowLayoutPanel.Controls.Clear();*/  //BETA VERSION
             for (int i = 0; i < meals.Count; i++)
             {
                 foodFlowLayoutPanel.Controls.Add(meals[i]);
                 /*meals[i].Show();*/
             }
         }
-
-        public void mealsListener()
+        //BETA VERSION
+        public void mealsListener(List<itemMeal> meals)
         {
             for (int i = 0; i < meals.Count; i++)
             {
@@ -269,6 +280,7 @@ namespace DinerGUIApplication
             setMealPriceDetail(meal);
             setMealPictureDetail(meal);
             setMealIndex(meal);
+            setMealDetail(meal);
 
             quantityForm qtySelector = new quantityForm();
             qtySelector.ShowDialog();
@@ -281,6 +293,11 @@ namespace DinerGUIApplication
             setMealTotal(meal.getMealPrice(), orderQuantity);
 
 
+        }
+
+        private void setMealDetail(itemMeal meal)
+        {
+            this.mealDetail = meal.getMealDetails();
         }
 
         private void setSpecialRequestReceipt(string specialReq)
@@ -329,6 +346,7 @@ namespace DinerGUIApplication
         public void clearDetails(bool addedSuccessfully)
         {
             orderName = null;
+            mealDetail = null;
             orderPrice = 0;
             orderQuantity = 0;
             total = 0;
@@ -531,19 +549,33 @@ namespace DinerGUIApplication
         private void btnFood_Click(object sender, EventArgs e)
         {
             lblCategory.Text = "Main Dish";
+            foodFlowLayoutPanel.Controls.Clear();  //BETA VERSION
             meals.Clear();
             InitializeMeals();
-            displayItemMeals();
-            mealsListener();
+            displayItemMeals(meals);  //BETA VERSION
+            mealsListener(meals);  //BETA VERSION
+                                   //BETA VERSION
+            if (newMeals.Count > 0)
+            {
+                displayItemMeals(newMeals);
+                mealsListener(newMeals);
+            }
         }
 
         private void btnDrinks_Click(object sender, EventArgs e)
         {
             lblCategory.Text = "Drinks";
-            meals.Clear();
+            foodFlowLayoutPanel.Controls.Clear();  //BETA VERSION
+            drinks.Clear();
             InitializeDrinks();
-            displayItemMeals();
-            mealsListener();
+            displayItemMeals(drinks);  //BETA VERSION
+            mealsListener(drinks);  //BETA VERSION
+                                    //BETA VERSION
+            if (newDrinks.Count > 0)
+            {
+                displayItemMeals(newDrinks);
+                mealsListener(newDrinks);
+            }
         }
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
@@ -575,7 +607,15 @@ namespace DinerGUIApplication
 
         private void mealDetailButton_Click(object sender, EventArgs e)
         {
-
+            if (orderName != null && mealDetail != null)
+            {
+                mealDetailForm mdf = new mealDetailForm(orderName, mealDetail);
+                mdf.Show();
+            }
+            else
+            {
+                MessageBox.Show("No order yet!");
+            }
         }
 
         private void settingsIcon_Click(object sender, EventArgs e)
@@ -597,13 +637,36 @@ namespace DinerGUIApplication
                 adminMealName = admin.MealName;
                 adminMealPrice = admin.MealPrice;
                 adminMealDetails = admin.MealDetails;
+                adminCategory = admin.CategoryBox;
 
-                if (adminIndex != 0 && adminImageFilePath != null && adminMealName != null && adminMealPrice != null && adminMealDetails != null)
+                //BETA VERSION
+                if (adminCategory.Equals("Meals"))
                 {
-                    meals.Add(new itemMeal(adminIndex, Image.FromFile(adminImageFilePath), adminMealName, "P" + adminMealPrice, adminMealDetails));
+                    if (adminIndex != 0 && adminImageFilePath != null && adminMealName != null && adminMealPrice != null && adminMealDetails != null)
+                    {
+                        newMeals.Add(new itemMeal(adminIndex, Image.FromFile(adminImageFilePath), adminMealName, "P" + adminMealPrice, adminMealDetails));
+                    }
+                    foodFlowLayoutPanel.Controls.Clear();
+                    lblCategory.Text = "Main Dish";
+                    displayItemMeals(meals);
+                    mealsListener(meals);
+                    displayItemMeals(newMeals);
+                    mealsListener(newMeals);
                 }
-                displayItemMeals();
-                mealsListener();
+                //BETA VERSION
+                else if (adminCategory.Equals("Drinks"))
+                {
+                    if (adminIndex != 0 && adminImageFilePath != null && adminMealName != null && adminMealPrice != null && adminMealDetails != null)
+                    {
+                        newDrinks.Add(new itemMeal(adminIndex, Image.FromFile(adminImageFilePath), adminMealName, "P" + adminMealPrice, adminMealDetails));
+                    }
+                    foodFlowLayoutPanel.Controls.Clear();
+                    lblCategory.Text = "Drinks";
+                    displayItemMeals(drinks);
+                    mealsListener(drinks);
+                    displayItemMeals(newDrinks);
+                    mealsListener(newDrinks);
+                }
             }
             else
             {
@@ -616,6 +679,37 @@ namespace DinerGUIApplication
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Diner by the Valley is a vibrant diner nestled in the heart of the valley, " +
+                "tailored for students seeking a place to enjoy delicious meals customized to their tastes and needs.\n\n" +
+                "Stepping inside, visitors are welcomed by an inviting ambiance and the irresistible aroma of freshly prepared dishes.\n\n" +
+                "Our menu at Diner by the Valley is designed with students in mind, offering a diverse range of customizable options and " +
+                "happily accommodating special requests. From quick bites between classes to late-night study sessions, " +
+                "we provide flavorful meals made from quality ingredients.\n\nWhether it's dietary preferences or unique cravings, " +
+                "our goal at Diner by the Valley is to cater to every student's palate, ensuring a memorable dining experience each time you " +
+                "visit, \n\n" +
+                "" +
+                "\tCreated By:\n\n" +
+                "\t[BSIT 2-A].\n" +
+                "\tMark Jerome Santos\n" +
+                "\tMarcus Cariño\n" +
+                "\tJaneil Isheen Gonzales");
+        }
+
+        private void placeOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (orderedMeal.Count > 0)
+            {
+                paymentForm paymentForm = new paymentForm(totalToPay, txtBxReceipt, dineOrTake);
+                paymentForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("You currently have no orders.");
+            }
         }
     }
 }

@@ -48,9 +48,9 @@
             // 
             // startButton
             // 
-            startButton.BackColor = Color.FromArgb(0, 107, 117);
+            startButton.BackColor = Color.FromArgb(108, 124, 103);
             startButton.FlatStyle = FlatStyle.Flat;
-            startButton.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            startButton.Font = new Font("Pink Chicken", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             startButton.ForeColor = SystemColors.ControlLightLight;
             startButton.Location = new Point(-2, 558);
             startButton.Name = "startButton";

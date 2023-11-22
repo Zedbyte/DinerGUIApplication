@@ -28,18 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mealDetailForm));
+            mealName = new Label();
+            mealDetailBox = new RichTextBox();
             SuspendLayout();
+            // 
+            // mealName
+            // 
+            mealName.BackColor = Color.Transparent;
+            mealName.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point);
+            mealName.Location = new Point(61, 59);
+            mealName.Name = "mealName";
+            mealName.Size = new Size(298, 60);
+            mealName.TabIndex = 0;
+            mealName.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // mealDetailBox
+            // 
+            mealDetailBox.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            mealDetailBox.Location = new Point(61, 133);
+            mealDetailBox.Name = "mealDetailBox";
+            mealDetailBox.Size = new Size(298, 267);
+            mealDetailBox.TabIndex = 1;
+            mealDetailBox.Text = "";
             // 
             // mealDetailForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(446, 503);
+            Controls.Add(mealDetailBox);
+            Controls.Add(mealName);
             Name = "mealDetailForm";
-            Text = "mealDetailForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Meal Detail";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Label mealName;
+        private RichTextBox mealDetailBox;
     }
 }

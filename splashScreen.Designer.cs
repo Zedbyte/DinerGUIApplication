@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(splashScreen));
             splashScreenPictureBox = new PictureBox();
             splashScreenProgBar = new ProgressBar();
             lblNum = new Label();
@@ -40,7 +41,7 @@
             // splashScreenPictureBox
             // 
             splashScreenPictureBox.ErrorImage = null;
-            splashScreenPictureBox.Image = Properties.Resources.splashScreenGIF;
+            splashScreenPictureBox.Image = (Image)resources.GetObject("splashScreenPictureBox.Image");
             splashScreenPictureBox.Location = new Point(0, 0);
             splashScreenPictureBox.Name = "splashScreenPictureBox";
             splashScreenPictureBox.Size = new Size(1174, 690);
@@ -60,24 +61,24 @@
             // lblNum
             // 
             lblNum.AutoSize = true;
-            lblNum.BackColor = SystemColors.ActiveCaptionText;
-            lblNum.Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNum.ForeColor = Color.Transparent;
-            lblNum.Location = new Point(1131, 640);
+            lblNum.BackColor = Color.FromArgb(239, 187, 75);
+            lblNum.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNum.ForeColor = Color.Black;
+            lblNum.Location = new Point(1105, 625);
             lblNum.Name = "lblNum";
-            lblNum.Size = new Size(43, 20);
+            lblNum.Size = new Size(53, 25);
             lblNum.TabIndex = 5;
             lblNum.Text = "label1";
             // 
             // lblLoading
             // 
             lblLoading.AutoSize = true;
-            lblLoading.BackColor = SystemColors.ActiveCaptionText;
-            lblLoading.Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblLoading.ForeColor = Color.Transparent;
-            lblLoading.Location = new Point(0, 640);
+            lblLoading.BackColor = Color.FromArgb(239, 187, 75);
+            lblLoading.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
+            lblLoading.ForeColor = Color.Black;
+            lblLoading.Location = new Point(12, 625);
             lblLoading.Name = "lblLoading";
-            lblLoading.Size = new Size(43, 20);
+            lblLoading.Size = new Size(53, 25);
             lblLoading.TabIndex = 4;
             lblLoading.Text = "label1";
             // 

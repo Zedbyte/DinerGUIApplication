@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             imageFilePathBox = new RichTextBox();
             mealNameBox = new RichTextBox();
             mealPriceBox = new RichTextBox();
@@ -41,12 +42,13 @@
             label6 = new Label();
             mealDetailsBox = new RichTextBox();
             btnClose = new Button();
+            categoryBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)indexBox).BeginInit();
             SuspendLayout();
             // 
             // imageFilePathBox
             // 
-            imageFilePathBox.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            imageFilePathBox.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             imageFilePathBox.Location = new Point(117, 98);
             imageFilePathBox.Name = "imageFilePathBox";
             imageFilePathBox.Size = new Size(408, 38);
@@ -55,7 +57,7 @@
             // 
             // mealNameBox
             // 
-            mealNameBox.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            mealNameBox.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             mealNameBox.Location = new Point(44, 211);
             mealNameBox.Name = "mealNameBox";
             mealNameBox.Size = new Size(224, 38);
@@ -64,7 +66,7 @@
             // 
             // mealPriceBox
             // 
-            mealPriceBox.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            mealPriceBox.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             mealPriceBox.Location = new Point(301, 211);
             mealPriceBox.Name = "mealPriceBox";
             mealPriceBox.Size = new Size(224, 38);
@@ -73,18 +75,23 @@
             // 
             // btnDone
             // 
+            btnDone.BackColor = Color.FromArgb(108, 124, 103);
+            btnDone.Font = new Font("Pink Chicken", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDone.ForeColor = Color.White;
             btnDone.Location = new Point(301, 452);
             btnDone.Name = "btnDone";
             btnDone.Size = new Size(75, 43);
             btnDone.TabIndex = 4;
             btnDone.Text = "Done";
-            btnDone.UseVisualStyleBackColor = true;
+            btnDone.UseVisualStyleBackColor = false;
             btnDone.Click += btnDone_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(44, 69);
             label1.Name = "label1";
             label1.Size = new Size(57, 25);
@@ -94,7 +101,9 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(117, 69);
             label2.Name = "label2";
             label2.Size = new Size(136, 25);
@@ -104,6 +113,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(44, 180);
             label3.Name = "label3";
@@ -114,6 +124,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
             label4.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(301, 180);
             label4.Name = "label4";
@@ -123,17 +134,19 @@
             // 
             // indexBox
             // 
-            indexBox.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            indexBox.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             indexBox.Location = new Point(49, 98);
             indexBox.Name = "indexBox";
-            indexBox.Size = new Size(49, 35);
+            indexBox.Size = new Size(49, 33);
             indexBox.TabIndex = 9;
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
             label5.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(236, 20);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(42, 19);
             label5.Name = "label5";
             label5.Size = new Size(129, 29);
             label5.TabIndex = 10;
@@ -142,6 +155,7 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
             label6.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             label6.Location = new Point(236, 273);
             label6.Name = "label6";
@@ -151,7 +165,7 @@
             // 
             // mealDetailsBox
             // 
-            mealDetailsBox.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            mealDetailsBox.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             mealDetailsBox.Location = new Point(42, 314);
             mealDetailsBox.Name = "mealDetailsBox";
             mealDetailsBox.Size = new Size(483, 102);
@@ -160,19 +174,34 @@
             // 
             // btnClose
             // 
+            btnClose.BackColor = Color.Maroon;
+            btnClose.Font = new Font("Pink Chicken", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClose.ForeColor = Color.White;
             btnClose.Location = new Point(173, 452);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(75, 43);
             btnClose.TabIndex = 13;
             btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
+            // 
+            // categoryBox
+            // 
+            categoryBox.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            categoryBox.FormattingEnabled = true;
+            categoryBox.Items.AddRange(new object[] { "Meals", "Drinks" });
+            categoryBox.Location = new Point(404, 19);
+            categoryBox.Name = "categoryBox";
+            categoryBox.Size = new Size(121, 31);
+            categoryBox.TabIndex = 14;
             // 
             // adminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(564, 539);
+            Controls.Add(categoryBox);
             Controls.Add(btnClose);
             Controls.Add(mealDetailsBox);
             Controls.Add(label6);
@@ -188,7 +217,7 @@
             Controls.Add(imageFilePathBox);
             Name = "adminForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "adminForm";
+            Text = "Admin";
             ((System.ComponentModel.ISupportInitialize)indexBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -208,5 +237,6 @@
         private Label label6;
         private RichTextBox mealDetailsBox;
         private Button btnClose;
+        private ComboBox categoryBox;
     }
 }

@@ -19,6 +19,8 @@ namespace DinerGUIApplication
         public string MealPrice { get; private set; }
         public string MealDetails { get; private set; }
 
+        public string CategoryBox { get; private set; }
+
         public adminForm()
         {
             InitializeComponent();
@@ -74,6 +76,20 @@ namespace DinerGUIApplication
             {
                 MessageBox.Show("Meal Detail must not be empty");
             }
+
+            if (categoryBox.Text != null)
+            {
+                CategoryBox = categoryBox.Text;
+            }
+            else if (categoryBox.Text == "")
+            {
+                MessageBox.Show("Category Box must not be empty");
+            }
+            else
+            {
+                MessageBox.Show("Category Box must not be empty");
+            }
+
             this.Close();
         }
 
@@ -84,6 +100,7 @@ namespace DinerGUIApplication
             MealName = null;
             MealPrice = null;
             MealDetails = null;
+            CategoryBox = null;
 
             this.Close();
         }

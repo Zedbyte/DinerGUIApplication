@@ -321,15 +321,16 @@
             // orderToolStripMenuItem
             // 
             orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            orderToolStripMenuItem.Size = new Size(165, 26);
+            orderToolStripMenuItem.Size = new Size(180, 26);
             orderToolStripMenuItem.Text = "Print";
             orderToolStripMenuItem.Click += orderToolStripMenuItem_Click;
             // 
             // placeOrderToolStripMenuItem
             // 
             placeOrderToolStripMenuItem.Name = "placeOrderToolStripMenuItem";
-            placeOrderToolStripMenuItem.Size = new Size(165, 26);
+            placeOrderToolStripMenuItem.Size = new Size(180, 26);
             placeOrderToolStripMenuItem.Text = "Place Order";
+            placeOrderToolStripMenuItem.Click += placeOrderToolStripMenuItem_Click;
             // 
             // aboutToolStripMenuItem
             // 
@@ -337,6 +338,7 @@
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             aboutToolStripMenuItem.Size = new Size(68, 25);
             aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // txtBxReceipt
             // 
@@ -436,7 +438,7 @@
             mealDetailButton.IconSize = 36;
             mealDetailButton.Location = new Point(12, 15);
             mealDetailButton.Name = "mealDetailButton";
-            mealDetailButton.Size = new Size(32, 34);
+            mealDetailButton.Size = new Size(28, 34);
             mealDetailButton.TabIndex = 14;
             mealDetailButton.UseVisualStyleBackColor = true;
             mealDetailButton.Click += mealDetailButton_Click;
