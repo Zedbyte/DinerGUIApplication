@@ -39,7 +39,7 @@
             // 
             // slideShowContainer
             // 
-            slideShowContainer.Image = Properties.Resources.retro1;
+            slideShowContainer.Image = (Image)resources.GetObject("slideShowContainer.Image");
             slideShowContainer.Location = new Point(-2, -1);
             slideShowContainer.Name = "slideShowContainer";
             slideShowContainer.Size = new Size(1163, 563);

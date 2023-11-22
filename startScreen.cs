@@ -75,7 +75,7 @@ namespace DinerGUIApplication
             timeInterval.Interval = 100;
             if (count < 3)
             {
-                timeInterval.Interval = 1000;
+                timeInterval.Interval = 2000;
                 slideShowContainer.Image = images[count];
                 count++;
             }
