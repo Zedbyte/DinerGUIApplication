@@ -46,12 +46,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(255, 128, 0);
             ClientSize = new Size(722, 585);
             Controls.Add(pictureBox1);
             Name = "cryptoForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "cryptoForm";
+            Text = "Cryptocurrency";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

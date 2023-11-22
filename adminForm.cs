@@ -17,7 +17,6 @@ namespace DinerGUIApplication
         public string ImageFilePath { get; private set; }
         public string MealName { get; private set; }
         public string MealPrice { get; private set; }
-
         public string MealDetails { get; private set; }
 
         public adminForm()
@@ -75,8 +74,6 @@ namespace DinerGUIApplication
             {
                 MessageBox.Show("Meal Detail must not be empty");
             }
-
-
             this.Close();
         }
 

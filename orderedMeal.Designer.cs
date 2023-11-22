@@ -38,6 +38,7 @@
             // orderedMealQuantity
             // 
             orderedMealQuantity.BackColor = Color.FromArgb(108, 124, 103);
+            orderedMealQuantity.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
             orderedMealQuantity.ForeColor = Color.White;
             orderedMealQuantity.Location = new Point(4, 3);
             orderedMealQuantity.Name = "orderedMealQuantity";
@@ -49,8 +50,9 @@
             // orderedMealName
             // 
             orderedMealName.AutoSize = true;
+            orderedMealName.BackColor = Color.Transparent;
             orderedMealName.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            orderedMealName.Location = new Point(91, 9);
+            orderedMealName.Location = new Point(69, 9);
             orderedMealName.Name = "orderedMealName";
             orderedMealName.Size = new Size(43, 23);
             orderedMealName.TabIndex = 1;
@@ -60,7 +62,7 @@
             // 
             orderedMealTotal.AutoSize = true;
             orderedMealTotal.Font = new Font("Pink Chicken", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
-            orderedMealTotal.Location = new Point(92, 33);
+            orderedMealTotal.Location = new Point(71, 33);
             orderedMealTotal.Name = "orderedMealTotal";
             orderedMealTotal.Size = new Size(19, 19);
             orderedMealTotal.TabIndex = 2;
@@ -84,8 +86,9 @@
             // 
             // lblSpecialReq
             // 
+            lblSpecialReq.BackColor = Color.Transparent;
             lblSpecialReq.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSpecialReq.Location = new Point(185, 3);
+            lblSpecialReq.Location = new Point(185, 4);
             lblSpecialReq.Name = "lblSpecialReq";
             lblSpecialReq.Size = new Size(100, 19);
             lblSpecialReq.TabIndex = 4;

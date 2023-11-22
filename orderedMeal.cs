@@ -30,7 +30,7 @@ namespace DinerGUIApplication
         {
             InitializeComponent();
             this.orderedMealName.Text = mealName;
-            this.orderedMealTotal.Text = total.ToString();
+            this.orderedMealTotal.Text = "P" + total.ToString();
             this.orderedMealQuantity.Text = quantity.ToString();
 
             this.mealName = mealName;

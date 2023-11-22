@@ -57,38 +57,41 @@
             // rdButtonMasterCard
             // 
             rdButtonMasterCard.AutoSize = true;
-            rdButtonMasterCard.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            rdButtonMasterCard.BackColor = Color.Transparent;
+            rdButtonMasterCard.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point);
             rdButtonMasterCard.Location = new Point(65, 110);
             rdButtonMasterCard.Name = "rdButtonMasterCard";
-            rdButtonMasterCard.Size = new Size(150, 36);
+            rdButtonMasterCard.Size = new Size(144, 36);
             rdButtonMasterCard.TabIndex = 0;
             rdButtonMasterCard.TabStop = true;
             rdButtonMasterCard.Text = "Mastercard";
-            rdButtonMasterCard.UseVisualStyleBackColor = true;
+            rdButtonMasterCard.UseVisualStyleBackColor = false;
             // 
             // rdButtonVisa
             // 
             rdButtonVisa.AutoSize = true;
-            rdButtonVisa.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            rdButtonVisa.BackColor = Color.Transparent;
+            rdButtonVisa.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point);
             rdButtonVisa.Location = new Point(336, 110);
             rdButtonVisa.Name = "rdButtonVisa";
-            rdButtonVisa.Size = new Size(75, 36);
+            rdButtonVisa.Size = new Size(71, 36);
             rdButtonVisa.TabIndex = 1;
             rdButtonVisa.TabStop = true;
             rdButtonVisa.Text = "Visa";
-            rdButtonVisa.UseVisualStyleBackColor = true;
+            rdButtonVisa.UseVisualStyleBackColor = false;
             // 
             // rdButtonMore
             // 
             rdButtonMore.AutoSize = true;
-            rdButtonMore.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            rdButtonMore.BackColor = Color.Transparent;
+            rdButtonMore.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point);
             rdButtonMore.Location = new Point(578, 110);
             rdButtonMore.Name = "rdButtonMore";
-            rdButtonMore.Size = new Size(89, 36);
+            rdButtonMore.Size = new Size(81, 36);
             rdButtonMore.TabIndex = 2;
             rdButtonMore.TabStop = true;
             rdButtonMore.Text = "More";
-            rdButtonMore.UseVisualStyleBackColor = true;
+            rdButtonMore.UseVisualStyleBackColor = false;
             // 
             // txtBoxCName
             // 
@@ -151,27 +154,34 @@
             // 
             // btnReturn
             // 
-            btnReturn.Location = new Point(154, 464);
+            btnReturn.BackColor = Color.Maroon;
+            btnReturn.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnReturn.ForeColor = Color.White;
+            btnReturn.Location = new Point(160, 464);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(177, 51);
             btnReturn.TabIndex = 10;
-            btnReturn.Text = "Return Button";
-            btnReturn.UseVisualStyleBackColor = true;
+            btnReturn.Text = "Close";
+            btnReturn.UseVisualStyleBackColor = false;
             btnReturn.Click += btnReturn_Click;
             // 
             // btnCompleteOrder
             // 
-            btnCompleteOrder.Location = new Point(371, 464);
+            btnCompleteOrder.BackColor = Color.FromArgb(108, 124, 103);
+            btnCompleteOrder.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCompleteOrder.ForeColor = Color.White;
+            btnCompleteOrder.Location = new Point(384, 464);
             btnCompleteOrder.Name = "btnCompleteOrder";
             btnCompleteOrder.Size = new Size(188, 51);
             btnCompleteOrder.TabIndex = 11;
-            btnCompleteOrder.Text = "Complete Order";
-            btnCompleteOrder.UseVisualStyleBackColor = true;
+            btnCompleteOrder.Text = "Okay";
+            btnCompleteOrder.UseVisualStyleBackColor = false;
             btnCompleteOrder.Click += btnCompleteOrder_Click;
             // 
             // pBoxMastercard
             // 
-            pBoxMastercard.BackColor = Color.White;
+            pBoxMastercard.BackColor = Color.Transparent;
+            pBoxMastercard.BorderStyle = BorderStyle.Fixed3D;
             pBoxMastercard.Image = (Image)resources.GetObject("pBoxMastercard.Image");
             pBoxMastercard.Location = new Point(65, 152);
             pBoxMastercard.Name = "pBoxMastercard";
@@ -182,7 +192,7 @@
             // 
             // pBoxVisa
             // 
-            pBoxVisa.BackColor = Color.White;
+            pBoxVisa.BackColor = Color.Transparent;
             pBoxVisa.Image = (Image)resources.GetObject("pBoxVisa.Image");
             pBoxVisa.Location = new Point(301, 152);
             pBoxVisa.Name = "pBoxVisa";
@@ -193,6 +203,9 @@
             // 
             // pBoxMore
             // 
+            pBoxMore.BackColor = Color.Transparent;
+            pBoxMore.BackgroundImage = (Image)resources.GetObject("pBoxMore.BackgroundImage");
+            pBoxMore.BackgroundImageLayout = ImageLayout.Stretch;
             pBoxMore.Location = new Point(540, 152);
             pBoxMore.Name = "pBoxMore";
             pBoxMore.Size = new Size(150, 130);
@@ -202,54 +215,59 @@
             // LBLCARDHOLDERNAME
             // 
             LBLCARDHOLDERNAME.AutoSize = true;
-            LBLCARDHOLDERNAME.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            LBLCARDHOLDERNAME.BackColor = Color.Transparent;
+            LBLCARDHOLDERNAME.Font = new Font("Pink Chicken", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             LBLCARDHOLDERNAME.ForeColor = Color.DimGray;
             LBLCARDHOLDERNAME.Location = new Point(122, 333);
             LBLCARDHOLDERNAME.Name = "LBLCARDHOLDERNAME";
-            LBLCARDHOLDERNAME.Size = new Size(136, 21);
+            LBLCARDHOLDERNAME.Size = new Size(111, 19);
             LBLCARDHOLDERNAME.TabIndex = 15;
             LBLCARDHOLDERNAME.Text = "Cardholder Name";
             // 
             // LBLCARDNUM
             // 
             LBLCARDNUM.AutoSize = true;
-            LBLCARDNUM.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            LBLCARDNUM.BackColor = Color.Transparent;
+            LBLCARDNUM.Font = new Font("Pink Chicken", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             LBLCARDNUM.ForeColor = Color.DimGray;
             LBLCARDNUM.Location = new Point(122, 388);
             LBLCARDNUM.Name = "LBLCARDNUM";
-            LBLCARDNUM.Size = new Size(106, 21);
+            LBLCARDNUM.Size = new Size(87, 19);
             LBLCARDNUM.TabIndex = 16;
             LBLCARDNUM.Text = "Card Number";
             // 
             // LBLEXPIRATION
             // 
             LBLEXPIRATION.AutoSize = true;
-            LBLEXPIRATION.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            LBLEXPIRATION.BackColor = Color.Transparent;
+            LBLEXPIRATION.Font = new Font("Pink Chicken", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             LBLEXPIRATION.ForeColor = Color.DimGray;
             LBLEXPIRATION.Location = new Point(498, 333);
             LBLEXPIRATION.Name = "LBLEXPIRATION";
-            LBLEXPIRATION.Size = new Size(117, 21);
+            LBLEXPIRATION.Size = new Size(101, 19);
             LBLEXPIRATION.TabIndex = 17;
             LBLEXPIRATION.Text = "Expiration Date";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Pink Chicken", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(517, 388);
+            label1.Location = new Point(502, 388);
             label1.Name = "label1";
-            label1.Size = new Size(80, 21);
+            label1.Size = new Size(64, 19);
             label1.TabIndex = 18;
             label1.Text = "CVC Code";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(222, 52);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Pink Chicken", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(222, 50);
             label2.Name = "label2";
-            label2.Size = new Size(312, 32);
+            label2.Size = new Size(312, 35);
             label2.TabIndex = 19;
             label2.Text = "Choose a payment method";
             // 
@@ -257,7 +275,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(761, 562);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(761, 552);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(LBLEXPIRATION);
@@ -280,7 +300,7 @@
             Controls.Add(rdButtonMasterCard);
             Name = "paymentForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "paymentForm";
+            Text = "Payment Form";
             ((System.ComponentModel.ISupportInitialize)pBoxMastercard).EndInit();
             ((System.ComponentModel.ISupportInitialize)pBoxVisa).EndInit();
             ((System.ComponentModel.ISupportInitialize)pBoxMore).EndInit();

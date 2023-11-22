@@ -58,7 +58,7 @@
             label4 = new Label();
             foodParentPanel = new Panel();
             foodFlowLayoutPanel = new FlowLayoutPanel();
-            label1 = new Label();
+            lblCategory = new Label();
             foodDetailPanel = new Panel();
             mealDetailButton = new FontAwesome.Sharp.IconButton();
             LBLTTL = new Label();
@@ -81,6 +81,8 @@
             printDocumentReceipt = new System.Drawing.Printing.PrintDocument();
             btnExits = new FontAwesome.Sharp.IconButton();
             settingsIcon = new FontAwesome.Sharp.IconButton();
+            panel7 = new Panel();
+            lblIcon = new Label();
             parentPanel.SuspendLayout();
             orderParentPanel.SuspendLayout();
             currentOrderTotalPanel.SuspendLayout();
@@ -94,6 +96,7 @@
             foodParentPanel.SuspendLayout();
             foodDetailPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mealPictureDetail).BeginInit();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // parentPanel
@@ -214,7 +217,7 @@
             // 
             btnPlaceOrder.BackColor = Color.White;
             btnPlaceOrder.FlatStyle = FlatStyle.Flat;
-            btnPlaceOrder.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPlaceOrder.Font = new Font("Pink Chicken", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnPlaceOrder.ForeColor = Color.Black;
             btnPlaceOrder.Location = new Point(53, 7);
             btnPlaceOrder.Name = "btnPlaceOrder";
@@ -338,12 +341,12 @@
             // txtBxReceipt
             // 
             txtBxReceipt.BackColor = Color.White;
-            txtBxReceipt.BorderStyle = BorderStyle.FixedSingle;
+            txtBxReceipt.BorderStyle = BorderStyle.None;
             txtBxReceipt.Location = new Point(14, 113);
             txtBxReceipt.Name = "txtBxReceipt";
             txtBxReceipt.ReadOnly = true;
             txtBxReceipt.ScrollBars = RichTextBoxScrollBars.Vertical;
-            txtBxReceipt.Size = new Size(307, 438);
+            txtBxReceipt.Size = new Size(306, 438);
             txtBxReceipt.TabIndex = 2;
             txtBxReceipt.Text = "";
             // 
@@ -370,7 +373,7 @@
             // 
             foodParentPanel.BackColor = Color.FromArgb(255, 250, 245);
             foodParentPanel.Controls.Add(foodFlowLayoutPanel);
-            foodParentPanel.Controls.Add(label1);
+            foodParentPanel.Controls.Add(lblCategory);
             foodParentPanel.Controls.Add(foodDetailPanel);
             foodParentPanel.Location = new Point(27, 30);
             foodParentPanel.Name = "foodParentPanel";
@@ -387,19 +390,19 @@
             foodFlowLayoutPanel.Size = new Size(494, 314);
             foodFlowLayoutPanel.TabIndex = 3;
             // 
-            // label1
+            // lblCategory
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.WhiteSmoke;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(13, 188);
-            label1.Name = "label1";
-            label1.Padding = new Padding(0, 0, 0, 3);
-            label1.Size = new Size(81, 35);
-            label1.TabIndex = 2;
-            label1.Text = "Meals";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            lblCategory.AutoSize = true;
+            lblCategory.BackColor = Color.FromArgb(255, 250, 245);
+            lblCategory.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCategory.ForeColor = Color.Black;
+            lblCategory.Location = new Point(13, 189);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Padding = new Padding(0, 0, 0, 3);
+            lblCategory.Size = new Size(118, 35);
+            lblCategory.TabIndex = 2;
+            lblCategory.Text = "Main Dish";
+            lblCategory.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // foodDetailPanel
             // 
@@ -562,24 +565,24 @@
             // 
             // btnFood
             // 
-            btnFood.BackColor = Color.Transparent;
+            btnFood.BackColor = Color.FromArgb(108, 124, 103);
             btnFood.FlatAppearance.BorderSize = 0;
             btnFood.FlatStyle = FlatStyle.Flat;
-            btnFood.Location = new Point(12, 262);
+            btnFood.Image = (Image)resources.GetObject("btnFood.Image");
+            btnFood.Location = new Point(4, 263);
             btnFood.Name = "btnFood";
-            btnFood.Size = new Size(65, 53);
+            btnFood.Size = new Size(81, 90);
             btnFood.TabIndex = 2;
-            btnFood.Text = "button1";
             btnFood.UseVisualStyleBackColor = false;
             btnFood.Click += btnFood_Click;
             // 
             // btnDrinks
             // 
-            btnDrinks.BackColor = Color.Transparent;
+            btnDrinks.BackColor = Color.FromArgb(108, 124, 103);
             btnDrinks.FlatAppearance.BorderSize = 0;
             btnDrinks.FlatStyle = FlatStyle.Flat;
             btnDrinks.Image = (Image)resources.GetObject("btnDrinks.Image");
-            btnDrinks.Location = new Point(6, 359);
+            btnDrinks.Location = new Point(4, 359);
             btnDrinks.Name = "btnDrinks";
             btnDrinks.Size = new Size(81, 90);
             btnDrinks.TabIndex = 3;
@@ -623,7 +626,7 @@
             btnExits.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
             btnExits.IconColor = Color.White;
             btnExits.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnExits.Location = new Point(26, 21);
+            btnExits.Location = new Point(1197, 12);
             btnExits.Name = "btnExits";
             btnExits.Size = new Size(67, 54);
             btnExits.TabIndex = 5;
@@ -643,6 +646,28 @@
             settingsIcon.UseVisualStyleBackColor = false;
             settingsIcon.Click += settingsIcon_Click;
             // 
+            // panel7
+            // 
+            panel7.BackColor = Color.FromArgb(108, 124, 103);
+            panel7.Controls.Add(lblIcon);
+            panel7.Location = new Point(-6, -2);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(98, 746);
+            panel7.TabIndex = 8;
+            panel7.Paint += panel7_Paint;
+            // 
+            // lblIcon
+            // 
+            lblIcon.AutoSize = true;
+            lblIcon.BackColor = Color.Transparent;
+            lblIcon.Font = new Font("Segoe UI", 20.25F, FontStyle.Italic, GraphicsUnit.Point);
+            lblIcon.ForeColor = Color.Black;
+            lblIcon.Location = new Point(18, 31);
+            lblIcon.Name = "lblIcon";
+            lblIcon.Size = new Size(65, 37);
+            lblIcon.TabIndex = 9;
+            lblIcon.Text = "icon";
+            // 
             // mainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -657,6 +682,7 @@
             Controls.Add(lblDinerName);
             Controls.Add(btnDrinks);
             Controls.Add(parentPanel);
+            Controls.Add(panel7);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MainMenuStrip = menuStrip1;
@@ -684,6 +710,8 @@
             foodDetailPanel.ResumeLayout(false);
             foodDetailPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)mealPictureDetail).EndInit();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -696,7 +724,7 @@
         private Panel receiptParentPanel;
         private Panel foodParentPanel;
         private Panel receiptPanelTitle;
-        private Label label1;
+        private Label lblCategory;
         private FlowLayoutPanel foodFlowLayoutPanel;
         private Panel foodDetailPanel;
         private Label lblTotal;
@@ -742,5 +770,7 @@
         private Panel panel6;
         private FontAwesome.Sharp.IconButton mealDetailButton;
         private FontAwesome.Sharp.IconButton settingsIcon;
+        private Panel panel7;
+        private Label lblIcon;
     }
 }

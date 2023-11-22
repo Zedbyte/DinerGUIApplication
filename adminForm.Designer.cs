@@ -133,7 +133,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(221, 9);
+            label5.Location = new Point(236, 20);
             label5.Name = "label5";
             label5.Size = new Size(129, 29);
             label5.TabIndex = 10;

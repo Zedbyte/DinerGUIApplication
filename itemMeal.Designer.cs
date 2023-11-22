@@ -31,11 +31,13 @@
             mealPicturebox = new PictureBox();
             mealName = new Label();
             mealPrice = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)mealPicturebox).BeginInit();
             SuspendLayout();
             // 
             // mealPicturebox
             // 
+            mealPicturebox.BackColor = Color.White;
             mealPicturebox.Location = new Point(-2, 0);
             mealPicturebox.Name = "mealPicturebox";
             mealPicturebox.Size = new Size(150, 101);
@@ -65,6 +67,14 @@
             mealPrice.Text = "label2";
             mealPrice.UseCompatibleTextRendering = true;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Location = new Point(-2, -2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(148, 103);
+            panel1.TabIndex = 2;
+            // 
             // itemMeal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -74,6 +84,7 @@
             Controls.Add(mealPrice);
             Controls.Add(mealName);
             Controls.Add(mealPicturebox);
+            Controls.Add(panel1);
             ForeColor = SystemColors.ControlLightLight;
             Name = "itemMeal";
             Size = new Size(144, 155);
@@ -89,5 +100,6 @@
         private PictureBox mealPicturebox;
         private Label mealName;
         private Label mealPrice;
+        private Panel panel1;
     }
 }

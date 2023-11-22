@@ -51,7 +51,7 @@
             Controls.Add(pictureBox1);
             Name = "gcashForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "gcashForm";
+            Text = "Gcash";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

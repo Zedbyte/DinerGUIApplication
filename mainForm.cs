@@ -17,15 +17,15 @@ namespace DinerGUIApplication
         List<string> imageFilePathsMain = new List<string>
         {
             "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\vegsalad.png",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro2.jpg",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\hamncheese100.png"
+            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\chicksalad.png",
+            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\hamncheese.png"
         };
 
         List<string> imageFilePathsDrinks = new List<string>
         {
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro1.jpg",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\Resources\\retro2.jpg",
-            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\hamncheese100.png"
+            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\water.png",
+            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\cola.png",
+            "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\coffee.png"
         };
 
         string foodGif = "C:\\Users\\ADMIN\\Desktop\\Program\\C#\\DinerGUIApplication\\FoodResources\\foodings.gif";
@@ -56,7 +56,6 @@ namespace DinerGUIApplication
         {
             InitializeComponent();
             InitializeMeals();
-
 
 
             this.dineOrTake = dineOrTake;
@@ -222,16 +221,16 @@ namespace DinerGUIApplication
 
         public void InitializeMeals()
         {
-            meals.Add(new itemMeal(1, Image.FromFile(imageFilePathsMain[0]), "Vegetable Salad", "P100", "Vegetable with Salad and Dressing"));
-            meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsMain[1]), "Egg", "P200", "Boiled Egg in 5 minute water."));
-            meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsMain[2]), "Sandwich", "P300", "Two buns and ham and mayonnaise."));
+            meals.Add(new itemMeal(1, Image.FromFile(imageFilePathsMain[0]), "Veggie Salad", "P80", "Vegetable with Salad and Dressing"));
+            meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsMain[1]), "Chick Salad", "P100", "Boiled Egg in 5 minute water."));
+            meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsMain[2]), "Sandwich", "P30", "Two buns and ham and mayonnaise."));
         }
 
         public void InitializeDrinks()
         {
-            meals.Add(new itemMeal(1, Image.FromFile(imageFilePathsDrinks[0]), "Iced Tea", "P100", "Iced tea with ice"));
-            meals.Add(new itemMeal(2, Image.FromFile(imageFilePathsDrinks[1]), "Coffee", "P200", "Coffee? Hot? Cold?"));
-            meals.Add(new itemMeal(3, Image.FromFile(imageFilePathsDrinks[2]), "Water", "P300", "Water? Cold."));
+            meals.Add(new itemMeal(4, Image.FromFile(imageFilePathsDrinks[0]), "Water", "P0", "Free Water for each order!"));
+            meals.Add(new itemMeal(5, Image.FromFile(imageFilePathsDrinks[1]), "Cola", "P15", "Cold Cola from the Himalayans,"));
+            meals.Add(new itemMeal(6, Image.FromFile(imageFilePathsDrinks[2]), "Coffee", "P20", "Tired student? There is coffee for you! Made from fresh cacao beans from the Ifugao Province."));
         }
 
         public void displayItemMeals()
@@ -339,16 +338,16 @@ namespace DinerGUIApplication
 
             if (addedSuccessfully)
             {
-                lblMealName.Text = "Order added!";
+                lblMealName.Text = "Added!";
             }
             else
             {
                 lblMealName.Text = "No order yet.";
             }
 
-            lblMealPrice.Text = "-";
-            lblQuantity.Text = "-";
-            lblTotal.Text = "-";
+            lblMealPrice.Text = "";
+            lblQuantity.Text = "";
+            lblTotal.Text = "";
 
 
         }
@@ -360,7 +359,7 @@ namespace DinerGUIApplication
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (orderName != null && orderPrice > 0 && orderQuantity > 0)
+            if (orderName != null && orderPrice >= 0 && orderQuantity > 0)
             {
 
                 totalToPay += total;
@@ -531,6 +530,7 @@ namespace DinerGUIApplication
 
         private void btnFood_Click(object sender, EventArgs e)
         {
+            lblCategory.Text = "Main Dish";
             meals.Clear();
             InitializeMeals();
             displayItemMeals();
@@ -539,6 +539,7 @@ namespace DinerGUIApplication
 
         private void btnDrinks_Click(object sender, EventArgs e)
         {
+            lblCategory.Text = "Drinks";
             meals.Clear();
             InitializeDrinks();
             displayItemMeals();
@@ -609,7 +610,12 @@ namespace DinerGUIApplication
                 MessageBox.Show("Wrong password.");
             }
 
-            
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

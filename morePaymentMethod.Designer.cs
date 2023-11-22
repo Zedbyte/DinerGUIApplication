@@ -74,40 +74,44 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(226, 55);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label1.Location = new Point(221, 82);
             label1.Name = "label1";
-            label1.Size = new Size(355, 32);
+            label1.Size = new Size(369, 32);
             label1.TabIndex = 3;
             label1.Text = "Choose other payment methods";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(99, 350);
             label2.Name = "label2";
-            label2.Size = new Size(70, 30);
+            label2.Size = new Size(66, 29);
             label2.TabIndex = 4;
             label2.Text = "Gcash";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(366, 350);
             label3.Name = "label3";
-            label3.Size = new Size(58, 30);
+            label3.Size = new Size(55, 29);
             label3.TabIndex = 5;
             label3.Text = "Cash";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(597, 349);
             label4.Name = "label4";
-            label4.Size = new Size(162, 30);
+            label4.Size = new Size(150, 29);
             label4.TabIndex = 6;
             label4.Text = "Cryptocurrency";
             // 
@@ -115,6 +119,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(813, 551);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -125,7 +131,7 @@
             Controls.Add(btnGcash);
             Name = "morePaymentMethod";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "morePaymentMethod";
+            Text = "Other Payment Methods";
             ResumeLayout(false);
             PerformLayout();
         }

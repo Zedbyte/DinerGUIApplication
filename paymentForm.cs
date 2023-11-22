@@ -217,7 +217,7 @@ namespace DinerGUIApplication
                     txtBoxCode1.Text == "0" ||
                     txtBoxCode2.Text == "0" ||
                     txtBoxCode3.Text == "0")
-               
+
                 {
                     // Show a warning message
                     MessageBox.Show("You need to fill-up all necessary information to proceed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -237,7 +237,7 @@ namespace DinerGUIApplication
                         SampleForm sampleForm = new SampleForm();
                         sampleForm.Show();*/
             MessageBox.Show("Payment successful!");
-            this.Close();
+            Application.Exit();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)

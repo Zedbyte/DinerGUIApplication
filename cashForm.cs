@@ -141,6 +141,8 @@ namespace DinerGUIApplication
 
                     printPreviewReceipt.Document = printDocumentReceipt;
                     printPreviewReceipt.ShowDialog();
+
+                    this.Close();
                 }
                 else
                 {

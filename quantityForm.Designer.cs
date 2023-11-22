@@ -41,29 +41,27 @@
             // btnClose
             // 
             btnClose.BackColor = Color.Maroon;
-            btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             btnClose.IconColor = Color.White;
             btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnClose.IconSize = 35;
+            btnClose.IconSize = 30;
             btnClose.Location = new Point(59, 323);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(100, 40);
+            btnClose.Size = new Size(87, 40);
             btnClose.TabIndex = 12;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
             // btnDone
             // 
-            btnDone.BackColor = Color.Green;
-            btnDone.FlatStyle = FlatStyle.Flat;
+            btnDone.BackColor = Color.FromArgb(108, 124, 103);
             btnDone.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
             btnDone.IconColor = Color.White;
             btnDone.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnDone.IconSize = 40;
-            btnDone.Location = new Point(178, 323);
+            btnDone.IconSize = 34;
+            btnDone.Location = new Point(191, 323);
             btnDone.Name = "btnDone";
-            btnDone.Size = new Size(100, 40);
+            btnDone.Size = new Size(87, 40);
             btnDone.TabIndex = 11;
             btnDone.UseVisualStyleBackColor = false;
             btnDone.Click += btnDone_Click;
@@ -115,7 +113,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(224, 224, 224);
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(340, 404);

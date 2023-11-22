@@ -81,29 +81,29 @@
             // 
             txtBxReceipt.BackColor = Color.White;
             txtBxReceipt.BorderStyle = BorderStyle.None;
-            txtBxReceipt.Location = new Point(381, 117);
+            txtBxReceipt.Location = new Point(381, 122);
             txtBxReceipt.Name = "txtBxReceipt";
             txtBxReceipt.ReadOnly = true;
-            txtBxReceipt.Size = new Size(305, 424);
+            txtBxReceipt.Size = new Size(305, 419);
             txtBxReceipt.TabIndex = 0;
             txtBxReceipt.Text = "";
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(255, 192, 128);
+            panel1.BackColor = Color.FromArgb(221, 214, 203);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(381, 32);
             panel1.Name = "panel1";
-            panel1.Size = new Size(305, 58);
+            panel1.Size = new Size(305, 52);
             panel1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(1, 13);
+            label1.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(108, 11);
             label1.Name = "label1";
-            label1.Size = new Size(93, 32);
+            label1.Size = new Size(91, 32);
             label1.TabIndex = 0;
             label1.Text = "Receipt";
             // 
@@ -139,7 +139,7 @@
             // 
             btnClear.BackColor = Color.White;
             btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnClear.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnClear.Location = new Point(159, 1);
             btnClear.Margin = new Padding(1);
             btnClear.Name = "btnClear";
@@ -153,7 +153,7 @@
             // 
             btnDot.BackColor = Color.White;
             btnDot.FlatStyle = FlatStyle.Flat;
-            btnDot.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDot.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnDot.Location = new Point(1, 172);
             btnDot.Margin = new Padding(1);
             btnDot.Name = "btnDot";
@@ -167,7 +167,7 @@
             // 
             btn0.BackColor = Color.White;
             btn0.FlatStyle = FlatStyle.Flat;
-            btn0.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn0.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn0.Location = new Point(80, 172);
             btn0.Margin = new Padding(1);
             btn0.Name = "btn0";
@@ -181,7 +181,7 @@
             // 
             btn1.BackColor = Color.White;
             btn1.FlatStyle = FlatStyle.Flat;
-            btn1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn1.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn1.Location = new Point(159, 172);
             btn1.Margin = new Padding(1);
             btn1.Name = "btn1";
@@ -195,7 +195,7 @@
             // 
             btn2.BackColor = Color.White;
             btn2.FlatStyle = FlatStyle.Flat;
-            btn2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn2.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn2.Location = new Point(1, 115);
             btn2.Margin = new Padding(1);
             btn2.Name = "btn2";
@@ -209,7 +209,7 @@
             // 
             btn3.BackColor = Color.White;
             btn3.FlatStyle = FlatStyle.Flat;
-            btn3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn3.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn3.Location = new Point(80, 115);
             btn3.Margin = new Padding(1);
             btn3.Name = "btn3";
@@ -223,7 +223,7 @@
             // 
             btn4.BackColor = Color.White;
             btn4.FlatStyle = FlatStyle.Flat;
-            btn4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn4.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn4.Location = new Point(159, 115);
             btn4.Margin = new Padding(1);
             btn4.Name = "btn4";
@@ -237,7 +237,7 @@
             // 
             btn5.BackColor = Color.White;
             btn5.FlatStyle = FlatStyle.Flat;
-            btn5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn5.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn5.Location = new Point(1, 58);
             btn5.Margin = new Padding(1);
             btn5.Name = "btn5";
@@ -251,7 +251,7 @@
             // 
             btn6.BackColor = Color.White;
             btn6.FlatStyle = FlatStyle.Flat;
-            btn6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn6.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn6.Location = new Point(80, 58);
             btn6.Margin = new Padding(1);
             btn6.Name = "btn6";
@@ -265,7 +265,7 @@
             // 
             btn7.BackColor = Color.White;
             btn7.FlatStyle = FlatStyle.Flat;
-            btn7.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn7.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn7.Location = new Point(159, 58);
             btn7.Margin = new Padding(1);
             btn7.Name = "btn7";
@@ -279,7 +279,7 @@
             // 
             btn9.BackColor = Color.White;
             btn9.FlatStyle = FlatStyle.Flat;
-            btn9.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn9.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn9.Location = new Point(80, 1);
             btn9.Margin = new Padding(1);
             btn9.Name = "btn9";
@@ -293,7 +293,7 @@
             // 
             btn8.BackColor = Color.White;
             btn8.FlatStyle = FlatStyle.Flat;
-            btn8.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn8.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btn8.Location = new Point(1, 1);
             btn8.Margin = new Padding(1);
             btn8.Name = "btn8";
@@ -306,7 +306,7 @@
             // btnPrintReceipt
             // 
             btnPrintReceipt.BackColor = Color.FromArgb(64, 64, 64);
-            btnPrintReceipt.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPrintReceipt.Font = new Font("Pink Chicken", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnPrintReceipt.ForeColor = Color.White;
             btnPrintReceipt.Location = new Point(35, 379);
             btnPrintReceipt.Name = "btnPrintReceipt";
@@ -331,8 +331,8 @@
             // 
             // txtBxCalculator
             // 
-            txtBxCalculator.BackColor = Color.White;
-            txtBxCalculator.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBxCalculator.BackColor = Color.WhiteSmoke;
+            txtBxCalculator.Font = new Font("Pink Chicken", 18F, FontStyle.Bold, GraphicsUnit.Point);
             txtBxCalculator.Location = new Point(36, 85);
             txtBxCalculator.Name = "txtBxCalculator";
             txtBxCalculator.Size = new Size(235, 44);
@@ -342,7 +342,7 @@
             // 
             // lblTotalToPay
             // 
-            lblTotalToPay.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotalToPay.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             lblTotalToPay.Location = new Point(115, 41);
             lblTotalToPay.Name = "lblTotalToPay";
             lblTotalToPay.Size = new Size(159, 25);
@@ -353,10 +353,10 @@
             // LBLTOPAYLBLONLY
             // 
             LBLTOPAYLBLONLY.AutoSize = true;
-            LBLTOPAYLBLONLY.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            LBLTOPAYLBLONLY.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             LBLTOPAYLBLONLY.Location = new Point(35, 41);
             LBLTOPAYLBLONLY.Name = "LBLTOPAYLBLONLY";
-            LBLTOPAYLBLONLY.Size = new Size(71, 25);
+            LBLTOPAYLBLONLY.Size = new Size(73, 25);
             LBLTOPAYLBLONLY.TabIndex = 5;
             LBLTOPAYLBLONLY.Text = "To Pay:";
             // 
@@ -453,7 +453,7 @@
             // 
             // panel4
             // 
-            panel4.BackColor = Color.FromArgb(255, 224, 192);
+            panel4.BackColor = Color.FromArgb(255, 250, 245);
             panel4.Controls.Add(panel6);
             panel4.Location = new Point(368, 23);
             panel4.Name = "panel4";
@@ -471,24 +471,27 @@
             // 
             // receiptStrip
             // 
+            receiptStrip.BackColor = Color.FromArgb(108, 124, 103);
             receiptStrip.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             receiptStrip.Items.AddRange(new ToolStripItem[] { printToolStripMenuItem });
             receiptStrip.Location = new Point(0, 0);
             receiptStrip.Name = "receiptStrip";
-            receiptStrip.Size = new Size(305, 29);
+            receiptStrip.Size = new Size(305, 27);
             receiptStrip.TabIndex = 0;
             receiptStrip.Text = "menu";
             // 
             // printToolStripMenuItem
             // 
+            printToolStripMenuItem.Font = new Font("Pink Chicken", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point);
+            printToolStripMenuItem.ForeColor = Color.White;
             printToolStripMenuItem.Name = "printToolStripMenuItem";
-            printToolStripMenuItem.Size = new Size(56, 25);
+            printToolStripMenuItem.Size = new Size(54, 23);
             printToolStripMenuItem.Text = "Print";
             printToolStripMenuItem.Click += printToolStripMenuItem_Click;
             // 
             // panel5
             // 
-            panel5.BackColor = Color.Gray;
+            panel5.BackColor = Color.FromArgb(108, 124, 103);
             panel5.Controls.Add(label4);
             panel5.Location = new Point(35, 35);
             panel5.Name = "panel5";
@@ -498,11 +501,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label4.Font = new Font("Pink Chicken", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(13, 13);
+            label4.Location = new Point(97, 10);
             label4.Name = "label4";
-            label4.Size = new Size(109, 32);
+            label4.Size = new Size(104, 32);
             label4.TabIndex = 0;
             label4.Text = "Payment";
             // 
@@ -525,6 +528,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(722, 585);
             Controls.Add(panel5);
             Controls.Add(panel1);
@@ -533,7 +537,7 @@
             Controls.Add(panel4);
             Name = "cashForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "cashForm";
+            Text = "Cash";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             calculatorPanel.ResumeLayout(false);
