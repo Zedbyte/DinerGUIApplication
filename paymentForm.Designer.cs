@@ -298,6 +298,7 @@
             Controls.Add(rdButtonMore);
             Controls.Add(rdButtonVisa);
             Controls.Add(rdButtonMasterCard);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "paymentForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Payment Form";

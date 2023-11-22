@@ -43,6 +43,7 @@
             mealDetailsBox = new RichTextBox();
             btnClose = new Button();
             categoryBox = new ComboBox();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)indexBox).BeginInit();
             SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             imageFilePathBox.Font = new Font("Pink Chicken", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point);
             imageFilePathBox.Location = new Point(117, 98);
             imageFilePathBox.Name = "imageFilePathBox";
-            imageFilePathBox.Size = new Size(408, 38);
+            imageFilePathBox.Size = new Size(408, 33);
             imageFilePathBox.TabIndex = 1;
             imageFilePathBox.Text = "";
             // 
@@ -195,12 +196,25 @@
             categoryBox.Size = new Size(121, 31);
             categoryBox.TabIndex = 14;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Pink Chicken", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(304, 19);
+            label7.Name = "label7";
+            label7.Size = new Size(94, 29);
+            label7.TabIndex = 15;
+            label7.Text = "Category";
+            // 
             // adminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(564, 539);
+            Controls.Add(label7);
             Controls.Add(categoryBox);
             Controls.Add(btnClose);
             Controls.Add(mealDetailsBox);
@@ -215,6 +229,7 @@
             Controls.Add(mealPriceBox);
             Controls.Add(mealNameBox);
             Controls.Add(imageFilePathBox);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "adminForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin";
@@ -238,5 +253,6 @@
         private RichTextBox mealDetailsBox;
         private Button btnClose;
         private ComboBox categoryBox;
+        private Label label7;
     }
 }

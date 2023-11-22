@@ -99,7 +99,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "splashScreen";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "splashScreen";
+            Text = "Diner by the Valley";
             ((System.ComponentModel.ISupportInitialize)splashScreenPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();

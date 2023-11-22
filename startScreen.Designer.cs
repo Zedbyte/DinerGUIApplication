@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(startScreen));
             slideShowContainer = new PictureBox();
             startButton = new Button();
             timeInterval = new System.Windows.Forms.Timer(components);
@@ -79,11 +80,12 @@
             ClientSize = new Size(1154, 651);
             Controls.Add(startButton);
             Controls.Add(slideShowContainer);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "startScreen";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "startScreen";
+            Text = "Diner by the Valley";
             ((System.ComponentModel.ISupportInitialize)slideShowContainer).EndInit();
             ResumeLayout(false);
         }

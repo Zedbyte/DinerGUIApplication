@@ -129,6 +129,7 @@
             Controls.Add(btnCrypto);
             Controls.Add(btnCash);
             Controls.Add(btnGcash);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "morePaymentMethod";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Other Payment Methods";

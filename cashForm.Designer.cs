@@ -536,6 +536,7 @@
             Controls.Add(txtBxReceipt);
             Controls.Add(panel2);
             Controls.Add(panel4);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "cashForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cash";

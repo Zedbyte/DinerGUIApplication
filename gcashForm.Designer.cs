@@ -49,6 +49,7 @@
             BackColor = Color.FromArgb(0, 74, 172);
             ClientSize = new Size(722, 585);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "gcashForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gcash";

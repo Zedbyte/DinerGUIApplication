@@ -60,6 +60,7 @@
             ClientSize = new Size(446, 503);
             Controls.Add(mealDetailBox);
             Controls.Add(mealName);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "mealDetailForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Meal Detail";

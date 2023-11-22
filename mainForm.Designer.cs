@@ -82,7 +82,7 @@
             btnExits = new FontAwesome.Sharp.IconButton();
             settingsIcon = new FontAwesome.Sharp.IconButton();
             panel7 = new Panel();
-            lblIcon = new Label();
+            pictureBox1 = new PictureBox();
             parentPanel.SuspendLayout();
             orderParentPanel.SuspendLayout();
             currentOrderTotalPanel.SuspendLayout();
@@ -97,6 +97,7 @@
             foodDetailPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mealPictureDetail).BeginInit();
             panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // parentPanel
@@ -321,14 +322,14 @@
             // orderToolStripMenuItem
             // 
             orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            orderToolStripMenuItem.Size = new Size(180, 26);
+            orderToolStripMenuItem.Size = new Size(165, 26);
             orderToolStripMenuItem.Text = "Print";
             orderToolStripMenuItem.Click += orderToolStripMenuItem_Click;
             // 
             // placeOrderToolStripMenuItem
             // 
             placeOrderToolStripMenuItem.Name = "placeOrderToolStripMenuItem";
-            placeOrderToolStripMenuItem.Size = new Size(180, 26);
+            placeOrderToolStripMenuItem.Size = new Size(165, 26);
             placeOrderToolStripMenuItem.Text = "Place Order";
             placeOrderToolStripMenuItem.Click += placeOrderToolStripMenuItem_Click;
             // 
@@ -651,30 +652,28 @@
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(108, 124, 103);
-            panel7.Controls.Add(lblIcon);
-            panel7.Location = new Point(-6, -2);
+            panel7.Controls.Add(pictureBox1);
+            panel7.Location = new Point(-6, -1);
             panel7.Name = "panel7";
-            panel7.Size = new Size(98, 746);
+            panel7.Size = new Size(98, 745);
             panel7.TabIndex = 8;
             panel7.Paint += panel7_Paint;
             // 
-            // lblIcon
+            // pictureBox1
             // 
-            lblIcon.AutoSize = true;
-            lblIcon.BackColor = Color.Transparent;
-            lblIcon.Font = new Font("Segoe UI", 20.25F, FontStyle.Italic, GraphicsUnit.Point);
-            lblIcon.ForeColor = Color.Black;
-            lblIcon.Location = new Point(18, 31);
-            lblIcon.Name = "lblIcon";
-            lblIcon.Size = new Size(65, 37);
-            lblIcon.TabIndex = 9;
-            lblIcon.Text = "icon";
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(95, 87);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // mainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 255, 192);
+            BackColor = Color.FromArgb(108, 124, 103);
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1400, 740);
@@ -687,6 +686,7 @@
             Controls.Add(panel7);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             Name = "mainForm";
@@ -713,7 +713,7 @@
             foodDetailPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)mealPictureDetail).EndInit();
             panel7.ResumeLayout(false);
-            panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -773,6 +773,6 @@
         private FontAwesome.Sharp.IconButton mealDetailButton;
         private FontAwesome.Sharp.IconButton settingsIcon;
         private Panel panel7;
-        private Label lblIcon;
+        private PictureBox pictureBox1;
     }
 }

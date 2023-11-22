@@ -95,6 +95,8 @@
             Controls.Add(label1);
             Controls.Add(btnTakeOut);
             Controls.Add(btnDineIn);
+            DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "dineOrTake";
